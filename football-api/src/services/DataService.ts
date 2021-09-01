@@ -15,9 +15,27 @@ export class DataService {
 		this.myHeaders.append('x-rapidapi-key', API_KEY);
 	}
 
-	public async GetFixtures(leaguesId: number) {
+	public async GetCurrentSeasonFixtures(leaguesId: number) {
 		try {
 			const response = await fetch(`${this.url}/fixtures?season=2021&league=${leaguesId}`, this.requestOptions);
+
+			return response.json();
+		} catch (e) {
+			console.log(e);
+		}
+	}
+	public async GetCustomSeasonFixtures(season: number, leaguesId: number) {
+		try {
+			const response = await fetch(`${this.url}/fixtures?season=${season}&league=${leaguesId}`, this.requestOptions);
+
+			return response.json();
+		} catch (e) {
+			console.log(e);
+		}
+	}
+	public async GetLeagues() {
+		try {
+			const response = await fetch(`${this.url}/leagues?country=Italy`, this.requestOptions);
 
 			return response.json();
 		} catch (e) {
@@ -27,7 +45,7 @@ export class DataService {
 
 	// response.response [{meccs1}, {meccs2}]
 	// {} => {}.fixture.id
-	public async GetCurrentFixtures(leaguesId: number) {
+	public async GetCurrentRoundFixtures(leaguesId: number) {
 		try {
 			const round = await this.GetCurrentRound(leaguesId);
 

@@ -4,7 +4,8 @@ export const LEAGUES = {
 	ENGLAND: 39,
 	GERMANY: 78,
 	FRANCE: 61,
-	SPAIN: 140
+	SPAIN: 140,
+	ITALY: 135
 };
 
 export const UNIBET = 16;

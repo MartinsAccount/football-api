@@ -1,0 +1,25 @@
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 30px;
+
+	.countryButton {
+		outline: none;
+		border-radius: 8px;
+		padding: 12px;
+		font-size: 16px;
+		cursor: pointer;
+
+		&:hover {
+			background-color: #ccc;
+		}
+	}
+}
+
+.statistics {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+}

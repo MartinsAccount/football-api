@@ -2,22 +2,15 @@ import './App.css';
 import React, { Component } from 'react';
 import { MainStore } from './stores/MainStore';
 import { Provider } from 'mobx-react';
+import Leagues from './components/Leagues/Leagues';
 
-interface IAppProps {
-	MainStore?: MainStore;
-}
-
-class App extends Component<IAppProps> {
+class App extends Component {
 	private stores = { MainStore: new MainStore() };
 
 	render() {
-		const { MainStore } = this.props;
-
 		return (
 			<Provider {...this.stores}>
-				<div onClick={() => this.stores.MainStore.testFetch()} className="button">
-					Fetch datas
-				</div>
+				<Leagues />
 			</Provider>
 		);
 	}
