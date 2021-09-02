@@ -106,6 +106,7 @@ export interface Bet {
 	name: BetsNames;
 	values: BetsValue[];
 }
+
 export interface OddsResponse {
 	bookmakers: [
 		{

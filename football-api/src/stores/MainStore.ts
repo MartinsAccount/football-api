@@ -2,6 +2,7 @@ import { computed, flow, observable, toJS } from 'mobx';
 import { LEAGUES } from '../models/constants';
 import { Fixture, Fixtures } from '../models/models';
 import { DataService } from '../services/DataService';
+import { OddsStore } from './OddsStore';
 
 type Countries = 'england' | 'germany' | 'france' | 'spain' | 'italy';
 
@@ -9,7 +10,8 @@ interface currentFixture {
 	[key: string]: Fixture[];
 }
 export class MainStore {
-	@observable test: boolean = false;
+	public OddsStore: OddsStore;
+	public DataService: DataService;
 
 	@observable currentFixtures: currentFixture = {
 		england: null,
@@ -22,10 +24,11 @@ export class MainStore {
 	@observable fixtures: Fixture[];
 	@observable results: number = 0;
 
-	private DataService: DataService;
-
 	constructor() {
 		this.DataService = new DataService();
+		this.OddsStore = new OddsStore(this);
+
+		this.OddsStore.Init();
 	}
 
 	Init = flow(function* (this: MainStore) {
@@ -77,6 +80,8 @@ export class MainStore {
 	//? Mennyi döntetlen
 	//? Mennyi hazai győzelem
 	//? Gólok száma páros vagy páratlan
+
+	//? Volt e mindegyik csapatnak legalább 1 döntetlene?
 
 	@computed get getAllGoals() {
 		const allGoals = this.fixtures
@@ -188,20 +193,6 @@ export class MainStore {
 		return fixtureNumber;
 	}
 
-	//TODO: Odds-ot figyelembe véve
-	//? Mennyi meglepetés => nagyobb odds-al rendelkező nyer
-	//? 3 kategóriában milyen gyakran jönnek be azok meccsek ahol az odds:
-	//? ---> 1 - 1.5
-	//? ---> 1.5 - 1.9
-	//? ---> 1.9+
-	//? Ezeket hazai / vendég viszonlatba is nézni
-
-	//? Ha döntetlen akkor mennyi volt a két odds közötti különbség
-	//? Döntetlen úgy hogy a vendégen volt kisebb az odds és akkor mennyi volt
-	//? Döntetlen úgy hogy a hazai-n kisebb az odds és úgy mennyi volt
-
-	//? Első félidőbe vezet a nagyobb odds-ú akkor mi lesz a végeredmény / Hazai és Vendég viszonylatban
-
 	testFetch = flow(function* (this: MainStore) {
 		// const curRound = yield this.DataService.GetCurrentRound(LEAGUES.ENGLAND);
 		// const response = yield this.DataService.GetCustomSeasonFixtures(2020, LEAGUES.ITALY);
@@ -213,7 +204,7 @@ export class MainStore {
 		// const response = yield this.DataService.GetLeagues();
 		// console.log(curRound);
 		console.log(response);
-		// console.log(JSON.stringify(response));
+		console.log(JSON.stringify(response));
 
 		this.fixtures = response.response;
 		this.results = response.results;

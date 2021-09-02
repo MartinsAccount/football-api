@@ -13,6 +13,7 @@ interface ILeaguesProps {
 class Leagues extends Component<ILeaguesProps> {
 	render() {
 		const { MainStore } = this.props;
+		const { OddsStore } = this.props.MainStore;
 
 		console.log('store', MainStore);
 
@@ -20,6 +21,9 @@ class Leagues extends Component<ILeaguesProps> {
 			<main>
 				<div onClick={() => MainStore.testFetch()} className="button">
 					Fetch datas
+				</div>
+				<div onClick={() => OddsStore.testFunc()} className="button">
+					Test actions with odds
 				</div>
 				<div className={styles.container}>
 					<button onClick={() => MainStore.leaguesStatistics('england')} className={styles.countryButton}>
