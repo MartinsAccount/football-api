@@ -1,5 +1,5 @@
 import { action, computed, flow, observable, toJS } from 'mobx';
-import { Bet, BetsValue, Fixture, OddsResponse } from '../models/models';
+import { Bet, BetsValue, Fixture, OddsInfo, OddsResponse } from '../models/models';
 import { DataService } from '../services/DataService';
 import { MainStore } from './MainStore';
 
@@ -10,14 +10,14 @@ export class OddsStore {
 	@observable testOdds: OddsResponse[];
 	@observable testFixtures: Fixture[];
 
-	@observable statistics = {
-		favoriteWin: {
-			sum: 0,
-			smallOdds: 0,
-			midOdds: 0,
-			highOdds: 0
-		},
-		unFavoriteWin: 0
+	@observable oddsInfos: OddsInfo = new OddsInfo();
+	@observable drawInfos = {
+		sum: 0,
+		drawWhenHomeFavorite: 0,
+		drawWhenAwayFavorite: 0,
+		drawWhenNoOneFavorite: 0, // 2+ odds mindkettőre
+		drawWithGoals: 0,
+		drawWithoutGoals: 0
 	};
 
 	constructor(MainStore: MainStore) {
@@ -56,30 +56,68 @@ export class OddsStore {
 				favoriteOdd = parseFloat(mainOdds[2].odd);
 			}
 
-			// Ha döntetlen akkor winner: null
-			let winFavorite: boolean = fixtureObj.teams[favorite].winner === true ? true : false;
+			let winFavorite: boolean;
+			if (fixtureObj.teams[favorite].winner === true) winFavorite = true; // win
+			if (fixtureObj.teams[favorite].winner === null) winFavorite = null; // draw
+			if (fixtureObj.teams[favorite].winner === false) winFavorite = false; // lose
 
-			this.changeStatistics(winFavorite, favoriteOdd);
+			this.changeStatistics(winFavorite, favoriteOdd, favorite);
+
+			if (winFavorite === null) {
+				const wasGoal: boolean = fixtureObj.goals.home > 0 ? true : false;
+
+				this.changeDrawInfos(favoriteOdd, favorite, wasGoal);
+			}
 		});
 
-		console.log(toJS(this.statistics));
+		console.log(toJS(this.oddsInfos));
 	});
 
-	@action changeStatistics(winFavorite: boolean, favoriteOdd: number) {
-		if (winFavorite) {
-			this.statistics.favoriteWin.sum += 1;
+	@action changeDrawInfos(favoriteOdd: number, favorite: 'home' | 'away', wasGoal: boolean) {
+		this.drawInfos.sum += 1;
 
-			if (favoriteOdd < 1.5) {
-				this.statistics.favoriteWin.smallOdds += 1;
-			}
-			if (favoriteOdd < 1.9 && favoriteOdd > 1.5) {
-				this.statistics.favoriteWin.midOdds += 1;
-			}
-			if (favoriteOdd > 1.9) {
-				this.statistics.favoriteWin.highOdds += 1;
-			}
+		if (favoriteOdd > 2) {
+			this.drawInfos.drawWhenNoOneFavorite += 1;
 		} else {
-			this.statistics.unFavoriteWin += 1;
+			if (favorite === 'home') this.drawInfos.drawWhenHomeFavorite += 1;
+			if (favorite === 'away') this.drawInfos.drawWhenAwayFavorite += 1;
+		}
+
+		if (wasGoal) {
+			this.drawInfos.drawWithGoals += 1;
+		} else {
+			this.drawInfos.drawWithoutGoals += 1;
+		}
+	}
+
+	@action changeStatistics(winFavorite: boolean, favoriteOdd: number, favorite: 'home' | 'away') {
+		//TODO: 2.0
+		if (winFavorite) {
+			this.oddsInfos.favoriteWin += 1;
+		} else {
+			this.oddsInfos.unFavoriteWin += 1;
+		}
+
+		if (favoriteOdd < 1.5) {
+			this.oddsInfos.smallOdd[favorite].sum += 1;
+
+			if (winFavorite === true) this.oddsInfos.smallOdd[favorite].win += 1;
+			if (winFavorite === null) this.oddsInfos.smallOdd[favorite].draw += 1;
+			if (winFavorite === false) this.oddsInfos.smallOdd[favorite].lose += 1;
+		}
+		if (favoriteOdd < 1.9 && favoriteOdd > 1.5) {
+			this.oddsInfos.midOdd[favorite].sum += 1;
+
+			if (winFavorite === true) this.oddsInfos.midOdd[favorite].win += 1;
+			if (winFavorite === null) this.oddsInfos.midOdd[favorite].draw += 1;
+			if (winFavorite === false) this.oddsInfos.midOdd[favorite].lose += 1;
+		}
+		if (favoriteOdd > 1.9) {
+			this.oddsInfos.highOdd[favorite].sum += 1;
+
+			if (winFavorite === true) this.oddsInfos.highOdd[favorite].win += 1;
+			if (winFavorite === null) this.oddsInfos.highOdd[favorite].draw += 1;
+			if (winFavorite === false) this.oddsInfos.highOdd[favorite].lose += 1;
 		}
 
 		return;
@@ -104,4 +142,10 @@ export class OddsStore {
 	//? Döntetlen úgy hogy a hazai-n kisebb az odds és úgy mennyi volt
 
 	//? Első félidőbe vezet a nagyobb odds-ú akkor mi lesz a végeredmény / Hazai és Vendég viszonylatban
+
+	//TODO: Mindkét csapat gól
+	//? Tényezők amik befolyásolhatják:
+	//? Előző 5 meccsen emnnyi gólt lőttek
+	//? Otthon vagy idegenben a favorite csapat
+	//? Odds különsbég
 }

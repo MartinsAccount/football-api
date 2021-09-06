@@ -131,3 +131,50 @@ export interface OddsResponse {
 	};
 	update: string;
 }
+
+export class OddsInfo {
+	favoriteWin: 0;
+	unFavoriteWin: 0;
+	smallOdd: {
+		home: {
+			sum: 0;
+			win: 0;
+			draw: 0;
+			lose: 0;
+		};
+		away: {
+			sum: 0;
+			win: 0;
+			draw: 0;
+			lose: 0;
+		};
+	};
+	midOdd: {
+		home: {
+			sum: 0;
+			win: 0;
+			draw: 0;
+			lose: 0;
+		};
+		away: {
+			sum: 0;
+			win: 0;
+			draw: 0;
+			lose: 0;
+		};
+	};
+	highOdd: {
+		home: {
+			sum: 0;
+			win: 0;
+			draw: 0;
+			lose: 0;
+		};
+		away: {
+			sum: 0;
+			win: 0;
+			draw: 0;
+			lose: 0;
+		};
+	};
+}
