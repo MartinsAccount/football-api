@@ -56,12 +56,9 @@ export class OddsStore {
 				favoriteOdd = parseFloat(mainOdds[2].odd);
 			}
 
-			let winFavorite: boolean;
-			if (fixtureObj.teams[favorite].winner === true) winFavorite = true; // win
-			if (fixtureObj.teams[favorite].winner === null) winFavorite = null; // draw
-			if (fixtureObj.teams[favorite].winner === false) winFavorite = false; // lose
+			let winFavorite: boolean = fixtureObj.teams[favorite].winner;
 
-			this.changeStatistics(winFavorite, favoriteOdd, favorite);
+			this.changeOddsInfos(winFavorite, favoriteOdd, favorite);
 
 			if (winFavorite === null) {
 				const wasGoal: boolean = fixtureObj.goals.home > 0 ? true : false;
@@ -90,7 +87,7 @@ export class OddsStore {
 		}
 	}
 
-	@action changeStatistics(winFavorite: boolean, favoriteOdd: number, favorite: 'home' | 'away') {
+	@action changeOddsInfos(winFavorite: boolean, favoriteOdd: number, favorite: 'home' | 'away') {
 		//TODO: 2.0
 		if (winFavorite) {
 			this.oddsInfos.favoriteWin += 1;

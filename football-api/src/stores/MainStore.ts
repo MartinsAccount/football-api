@@ -197,8 +197,8 @@ export class MainStore {
 		// const curRound = yield this.DataService.GetCurrentRound(LEAGUES.ENGLAND);
 		// const response = yield this.DataService.GetCustomSeasonFixtures(2020, LEAGUES.ITALY);
 		// const response = yield this.DataService.GetCurrentRoundFixtures(LEAGUES.ENGLAND);
-		const response = yield this.DataService.GetCurrentSeasonFixtures(LEAGUES.ENGLAND);
-		// const response = yield this.DataService.GetOdds(LEAGUES.ENGLAND);
+		// const response = yield this.DataService.GetCurrentSeasonFixtures(LEAGUES.ENGLAND);
+		const response = yield this.DataService.GetOdds(LEAGUES.SPAIN);
 		// const response = yield this.DataService.GetStatistics(710559);
 
 		// const response = yield this.DataService.GetLeagues();
@@ -206,7 +206,7 @@ export class MainStore {
 		console.log(response);
 		console.log(JSON.stringify(response));
 
-		this.fixtures = response.response;
-		this.results = response.results;
+		// this.fixtures = response.response;
+		// this.results = response.results;
 	});
 }
