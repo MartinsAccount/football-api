@@ -198,7 +198,7 @@ export class MainStore {
 		// const response = yield this.DataService.GetCustomSeasonFixtures(2020, LEAGUES.ITALY);
 		// const response = yield this.DataService.GetCurrentRoundFixtures(LEAGUES.ENGLAND);
 		// const response = yield this.DataService.GetCurrentSeasonFixtures(LEAGUES.ENGLAND);
-		const response = yield this.DataService.GetOdds(LEAGUES.ITALY);
+		const response = yield this.DataService.GetOdds(LEAGUES.FRANCE);
 		// const response = yield this.DataService.GetStatistics(710559);
 
 		// const response = yield this.DataService.GetLeagues();
