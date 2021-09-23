@@ -107,4 +107,57 @@ export class DataService {
 			console.log(e);
 		}
 	}
+
+	public async GetHighestOdds(leaguesId: number, fixture: number) {
+		try {
+			const bookmakers = await fetch(`${this.url}/odds/bookmakers`, this.requestOptions);
+			// const odds = await fetch(
+			// 	`${this.url}/odds?season=2021&bet=1&bookmaker=${bookmaker}&fixture=${fixture}&league=${leaguesId}`,
+			// 	this.requestOptions
+			// );
+			const AllBookmakersodds = await fetch(
+				`${this.url}/odds?season=2021&bet=1&fixture=${fixture}&league=${leaguesId}`,
+				this.requestOptions
+			);
+
+			let highestHome = { bookmaker: '', odd: 0 };
+			let highestDraw = { bookmaker: '', odd: 0 };
+			let highestAway = { bookmaker: '', odd: 0 };
+
+			console.log('allBookmakersOdds', AllBookmakersodds);
+
+			const jsonData = await AllBookmakersodds.json();
+
+			const allBookmakers = jsonData.response[0].bookmakers;
+
+			console.log('allBookmakers', allBookmakers);
+
+			allBookmakers.forEach((bookmaker) => {
+				//* bookmaker/homeOdd
+				if (Number(bookmaker.bets[0].values[0].odd) > highestHome.odd) {
+					highestHome.odd = bookmaker.bets[0].values[0].odd;
+					highestHome.bookmaker = bookmaker.name;
+				}
+				//* bookmaker/drawOdd
+				if (Number(bookmaker.bets[0].values[1].odd) > highestDraw.odd) {
+					highestDraw.odd = bookmaker.bets[0].values[1].odd;
+					highestDraw.bookmaker = bookmaker.name;
+				}
+				//* bookmaker/awayOdd
+				if (Number(bookmaker.bets[0].values[2].odd) > highestAway.odd) {
+					highestAway.odd = bookmaker.bets[0].values[2].odd;
+					highestAway.bookmaker = bookmaker.name;
+				}
+			});
+
+			const hihghestOdds = [];
+			hihghestOdds.push(highestHome);
+			hihghestOdds.push(highestDraw);
+			hihghestOdds.push(highestAway);
+
+			return hihghestOdds;
+		} catch (e) {
+			console.log(e);
+		}
+	}
 }

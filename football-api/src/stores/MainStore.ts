@@ -209,4 +209,87 @@ export class MainStore {
 		// this.fixtures = response.response;
 		// this.results = response.results;
 	});
+
+	//TODO: Arbrigate calc
+	//TODO: Minden fogadóirodánál megkeresni a legnagyobb oddsot (H, D, V) esetekre
+
+	getHighestOdds = flow(function* (this: MainStore) {
+		// const bookmakers = yield this.DataService.GetHighestOdds();
+
+		// const leagues = [
+		// 	{ name: 'Germany', id: 78 },
+		// 	{ name: 'England', id: 39 },
+		// 	{ name: 'France', id: 61 }
+		// ];
+
+		// const fixtures = yield this.DataService.GetCurrentRoundFixtures(LEAGUES.GERMANY); // array
+		const highestOdds = yield this.DataService.GetHighestOdds(78, 719399);
+		// 719395 719396  719397 719398 719399 719400 719401 719402
+
+		let probability = 0;
+
+		highestOdds.forEach((item) => {
+			probability += 1 / Number(item.odd);
+		});
+
+		// console.log('fixtures', fixtures);
+		console.log('highestOdds', highestOdds);
+		console.log('probability', probability);
+		// const highestOdds = yield this.DataService.GetHighestOdds(LEAGUES.FRANCE, el.fixture.id); // array
+
+		// yield fixtures.response.forEach(async (el) => {
+		// 	const highestOdds = await this.DataService.GetHighestOdds(LEAGUES.FRANCE, el.fixture.id); // array
+
+		// 	if (highestOdds) {
+		// 		let lowestProbability = 0;
+		// 		let probability = 0;
+
+		// 		highestOdds.forEach((item) => {
+		// 			probability += 1 / Number(item.odd);
+		// 		});
+
+		// 		if (probability < lowestProbability && probability !== 0) {
+		// 			lowestProbability = probability;
+		// 		}
+
+		// 		console.log(`${el.teams.home.name} vs ${el.teams.away.name} Odds and bookmakers:`, highestOdds);
+		// 		console.log(`${el.teams.home.name} vs ${el.teams.away.name} Total implied probability:`, probability);
+		// 		console.log(
+		// 			`----------(${el.teams.home.name} vs ${el.teams.away.name}) LOWEST LEAGUES PROBABILITY:---------- `,
+		// 			lowestProbability
+		// 		);
+		// 	}
+
+		// 	return;
+		// });
+
+		// yield leagues.forEach(async (leg) => {
+		// 	let lowestProbability = 0;
+
+		// 	const fixtures = await this.DataService.GetCurrentRoundFixtures(leg.id); // array
+
+		// 	await fixtures.response.forEach(async (el) => {
+		// 		const highestOdds = await this.DataService.GetHighestOdds(leg.id, el.fixture.id); // array
+		// 		let probability = 0;
+
+		// 		highestOdds.forEach((item) => {
+		// 			probability += 1 / Number(item.odd);
+		// 		});
+
+		// 		if (probability < lowestProbability) {
+		// 			lowestProbability = probability;
+		// 		}
+
+		// 		console.log(`${el.teams.home.name} vs ${el.teams.away.name} Odds and bookmakers:`, highestOdds);
+		// 		console.log(`${el.teams.home.name} vs ${el.teams.away.name} Total implied probability:`, probability);
+		// 	});
+
+		// 	console.log(`----------(${leg.name}) LOWEST LEAGUES PROBABILITY:---------- `, lowestProbability);
+		// });
+
+		console.log('FINISHED');
+		//? 731633 (Lazio/Torino)
+		//? 731631 (Napoli/Sampdoria)
+		//? 731629 (Roma/Udinese) 0.9863578798375983
+	});
 }
