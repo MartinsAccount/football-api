@@ -64,14 +64,17 @@ class DataService {
 	public GetCurrentSeasonFixtures(leaguesId: number) {
 		return FetchService.get(ApiURLs.FOOTBALL.GET_CURRENT_SEASON_FIXTURES(leaguesId));
 	}
-	public GetTodaysFixtures() {
-		return FetchService.get(ApiURLs.FOOTBALL.GET_TODAYS_FIXTURES('2021-09-28'));
+	public GetTodayFixtures() {
+		return FetchService.get(ApiURLs.FOOTBALL.GET_TODAY_FIXTURES('2021-09-30'));
 	}
 	public GetUefaChampionsLeagueFixtures() {
 		return FetchService.get(ApiURLs.FOOTBALL.GET_UEFA_CHAMPIONS_LEAGUE_FIXTURES('2021-09-28', '2021-09-29'));
 	}
+	public GetUefaEuropaLeagueFixtures() {
+		return FetchService.get(ApiURLs.FOOTBALL.GET_UEFA_EUROPA_LEAGUE_FIXTURES('2021-09-30'));
+	}
 	public GetAllBookmakersOdds(fixture: number) {
-		return FetchService.get(ApiURLs.FOOTBALL.GET_ALL_BOOKMAKERS_ODDS(fixture, LEAGUES.UEFA_Champions_League));
+		return FetchService.get(ApiURLs.FOOTBALL.GET_ALL_BOOKMAKERS_ODDS(fixture));
 	}
 
 	public async GetCustomSeasonFixtures(season: number, leaguesId: number) {

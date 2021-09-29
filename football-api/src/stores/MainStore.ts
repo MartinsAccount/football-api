@@ -206,14 +206,17 @@ export class MainStore {
 		// const response = yield DataService.GetCurrentSeasonFixtures(LEAGUES.ENGLAND);
 		// const response = yield DataService.GetOdds(LEAGUES.ITALY);
 
-		const response = yield DataService.GetUefaChampionsLeagueFixtures();
+		// const response = yield DataService.GetUefaChampionsLeagueFixtures();
+		const response = yield DataService.GetUefaEuropaLeagueFixtures();
+
+		// const response = yield DataService.GetTodayFixtures();
 
 		// const response = yield DataService.GetStatistics(710559);
 
 		// const response = yield DataService.GetLeagues();
 		// console.log(curRound);
 		console.log(response);
-		// console.log(JSON.stringify(response));
+		console.log(JSON.stringify(response));
 
 		// this.fixtures = response.response;
 		// this.results = response.results;

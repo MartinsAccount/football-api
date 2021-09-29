@@ -14,11 +14,13 @@ class ApiURLs {
 	FOOTBALL = {
 		GET_CURRENT_SEASON_FIXTURES: (leaguesId: number) =>
 			`${this.urls.football}/fixtures?season=${CURRENT_SEASON}&league=${leaguesId}`,
-		GET_TODAYS_FIXTURES: (day: string) => `${this.urls.football}/fixtures?date=${day}`,
+		GET_TODAY_FIXTURES: (day: string) => `${this.urls.football}/fixtures?date=${day}`,
 		GET_UEFA_CHAMPIONS_LEAGUE_FIXTURES: (from: string, to: string) =>
 			`${this.urls.football}/fixtures?league=${LEAGUES.UEFA_Champions_League}&from=${from}&to=${to}&season=${CURRENT_SEASON}`,
-		GET_ALL_BOOKMAKERS_ODDS: (fixture: number, leaguesId: number) =>
-			`${this.urls.football}/odds?season=2021&bet=1&fixture=${fixture}&league=${leaguesId}`
+		GET_UEFA_EUROPA_LEAGUE_FIXTURES: (date: string) =>
+			`${this.urls.football}/fixtures?league=${LEAGUES.UEFA_Europa_League}&date=${date}&season=${CURRENT_SEASON}`,
+		GET_ALL_BOOKMAKERS_ODDS: (fixture: number, leaguesId?: number) =>
+			`${this.urls.football}/odds?season=2021&bet=1&fixture=${fixture}`
 	};
 
 	BASEBALL = {};

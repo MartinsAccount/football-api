@@ -22,19 +22,20 @@ export class ArbitrageStore {
 	getHighestOdds = flow(function* (this: MainStore) {
 		// const bookmakers = yield DataService.GetHighestOdds();
 
-		const { response } = yield DataService.GetUefaChampionsLeagueFixtures();
+		// const { response } = yield DataService.GetUefaChampionsLeagueFixtures();
+		const { response } = yield DataService.GetUefaEuropaLeagueFixtures();
 		// console.log('response', response);
 
-		for (let index = 8; index < response.length; index++) {
+		for (let index = 0; index < response.length; index++) {
 			const fixtureId = response[index].fixture.id;
 			const homeTeam = response[index].teams.home.name;
 			const awayTeam = response[index].teams.away.name;
 			// console.log('fixture', fixtureId);
 
 			const currentFixtureOdds = yield DataService.GetAllBookmakersOdds(fixtureId);
-			// console.log('currentFixtureOdds', currentFixtureOdds);
+			console.log('currentFixtureOdds', currentFixtureOdds);
 
-			const bookmakersArray = currentFixtureOdds.response[0].bookmakers;
+			const bookmakersArray = currentFixtureOdds.response[0].bookmakers || [];
 			// console.log('bookmakersArray', bookmakersArray);
 
 			let highestHome = { bookmaker: '', odd: 0 };

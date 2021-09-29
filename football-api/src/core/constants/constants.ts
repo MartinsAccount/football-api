@@ -9,7 +9,8 @@ export const LEAGUES = {
 	FRANCE: 61,
 	SPAIN: 140,
 	ITALY: 135,
-	UEFA_Champions_League: 2 // BL
+	UEFA_Champions_League: 2, // BL
+	UEFA_Europa_League: 3 // EL
 };
 
 // export type IBetsTypes = keyof typeof BetsTypes;
