@@ -1,7 +1,8 @@
 import { computed, flow, observable, toJS } from 'mobx';
-import { LEAGUES } from '../models/constants';
-import { Fixture, Fixtures } from '../models/models';
-import { DataService } from '../services/DataService';
+import { LEAGUES } from '../core/constants/constants';
+import { Fixture, Fixtures } from '../core/models/models';
+import DataService from '../services/DataService';
+import { ArbitrageStore } from './ArbitrageStore';
 import { OddsStore } from './OddsStore';
 
 type Countries = 'england' | 'germany' | 'france' | 'spain' | 'italy';
@@ -11,8 +12,10 @@ interface currentFixture {
 }
 export class MainStore {
 	public OddsStore: OddsStore;
-	public DataService: DataService;
+	// public DataService: DataService;
+	public ArbitrageStore: ArbitrageStore;
 
+	@observable public Sport: string;
 	@observable currentFixtures: currentFixture = {
 		england: null,
 		germany: null,
@@ -25,18 +28,21 @@ export class MainStore {
 	@observable results: number = 0;
 
 	constructor() {
-		this.DataService = new DataService();
+		this.Sport = 'football';
+		// this.DataService = new DataService();
 		this.OddsStore = new OddsStore(this);
+		this.ArbitrageStore = new ArbitrageStore(this);
 
 		this.OddsStore.Init();
+		// this.ArbitrageStore.Init();
 	}
 
 	Init = flow(function* (this: MainStore) {
-		const englandFixtures = yield this.DataService.GetCurrentSeasonFixtures(LEAGUES.ENGLAND);
-		const germanyFixtures = yield this.DataService.GetCurrentSeasonFixtures(LEAGUES.GERMANY);
-		const franceFixtures = yield this.DataService.GetCurrentSeasonFixtures(LEAGUES.FRANCE);
-		const spainFixtures = yield this.DataService.GetCurrentSeasonFixtures(LEAGUES.SPAIN);
-		const italyFixtures = yield this.DataService.GetCurrentSeasonFixtures(LEAGUES.ITALY);
+		const englandFixtures = yield DataService.GetCurrentSeasonFixtures(LEAGUES.ENGLAND);
+		const germanyFixtures = yield DataService.GetCurrentSeasonFixtures(LEAGUES.GERMANY);
+		const franceFixtures = yield DataService.GetCurrentSeasonFixtures(LEAGUES.FRANCE);
+		const spainFixtures = yield DataService.GetCurrentSeasonFixtures(LEAGUES.SPAIN);
+		const italyFixtures = yield DataService.GetCurrentSeasonFixtures(LEAGUES.ITALY);
 
 		this.currentFixtures.england = englandFixtures.response;
 		this.currentFixtures.germany = germanyFixtures.response;
@@ -194,102 +200,52 @@ export class MainStore {
 	}
 
 	testFetch = flow(function* (this: MainStore) {
-		// const curRound = yield this.DataService.GetCurrentRound(LEAGUES.ENGLAND);
-		// const response = yield this.DataService.GetCustomSeasonFixtures(2020, LEAGUES.ITALY);
-		// const response = yield this.DataService.GetCurrentRoundFixtures(LEAGUES.ENGLAND);
-		// const response = yield this.DataService.GetCurrentSeasonFixtures(LEAGUES.ENGLAND);
-		const response = yield this.DataService.GetOdds(LEAGUES.FRANCE);
-		// const response = yield this.DataService.GetStatistics(710559);
+		// const curRound = yield DataService.GetCurrentRound(LEAGUES.ENGLAND);
+		// const response = yield DataService.GetCustomSeasonFixtures(2020, LEAGUES.ITALY);
+		// const response = yield DataService.GetCurrentRoundFixtures(LEAGUES.ENGLAND);
+		// const response = yield DataService.GetCurrentSeasonFixtures(LEAGUES.ENGLAND);
+		// const response = yield DataService.GetOdds(LEAGUES.ITALY);
 
-		// const response = yield this.DataService.GetLeagues();
+		const response = yield DataService.GetUefaChampionsLeagueFixtures();
+
+		// const response = yield DataService.GetStatistics(710559);
+
+		// const response = yield DataService.GetLeagues();
 		// console.log(curRound);
 		console.log(response);
-		console.log(JSON.stringify(response));
+		// console.log(JSON.stringify(response));
 
 		// this.fixtures = response.response;
 		// this.results = response.results;
 	});
 
-	//TODO: Arbrigate calc
-	//TODO: Minden fogadóirodánál megkeresni a legnagyobb oddsot (H, D, V) esetekre
+	testPostData = flow(function* (this: MainStore) {
+		const testDat = {
+			egy: 'ketto',
+			harom: 3
+		};
+		const italyOdds = yield DataService.GetOdds(LEAGUES.ITALY);
 
-	getHighestOdds = flow(function* (this: MainStore) {
-		// const bookmakers = yield this.DataService.GetHighestOdds();
+		const resp = yield DataService.PostDatas(italyOdds);
 
-		// const leagues = [
-		// 	{ name: 'Germany', id: 78 },
-		// 	{ name: 'England', id: 39 },
-		// 	{ name: 'France', id: 61 }
-		// ];
+		console.log('resp', resp);
+	});
 
-		// const fixtures = yield this.DataService.GetCurrentRoundFixtures(LEAGUES.GERMANY); // array
-		const highestOdds = yield this.DataService.GetHighestOdds(78, 719399);
-		// 719395 719396  719397 719398 719399 719400 719401 719402
+	baseballFetch = flow(function* (this: MainStore) {
+		const response = yield DataService.GetHighestBaseballOdds();
 
-		let probability = 0;
+		const arbitrageOdd = 1 / response[0].odd + 1 / response[1].odd;
 
-		highestOdds.forEach((item) => {
-			probability += 1 / Number(item.odd);
-		});
+		console.log('arbitrageOdd', arbitrageOdd);
+		console.log('response', response);
+	});
 
-		// console.log('fixtures', fixtures);
-		console.log('highestOdds', highestOdds);
-		console.log('probability', probability);
-		// const highestOdds = yield this.DataService.GetHighestOdds(LEAGUES.FRANCE, el.fixture.id); // array
+	// TODO: FetchService
+	basketballFetch = flow(function* (this: MainStore) {
+		const response = yield DataService.GetHighestBasketballOdds();
+		const arbitrageOdd = 1 / response[0].odd + 1 / response[1].odd;
 
-		// yield fixtures.response.forEach(async (el) => {
-		// 	const highestOdds = await this.DataService.GetHighestOdds(LEAGUES.FRANCE, el.fixture.id); // array
-
-		// 	if (highestOdds) {
-		// 		let lowestProbability = 0;
-		// 		let probability = 0;
-
-		// 		highestOdds.forEach((item) => {
-		// 			probability += 1 / Number(item.odd);
-		// 		});
-
-		// 		if (probability < lowestProbability && probability !== 0) {
-		// 			lowestProbability = probability;
-		// 		}
-
-		// 		console.log(`${el.teams.home.name} vs ${el.teams.away.name} Odds and bookmakers:`, highestOdds);
-		// 		console.log(`${el.teams.home.name} vs ${el.teams.away.name} Total implied probability:`, probability);
-		// 		console.log(
-		// 			`----------(${el.teams.home.name} vs ${el.teams.away.name}) LOWEST LEAGUES PROBABILITY:---------- `,
-		// 			lowestProbability
-		// 		);
-		// 	}
-
-		// 	return;
-		// });
-
-		// yield leagues.forEach(async (leg) => {
-		// 	let lowestProbability = 0;
-
-		// 	const fixtures = await this.DataService.GetCurrentRoundFixtures(leg.id); // array
-
-		// 	await fixtures.response.forEach(async (el) => {
-		// 		const highestOdds = await this.DataService.GetHighestOdds(leg.id, el.fixture.id); // array
-		// 		let probability = 0;
-
-		// 		highestOdds.forEach((item) => {
-		// 			probability += 1 / Number(item.odd);
-		// 		});
-
-		// 		if (probability < lowestProbability) {
-		// 			lowestProbability = probability;
-		// 		}
-
-		// 		console.log(`${el.teams.home.name} vs ${el.teams.away.name} Odds and bookmakers:`, highestOdds);
-		// 		console.log(`${el.teams.home.name} vs ${el.teams.away.name} Total implied probability:`, probability);
-		// 	});
-
-		// 	console.log(`----------(${leg.name}) LOWEST LEAGUES PROBABILITY:---------- `, lowestProbability);
-		// });
-
-		console.log('FINISHED');
-		//? 731633 (Lazio/Torino)
-		//? 731631 (Napoli/Sampdoria)
-		//? 731629 (Roma/Udinese) 0.9863578798375983
+		console.log('arbitrageOdd', arbitrageOdd);
+		console.log('response', response);
 	});
 }

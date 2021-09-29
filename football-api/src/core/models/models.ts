@@ -21,7 +21,7 @@ export type BetsNames =
 	| 'Home/Away' // Home, Away
 	| 'Second Half Winner' // Home, Draw, Away
 	| 'Goals Over/Under' // "Over 1.5" // "Under 2.5" stb.
-	| 'Goals Over/Under First Half' // "Over 1.5" // "Under 2.5" stb.
+	| 'Goals Over/Under - First Half' // "Over 1.5" // "Under 2.5" stb.
 	| 'Goals Over/Under - Second Half' // "Over 1.5" // "Under 2.5" stb.
 	| 'HT/FT Double' // első félidő/végeredmény => pl: Home/Draw vagy Home/Away
 	| 'Both Teams Score' // Yes No
@@ -46,6 +46,10 @@ export type BetsNames =
 	| 'Away win both halves' // Yes No
 	| 'Corners 1x2' // Home, Draw, Away
 	| 'Corners Over Under'; // "Over 5.5" // "Under 7.5" stb.
+
+export interface IBetsTypes {
+	[key: string]: BetsNames;
+}
 
 export interface Statistics {
 	type: StatisticsType;

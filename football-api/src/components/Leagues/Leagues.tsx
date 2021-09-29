@@ -1,6 +1,6 @@
 import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
-import { LEAGUES } from '../../models/constants';
+import { LEAGUES } from '../../core/constants/constants';
 import { MainStore } from '../../stores/MainStore';
 import styles from './Leagues.module.scss';
 
@@ -13,14 +13,23 @@ interface ILeaguesProps {
 class Leagues extends Component<ILeaguesProps> {
 	render() {
 		const { MainStore } = this.props;
-		const { OddsStore } = this.props.MainStore;
+		const { OddsStore, ArbitrageStore } = this.props.MainStore;
 
 		console.log('store', MainStore);
 
 		return (
 			<main>
-				<div onClick={() => MainStore.getHighestOdds()} className="button">
+				<div onClick={() => ArbitrageStore.getHighestOdds()} className="button">
 					Fetch datas
+				</div>
+				<div onClick={() => MainStore.baseballFetch()} className="button">
+					BASEBALL Fetch datas
+				</div>
+				<div onClick={() => MainStore.basketballFetch()} className="button">
+					KOSÁRLABDA Fetch datas
+				</div>
+				<div onClick={() => MainStore.testPostData()} className="button">
+					Test Post Datas To Backend!
 				</div>
 				<div onClick={() => OddsStore.testFunc()} className="button">
 					Test actions with odds

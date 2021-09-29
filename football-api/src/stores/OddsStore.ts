@@ -1,11 +1,11 @@
 import { action, computed, flow, observable, toJS } from 'mobx';
-import { Bet, BetsValue, Fixture, OddsInfo, OddsResponse } from '../models/models';
-import { DataService } from '../services/DataService';
+import { Bet, BetsValue, Fixture, OddsInfo, OddsResponse } from '../core/models/models';
+import DataService from '../services/DataService';
 import { MainStore } from './MainStore';
 
 export class OddsStore {
 	public MainStore: MainStore;
-	public DataService: DataService;
+	// public DataService: DataService;
 
 	@observable testOdds: OddsResponse[];
 	@observable testFixtures: Fixture[];
@@ -21,7 +21,7 @@ export class OddsStore {
 	};
 
 	constructor(MainStore: MainStore) {
-		this.DataService = new DataService();
+		// this.DataService = new DataService();
 
 		this.MainStore = MainStore;
 	}
