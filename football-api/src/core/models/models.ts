@@ -1,4 +1,8 @@
-import { type } from 'os';
+export type Countries = 'england' | 'germany' | 'france' | 'spain' | 'italy';
+
+export interface currentFixture {
+	[key: string]: Fixture[];
+}
 
 export type StatisticsType =
 	| 'Shots on Goal'

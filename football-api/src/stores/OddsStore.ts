@@ -1,4 +1,5 @@
 import { action, computed, flow, observable, toJS } from 'mobx';
+import { LEAGUES } from '../core/constants/constants';
 import { Bet, BetsValue, Fixture, OddsInfo, OddsResponse } from '../core/models/models';
 import DataService from '../services/DataService';
 import { MainStore } from './MainStore';
@@ -21,23 +22,15 @@ export class OddsStore {
 	};
 
 	constructor(MainStore: MainStore) {
-		// this.DataService = new DataService();
-
 		this.MainStore = MainStore;
 	}
 
-	Init = flow(function* (this: OddsStore) {
-		const testOdds = yield require('../data/england_ods.json');
-		const testFixtures = yield require('../data/testCurrentFixtures_England2021.json');
-
-		this.testOdds = testOdds.response;
-		this.testFixtures = testFixtures.response;
-	});
+	Init = flow(function* (this: OddsStore) {});
 
 	testFunc = flow(function* (this: OddsStore) {
 		const fixtureIds = yield this.getAllFixtureIds;
 
-		yield fixtureIds.map((fixture) => {
+		yield fixtureIds.forEach((fixture) => {
 			const oddsObj: OddsResponse = this.testOdds.find((item: OddsResponse) => item.fixture.id === fixture);
 			const fixtureObj: Fixture = this.testFixtures.find((item: Fixture) => item.fixture.id === fixture);
 
@@ -125,6 +118,35 @@ export class OddsStore {
 		return this.testOdds.map((oddsPerFix: OddsResponse) => oddsPerFix.fixture.id);
 		// }
 	}
+
+	saveOdds = flow(function* (this: MainStore, country: string) {
+		let odds;
+		let response;
+
+		switch (country) {
+			case 'england':
+				odds = yield DataService.GetUnibetOdds(LEAGUES.ENGLAND);
+				break;
+			case 'italy':
+				odds = yield DataService.GetUnibetOdds(LEAGUES.ITALY);
+				break;
+			case 'france':
+				odds = yield DataService.GetUnibetOdds(LEAGUES.FRANCE);
+				break;
+			case 'spain':
+				odds = yield DataService.GetUnibetOdds(LEAGUES.SPAIN);
+				break;
+			case 'germany':
+				odds = yield DataService.GetUnibetOdds(LEAGUES.GERMANY);
+				break;
+		}
+
+		console.log('odds', odds);
+		if (odds.response.length < 1) return console.log('Nincs item');
+
+		response = yield DataService.saveOdds(odds, country);
+		console.log('response', response);
+	});
 
 	//TODO: Odds-ot figyelembe véve
 	//? Mennyi meglepetés => nagyobb odds-al rendelkező nyer

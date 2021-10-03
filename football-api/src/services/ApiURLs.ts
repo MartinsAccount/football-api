@@ -1,7 +1,8 @@
-import { CURRENT_SEASON, LEAGUES } from '../core/constants/constants';
+import { CURRENT_SEASON, LEAGUES, UNIBET } from '../core/constants/constants';
 
 class ApiURLs {
 	private readonly urls = null;
+	private readonly backend = 'http://localhost:5000';
 
 	constructor() {
 		this.urls = {
@@ -20,7 +21,22 @@ class ApiURLs {
 		GET_UEFA_EUROPA_LEAGUE_FIXTURES: (date: string) =>
 			`${this.urls.football}/fixtures?league=${LEAGUES.UEFA_Europa_League}&date=${date}&season=${CURRENT_SEASON}`,
 		GET_ALL_BOOKMAKERS_ODDS: (fixture: number, leaguesId?: number) =>
-			`${this.urls.football}/odds?season=2021&bet=1&fixture=${fixture}`
+			`${this.urls.football}/odds?season=2021&bet=1&fixture=${fixture}`,
+		GET_CUSTOM_SEASON_FIXTURES: (season: number, leaguesId: number) =>
+			`${this.urls.football}/fixtures?season=${season}&league=${leaguesId}`,
+		GET_LEAGUES: (country: string) => `${this.urls.football}/leagues?country=${country}`,
+		GET_CURRENT_ROUND_FIXTURES: (leaguesId: number, round: string) =>
+			`${this.urls.football}/fixtures?season=${CURRENT_SEASON}&league=${leaguesId}&round=${round}`,
+		GET_CURRENT_ROUND: (leaguesId: number) =>
+			`${this.urls.football}/fixtures/rounds?season=${CURRENT_SEASON}&league=${leaguesId}&current=true`,
+		GET_FIXTURE_STATISTICS: (fixtureId: number) => `${this.urls.football}/fixtures/statistics?fixture=${fixtureId}`,
+		//* Odds-ok
+		GET_UNIBET_ODDS: (leaguesId: number) => `${this.urls.football}/odds?season=2021&league=${leaguesId}&bookmaker=${UNIBET}`,
+		GET_BOOKMAKERS: () => `${this.urls.football}/odds/bookmakers`
+	};
+
+	BACKEND = {
+		SAVE_ODDS: (country?: string) => `${this.backend}/api/saveOdds?country=${country}`
 	};
 
 	BASEBALL = {};
@@ -29,11 +45,3 @@ class ApiURLs {
 }
 
 export default new ApiURLs();
-
-// interface IAppSettings {
-// 	Urls: ApiURLs;
-// }
-
-// export const AppSettings: IAppSettings = {
-// 	Urls: null
-// };

@@ -1,0 +1,15 @@
+.loadingPopup {
+	width: 500px;
+	height: 500px;
+	z-index: 999;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(37, 35, 35);
+	color: rgb(240, 240, 240);
+
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}

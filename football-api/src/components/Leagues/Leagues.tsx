@@ -2,6 +2,7 @@ import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
 import { LEAGUES } from '../../core/constants/constants';
 import { MainStore } from '../../stores/MainStore';
+import LoadingScreen from '../LoadingScreen/LoadingScreen';
 import styles from './Leagues.module.scss';
 
 interface ILeaguesProps {
@@ -13,15 +14,17 @@ interface ILeaguesProps {
 class Leagues extends Component<ILeaguesProps> {
 	render() {
 		const { MainStore } = this.props;
-		const { OddsStore, ArbitrageStore } = this.props.MainStore;
+		const { OddsStore, ArbitrageStore, FixtureStore } = this.props.MainStore;
 
 		console.log('store', MainStore);
 
 		return (
 			<main>
+				<LoadingScreen />
 				<div onClick={() => MainStore.testFetch()} className="button">
 					Test Fetch MainStore
 				</div>
+
 				<div onClick={() => ArbitrageStore.getHighestOdds()} className="button">
 					Get highest Odds
 				</div>
@@ -31,59 +34,9 @@ class Leagues extends Component<ILeaguesProps> {
 				<div onClick={() => MainStore.basketballFetch()} className="button">
 					KOSÁRLABDA Fetch datas
 				</div>
-				<div onClick={() => MainStore.testPostData()} className="button">
-					Test Post Datas To Backend!
-				</div>
 				<div onClick={() => OddsStore.testFunc()} className="button">
 					Test actions with odds
 				</div>
-				<div className={styles.container}>
-					<button onClick={() => MainStore.leaguesStatistics('england')} className={styles.countryButton}>
-						England
-					</button>
-					<button onClick={() => MainStore.leaguesStatistics('germany')} className={styles.countryButton}>
-						Germany
-					</button>
-					<button onClick={() => MainStore.leaguesStatistics('spain')} className={styles.countryButton}>
-						Spain
-					</button>
-					<button onClick={() => MainStore.leaguesStatistics('france')} className={styles.countryButton}>
-						France
-					</button>
-					<button onClick={() => MainStore.leaguesStatistics('italy')} className={styles.countryButton}>
-						Italy
-					</button>
-				</div>
-				{MainStore.fixtures && MainStore.results && (
-					<div className={styles.statistics}>
-						<div>Meccsek száma: {MainStore.getAllFixtures}</div>
-						<div>Összes gól: {MainStore.getAllGoals}</div>
-						<div>
-							Mindkét csapat gól: {MainStore.bothTeamsScore} (
-							{Math.round((MainStore.bothTeamsScore / MainStore.getAllFixtures) * 100)}%)
-						</div>
-						<div>
-							Első félidő összes gól: {MainStore.getFirstHalfGoals} (
-							{Math.round((MainStore.getFirstHalfGoals / MainStore.getAllGoals) * 100)}%)
-						</div>
-						<div>
-							Döntetlen meccsek: {MainStore.getDrawFixtures} (
-							{Math.round((MainStore.getDrawFixtures / MainStore.getAllFixtures) * 100)}
-							%)
-						</div>
-						<div>
-							Hazai nyert meccsek: {MainStore.getHomeWinners} (
-							{Math.round((MainStore.getHomeWinners / MainStore.getAllFixtures) * 100)}
-							%)
-						</div>
-						<div>
-							Páratlan gól: {MainStore.getOddGoals} ({Math.round((MainStore.getOddGoals / MainStore.getAllFixtures) * 100)}%)
-						</div>
-						<div>
-							Páros gól: {MainStore.getEvenGoals} ({Math.round((MainStore.getEvenGoals / MainStore.getAllFixtures) * 100)}%)
-						</div>
-					</div>
-				)}
 			</main>
 		);
 	}

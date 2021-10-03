@@ -1,0 +1,32 @@
+@import '../../theme/theme.scss';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.navbar {
+	background-color: rgb(37, 35, 35);
+	box-shadow: 0 8px 16px rgba($color: #222121, $alpha: 0.2);
+
+	ul {
+		display: flex;
+		// gap: 40px;
+		list-style-type: none;
+
+		li {
+			padding: 20px 0;
+		}
+	}
+
+	a {
+		text-decoration: none;
+		color: $fontColor;
+		padding: 20px;
+
+		&:hover {
+			background-color: rgb(92, 38, 38);
+		}
+	}
+}

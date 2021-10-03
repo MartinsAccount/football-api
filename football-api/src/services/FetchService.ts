@@ -1,5 +1,4 @@
-import { API_KEY, CURRENT_SEASON, LEAGUES, UNIBET } from '../core/constants/constants';
-import ApiURLs from './ApiURLs';
+import { API_KEY } from '../core/constants/constants';
 
 type ISports = 'football' | 'baseball' | 'basketball';
 
@@ -29,11 +28,10 @@ class FetchService {
 		throw result;
 	}
 
-	public async PostDatas(body?: any) {
+	// TODO: body type
+	public async post(url: string, body: any) {
 		try {
-			// const bodyString = JSON.stringify(body);
-
-			const fetchOptions = {
+			const requestOptions: RequestInit = {
 				method: 'POST',
 				mode: 'cors' as RequestMode,
 				body: JSON.stringify(body),
@@ -42,9 +40,12 @@ class FetchService {
 				}
 			};
 
-			const response = await fetch('http://localhost:5000/saveData', fetchOptions);
+			let result = null;
 
-			return response.json();
+			result = await fetch(url, requestOptions);
+
+			if (result.ok) return result.json();
+			throw result;
 		} catch (e) {
 			console.log(e);
 		}
