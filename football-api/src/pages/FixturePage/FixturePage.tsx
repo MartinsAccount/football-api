@@ -1,5 +1,6 @@
 import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
+import DataService from '../../services/DataService';
 import { MainStore } from '../../stores/MainStore';
 import styles from './FixturePage.module.scss';
 
@@ -31,6 +32,12 @@ class FixturePage extends Component<IFixturePageProps> {
 					</button>
 					<button onClick={() => FixtureStore.leaguesStatistics('italy')} className={styles.countryButton}>
 						Olasz statisztikák
+					</button>
+					<button onClick={() => DataService.GetTodayFixtures()} className={styles.countryButton}>
+						Mai Meccsek lekérése
+					</button>
+					<button onClick={() => DataService.GetLeagues()} className={styles.countryButton}>
+						Elérhető ligák lekérése
 					</button>
 				</div>
 

@@ -24,10 +24,6 @@ class Leagues extends Component<ILeaguesProps> {
 				<div onClick={() => MainStore.testFetch()} className="button">
 					Test Fetch MainStore
 				</div>
-
-				<div onClick={() => ArbitrageStore.getHighestOdds()} className="button">
-					Get highest Odds
-				</div>
 				<div onClick={() => MainStore.baseballFetch()} className="button">
 					BASEBALL Fetch datas
 				</div>

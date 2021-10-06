@@ -106,6 +106,7 @@ export class FixtureStore {
 
 		return number;
 	}
+
 	@computed get getFirstHalfGoals() {
 		const allGoals = this.fixtures
 			.map((fixture) => {
@@ -118,9 +119,11 @@ export class FixtureStore {
 
 		return allGoals;
 	}
+
 	@computed get getSecondHalfGoals() {
 		return this.getAllGoals - this.getFirstHalfGoals;
 	}
+
 	@computed get getDrawFixtures() {
 		let drawNumber = 0;
 
@@ -133,6 +136,7 @@ export class FixtureStore {
 
 		return drawNumber;
 	}
+
 	@computed get getHomeWinners() {
 		let homeWinnersNumber = 0;
 
@@ -145,6 +149,7 @@ export class FixtureStore {
 
 		return homeWinnersNumber;
 	}
+
 	@computed get getOddGoals() {
 		let oddNumber = 0;
 
@@ -161,6 +166,7 @@ export class FixtureStore {
 
 		return oddNumber;
 	}
+
 	@computed get getEvenGoals() {
 		let evenNumber = 0;
 
@@ -177,6 +183,7 @@ export class FixtureStore {
 
 		return evenNumber;
 	}
+
 	@computed get getAllFixtures() {
 		let fixtureNumber = 0;
 

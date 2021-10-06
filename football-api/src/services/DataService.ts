@@ -9,8 +9,14 @@ class DataService {
 		return FetchService.get(ApiURLs.FOOTBALL.GET_CURRENT_SEASON_FIXTURES(leaguesId));
 	}
 
-	public GetTodayFixtures() {
-		return FetchService.get(ApiURLs.FOOTBALL.GET_TODAY_FIXTURES('2021-09-30'));
+	public GetFixture(fixtureId: number) {
+		return FetchService.get(ApiURLs.FOOTBALL.GET_FIXTURE(fixtureId));
+	}
+
+	public async GetTodayFixtures() {
+		const response = await FetchService.get(ApiURLs.FOOTBALL.GET_TODAY_FIXTURES('2021-10-06'));
+		console.log(response);
+		console.log(JSON.stringify(response));
 	}
 
 	public GetUefaChampionsLeagueFixtures() {
@@ -29,8 +35,10 @@ class DataService {
 		return FetchService.get(ApiURLs.FOOTBALL.GET_CUSTOM_SEASON_FIXTURES(season, leaguesId));
 	}
 
-	public GetLeagues(country: string) {
-		return FetchService.get(ApiURLs.FOOTBALL.GET_LEAGUES(country));
+	public async GetLeagues() {
+		const response = await FetchService.get(ApiURLs.FOOTBALL.GET_LEAGUES());
+		console.log(response);
+		console.log(JSON.stringify(response));
 	}
 
 	public async GetCurrentRoundFixtures(leaguesId: number) {
@@ -53,6 +61,10 @@ class DataService {
 
 	public GetBookmakers() {
 		return FetchService.get(ApiURLs.FOOTBALL.GET_BOOKMAKERS());
+	}
+
+	public GetAvailableFixtures() {
+		return FetchService.get(ApiURLs.FOOTBALL.AVAILABLE_FIXTURES_FOR_ODDS());
 	}
 
 	//* POST requests

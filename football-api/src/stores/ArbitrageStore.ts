@@ -3,11 +3,23 @@ import { Fixture, OddsInfo, OddsResponse } from '../core/models/models';
 import DataService from '../services/DataService';
 import { MainStore } from './MainStore';
 
+interface IHighestOdds {
+	bookmaker: string;
+	odd: number;
+}
+interface IArbitrage {
+	homeTeam: string;
+	awayTeam: string;
+	hihghestOdds: IHighestOdds[];
+	arbitrage: number;
+}
 export class ArbitrageStore {
 	public MainStore: MainStore;
 
 	@observable testOdds: OddsResponse[];
 	@observable testFixtures: Fixture[];
+
+	@observable Arbitrages: IArbitrage[] = [];
 
 	constructor(MainStore: MainStore) {
 		this.MainStore = MainStore;
@@ -17,23 +29,36 @@ export class ArbitrageStore {
 	// 	this.testFixtures = testFixtures.response;
 	// });
 
+	getAvailableFixtures = flow(function* (this: ArbitrageStore) {
+		const response = yield DataService.GetAvailableFixtures();
+
+		console.log(response);
+	});
+
 	//TODO: Arbrigate calc
 	//TODO: Minden fogadóirodánál megkeresni a legnagyobb oddsot (H, D, V) esetekre
-	getHighestOdds = flow(function* (this: MainStore) {
+	getHighestOdds = flow(function* (this: ArbitrageStore, leagueId?: number) {
 		// const bookmakers = yield DataService.GetHighestOdds();
 
 		// const { response } = yield DataService.GetUefaChampionsLeagueFixtures();
-		const { response } = yield DataService.GetUefaEuropaLeagueFixtures();
+		// const { response } = yield DataService.GetUefaEuropaLeagueFixtures();
+
+		const response = [293627, 651072];
 		// console.log('response', response);
 
 		for (let index = 0; index < response.length; index++) {
-			const fixtureId = response[index].fixture.id;
-			const homeTeam = response[index].teams.home.name;
-			const awayTeam = response[index].teams.away.name;
+			// const fixtureId = response[index].fixture.id;
+			// const homeTeam = response[index].teams.home.name;
+			// const awayTeam = response[index].teams.away.name;
+			const fixtureId = response[index];
+			const homeTeam = 'home';
+			const awayTeam = 'away';
 			// console.log('fixture', fixtureId);
 
 			const currentFixtureOdds = yield DataService.GetAllBookmakersOdds(fixtureId);
 			console.log('currentFixtureOdds', currentFixtureOdds);
+
+			if (currentFixtureOdds.response.length < 1) continue; // ha nincs rá odds tovább ugrik a következőre
 
 			const bookmakersArray = currentFixtureOdds.response[0].bookmakers || [];
 			// console.log('bookmakersArray', bookmakersArray);
@@ -70,6 +95,15 @@ export class ArbitrageStore {
 			hihghestOdds.forEach((item) => {
 				arbitrageNumber += 1 / Number(item.odd);
 			});
+
+			const arbitrageObj = {
+				homeTeam: homeTeam,
+				awayTeam: awayTeam,
+				hihghestOdds: hihghestOdds,
+				arbitrage: arbitrageNumber
+			};
+
+			this.Arbitrages.push(arbitrageObj);
 
 			console.log('----------MECCS:----------', `${homeTeam} vs ${awayTeam}`);
 			console.log('----------Highest Odds----------', hihghestOdds);

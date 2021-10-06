@@ -13,6 +13,7 @@ class ApiURLs {
 	}
 
 	FOOTBALL = {
+		GET_FIXTURE: (fixtureId: number) => `${this.urls.football}/fixtures?id=${fixtureId}`,
 		GET_CURRENT_SEASON_FIXTURES: (leaguesId: number) =>
 			`${this.urls.football}/fixtures?season=${CURRENT_SEASON}&league=${leaguesId}`,
 		GET_TODAY_FIXTURES: (day: string) => `${this.urls.football}/fixtures?date=${day}`,
@@ -24,15 +25,17 @@ class ApiURLs {
 			`${this.urls.football}/odds?season=2021&bet=1&fixture=${fixture}`,
 		GET_CUSTOM_SEASON_FIXTURES: (season: number, leaguesId: number) =>
 			`${this.urls.football}/fixtures?season=${season}&league=${leaguesId}`,
-		GET_LEAGUES: (country: string) => `${this.urls.football}/leagues?country=${country}`,
+		GET_LEAGUES: (country?: string) => `${this.urls.football}/leagues`,
 		GET_CURRENT_ROUND_FIXTURES: (leaguesId: number, round: string) =>
 			`${this.urls.football}/fixtures?season=${CURRENT_SEASON}&league=${leaguesId}&round=${round}`,
 		GET_CURRENT_ROUND: (leaguesId: number) =>
 			`${this.urls.football}/fixtures/rounds?season=${CURRENT_SEASON}&league=${leaguesId}&current=true`,
 		GET_FIXTURE_STATISTICS: (fixtureId: number) => `${this.urls.football}/fixtures/statistics?fixture=${fixtureId}`,
-		//* Odds-ok
+
+		// Odds-okkal kapcsolatos lekérések
 		GET_UNIBET_ODDS: (leaguesId: number) => `${this.urls.football}/odds?season=2021&league=${leaguesId}&bookmaker=${UNIBET}`,
-		GET_BOOKMAKERS: () => `${this.urls.football}/odds/bookmakers`
+		GET_BOOKMAKERS: () => `${this.urls.football}/odds/bookmakers`,
+		AVAILABLE_FIXTURES_FOR_ODDS: () => `${this.urls.football}/odds/mapping`
 	};
 
 	BACKEND = {
