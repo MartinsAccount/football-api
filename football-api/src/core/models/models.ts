@@ -105,8 +105,8 @@ export interface Fixtures {
 	results: number;
 }
 export interface BetsValue {
-	value: string;
-	odd: string;
+	value: string; // "Home"
+	odd: string; // "1.9"
 }
 
 export interface Bet {
@@ -114,15 +114,14 @@ export interface Bet {
 	name: BetsNames;
 	values: BetsValue[];
 }
+export interface Bookmaker {
+	id: number;
+	name: string; // Unibet, William Hill, Marathonbet, Betcris, Bet365, Bwin
+	bets: Bet[];
+}
 
 export interface OddsResponse {
-	bookmakers: [
-		{
-			id: number;
-			name: string; // Unibet
-			bets: Bet[]; //!
-		}
-	];
+	bookmakers: Bookmaker;
 	fixture: {
 		id: number;
 		timezone: string;

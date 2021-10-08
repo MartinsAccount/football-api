@@ -63,8 +63,12 @@ class DataService {
 		return FetchService.get(ApiURLs.FOOTBALL.GET_BOOKMAKERS());
 	}
 
-	public GetAvailableFixtures() {
-		return FetchService.get(ApiURLs.FOOTBALL.AVAILABLE_FIXTURES_FOR_ODDS());
+	public GetAvailableFixtures(page: number = 1) {
+		return FetchService.get(ApiURLs.FOOTBALL.AVAILABLE_FIXTURES_FOR_ODDS(page));
+	}
+
+	public GetLeagueOdds(leaguesId: number) {
+		return FetchService.get(ApiURLs.FOOTBALL.GET_LEAGUE_ODDS(leaguesId));
 	}
 
 	//* POST requests

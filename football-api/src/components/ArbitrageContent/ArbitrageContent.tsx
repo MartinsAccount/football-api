@@ -1,29 +1,30 @@
 import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
 import ArbitrageButtons from '../../components/ArbitrageButtons/ArbitrageButtons';
-import ArbitrageContent from '../../components/ArbitrageContent/ArbitrageContent';
 import { LEAGUES } from '../../core/constants/constants';
 import { MainStore } from '../../stores/MainStore';
-import styles from './ArbitragePage.module.scss';
+import FootballCard from '../FootballCard/FootballCard';
+import styles from './ArbitrageContent.module.scss';
 
-interface IArbitragePageProps {
+interface IArbitrageContentProps {
 	MainStore?: MainStore;
 }
 
 @inject('MainStore')
 @observer
-class ArbitragePage extends Component<IArbitragePageProps> {
+class ArbitrageContent extends Component<IArbitrageContentProps> {
 	render() {
 		const { MainStore } = this.props;
 		const { ArbitrageStore } = this.props.MainStore;
 
 		return (
-			<main className={styles.pageContainer}>
-				<ArbitrageButtons />
-				<ArbitrageContent />
-			</main>
+			<section className={styles.contentContainer}>
+				{ArbitrageStore.Arbitrages.map((data) => (
+					<FootballCard key={data.fixture} data={data} />
+				))}
+			</section>
 		);
 	}
 }
 
-export default ArbitragePage;
+export default ArbitrageContent;

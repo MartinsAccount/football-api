@@ -1,9 +1,44 @@
 import { action, computed, flow, observable, toJS } from 'mobx';
 import { LEAGUES } from '../core/constants/constants';
-import { Bet, BetsValue, Fixture, OddsInfo, OddsResponse } from '../core/models/models';
+import { Bet, BetsValue, Bookmaker, Fixture, OddsInfo, OddsResponse } from '../core/models/models';
 import DataService from '../services/DataService';
 import { MainStore } from './MainStore';
 
+// .response
+export interface ILeagueOddsResponse {
+	bookmakers: Bookmaker[];
+	fixture: {
+		date: string; // "2021-10-01T18:45:00+00:00"
+		id: number; // fixtureId
+	};
+	league: {
+		country: string;
+		id: number;
+		name: string; // Seria A
+		season: number; // 2021
+	};
+}
+
+export interface IOddsMappingResponse {
+	fixture: {
+		id: number;
+		date: string;
+		timestamp: number;
+	};
+	league: {
+		id: number; //? ez kell
+		season: number; //? lehet bármi nem biztos hogy === CURRENT SEASON-el
+	};
+	update: string; // date
+}
+export interface IOddsMapping {
+	paging: {
+		current: number;
+		total: number;
+	};
+	response: IOddsMappingResponse[];
+	results: number; //max 100 egy page-en
+}
 export class OddsStore {
 	public MainStore: MainStore;
 	// public DataService: DataService;
@@ -145,6 +180,16 @@ export class OddsStore {
 		if (odds.response.length < 1) return console.log('Nincs item');
 
 		response = yield DataService.saveOdds(odds, country);
+		console.log('response', response);
+	});
+
+	getLeagueOdds = flow(function* (this: MainStore) {
+		//! const response = yield DataService.GetLeagueOdds(LEAGUES.ITALY);
+		//! const useData: ILeagueOddsResponse[] = response.response;
+
+		const response: IOddsMapping = yield DataService.GetAvailableFixtures();
+		// TODO Sok ligánál más a season szám valahol 2020, 2021 , 2022 stb // mapping-nél
+
 		console.log('response', response);
 	});
 

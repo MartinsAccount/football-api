@@ -15,23 +15,30 @@ class OddsPage extends Component<IOddsPageProps> {
 		const { OddsStore } = this.props.MainStore;
 
 		return (
-			<div className={styles.container}>
-				<button onClick={() => OddsStore.saveOdds('england')} className={styles.countryButton}>
-					Angol odds-ok mentése
-				</button>
-				<button onClick={() => OddsStore.saveOdds('germany')} className={styles.countryButton}>
-					Német odds-ok mentése
-				</button>
-				<button onClick={() => OddsStore.saveOdds('spain')} className={styles.countryButton}>
-					Spanyol odds-ok mentése
-				</button>
-				<button onClick={() => OddsStore.saveOdds('france')} className={styles.countryButton}>
-					Francia odds-ok mentése
-				</button>
-				<button onClick={() => OddsStore.saveOdds('italy')} className={styles.countryButton}>
-					Olasz odds-ok mentése
-				</button>
-			</div>
+			<>
+				<div className={styles.container}>
+					<button onClick={() => OddsStore.saveOdds('england')} className={styles.countryButton}>
+						Angol odds-ok mentése
+					</button>
+					<button onClick={() => OddsStore.saveOdds('germany')} className={styles.countryButton}>
+						Német odds-ok mentése
+					</button>
+					<button onClick={() => OddsStore.saveOdds('spain')} className={styles.countryButton}>
+						Spanyol odds-ok mentése
+					</button>
+					<button onClick={() => OddsStore.saveOdds('france')} className={styles.countryButton}>
+						Francia odds-ok mentése
+					</button>
+					<button onClick={() => OddsStore.saveOdds('italy')} className={styles.countryButton}>
+						Olasz odds-ok mentésen
+					</button>
+				</div>
+				<div className={styles.container}>
+					<button onClick={() => OddsStore.getLeagueOdds()} className={styles.countryButton}>
+						Odds-ok lekérése League alapján
+					</button>
+				</div>
+			</>
 		);
 	}
 }

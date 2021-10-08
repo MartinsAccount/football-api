@@ -4,6 +4,7 @@ type ISports = 'football' | 'baseball' | 'basketball';
 
 class FetchService {
 	private myHeaders = new Headers();
+	public requestNumber = 0;
 
 	constructor() {
 		this.myHeaders.append('x-rapidapi-key', API_KEY);
@@ -23,6 +24,7 @@ class FetchService {
 		let result = null;
 
 		result = await fetch(url, requestOptions);
+		this.requestNumber += 1;
 
 		if (result.ok) return result.json();
 		throw result;
