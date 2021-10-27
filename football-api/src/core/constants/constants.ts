@@ -23,7 +23,7 @@ export const LEAGUES = {
 
 // export type IBetsTypes = keyof typeof BetsTypes;
 
-export const BetsTypes: IBetsTypes = {
+export const BETS_TYPES: IBetsTypes = {
 	Vegeredmeny: 'Match Winner',
 	HazaiVagyVendeg: 'Home/Away',
 	ElsoFelidoVegeredmeny: 'First Half Winner',

@@ -1,5 +1,5 @@
 import { action, computed, flow, observable, toJS } from 'mobx';
-import { BetsTypes } from '../core/constants/constants';
+import { BETS_TYPES } from '../core/constants/constants';
 import { Bet, BetsNames, BetsValue, Bookmaker, Fixture, OddsInfo, OddsResponse } from '../core/models/models';
 import DataService from '../services/DataService';
 import { MainStore } from './MainStore';
@@ -14,6 +14,7 @@ interface IAnalyzedResult {
 	// betType: BetsNames;
 	highestOdds: IHighestOdds[];
 	arbitrage: number;
+	// betType: BetsNames
 }
 export interface IArbitrage {
 	homeTeam?: string;
@@ -208,24 +209,100 @@ export class ArbitrageStore {
 		let result: IAnalyzedResult = {
 			highestOdds: null,
 			arbitrage: null
+			// resultName: null // TODO: hogy melyik fogadáshoz tartozik betType: "matchWinner" pl
 		};
+
+		let twoParamsStructure = [
+			{ name: '', bookmaker: '', odd: 0 },
+			{ name: '', bookmaker: '', odd: 0 }
+		];
+		let threeParamsStructure = [
+			{ name: '', bookmaker: '', odd: 0 },
+			{ name: '', bookmaker: '', odd: 0 },
+			{ name: '', bookmaker: '', odd: 0 }
+		];
 
 		let matchWinner = [
 			{ name: 'highestHome', bookmaker: '', odd: 0 },
 			{ name: 'highestDraw', bookmaker: '', odd: 0 },
 			{ name: 'highestAway', bookmaker: '', odd: 0 }
 		];
+		let firstHalfWinner = [
+			{ name: 'highestHome', bookmaker: '', odd: 0 },
+			{ name: 'highestDraw', bookmaker: '', odd: 0 },
+			{ name: 'highestAway', bookmaker: '', odd: 0 }
+		];
+		let secondHalfWinner = [
+			{ name: 'highestHome', bookmaker: '', odd: 0 },
+			{ name: 'highestDraw', bookmaker: '', odd: 0 },
+			{ name: 'highestAway', bookmaker: '', odd: 0 }
+		];
+		let goalsOverUnder = [];
+		let bothTeamGoal = [];
 		let homeAway = [
 			{ name: 'highestHome', bookmaker: '', odd: 0 },
 			{ name: 'highestAway', bookmaker: '', odd: 0 }
 		];
 
+		let tesStructure = [
+			{
+				bet: 'matchWinner',
+				values: []
+			},
+			{
+				bet: 'homeAway',
+				values: []
+			}
+		];
+
+		let newArray = [];
+
+		let twoParams = ['homeAway', 'bothTeamsGoal'];
+		let threeParams = ['matchWinner', 'firstHalfWinner', 'secondHalfWinner'];
+
 		bookmakers.forEach((bookmaker) => {
 			const selectedBet = bookmaker.bets.find((bet: Bet) => bet.name === betType);
 			if (!selectedBet) return;
 
+			//? NEW
+			// let changedObjectName = null;
+			// switch (betType) {
+			// 	case BETS_TYPES.Vegeredmeny:
+			// 		changedObjectName = 'matchWinner';
+			// 		break;
+			// 	case BETS_TYPES.HazaiVagyVendeg:
+			// 		changedObjectName = 'homeAway';
+			// 		break;
+			// 	case BETS_TYPES.ElsoFelidoVegeredmeny:
+			// 		changedObjectName = 'firstHalfWinner';
+			// 		break;
+			// 	case BETS_TYPES.MasodikFelidoVegeredmeny:
+			// 		changedObjectName = 'secondHalfWinner';
+			// 		break;
+			// 	case BETS_TYPES.MindketCsapatGol:
+			// 		changedObjectName = 'bothTeamsGoal';
+			// 		break;
+			// 	case BETS_TYPES.GolokSzama:
+			// 		console.log('Gól több vagy kevesebb', selectedBet);
+			// 		break;
+			// }
+
+			// result.resultName = changedObjectName
+
+			// if (twoParams.includes(changedObjectName)) newArray = [...twoParamsStructure];
+			// if (threeParams.includes(changedObjectName)) newArray = [...threeParamsStructure];
+
+			// //? NEW
+			// selectedBet.values?.forEach((item: BetsValue, index) => {
+			// 	if (Number(item.odd) > newArray[index].odd) {
+			// 		newArray[index].name = Number(item.value);
+			// 		newArray[index].odd = Number(item.odd);
+			// 		newArray[index].bookmaker = bookmaker.name;
+			// 	}
+			// });
+
 			switch (betType) {
-				case 'Match Winner':
+				case BETS_TYPES.Vegeredmeny:
 					selectedBet.values?.forEach((item: BetsValue, index) => {
 						if (Number(item.odd) > matchWinner[index].odd) {
 							matchWinner[index].odd = Number(item.odd);
@@ -233,7 +310,7 @@ export class ArbitrageStore {
 						}
 					});
 					break;
-				case 'Home/Away':
+				case BETS_TYPES.HazaiVagyVendeg:
 					//TODO:  values undefined hiba
 					selectedBet.values?.forEach((item: BetsValue, index) => {
 						if (Number(item.odd) > homeAway[index].odd) {
@@ -242,17 +319,50 @@ export class ArbitrageStore {
 						}
 					});
 					break;
+				case BETS_TYPES.ElsoFelidoVegeredmeny:
+					selectedBet.values?.forEach((item: BetsValue, index) => {
+						if (Number(item.odd) > firstHalfWinner[index].odd) {
+							firstHalfWinner[index].odd = Number(item.odd);
+							firstHalfWinner[index].bookmaker = bookmaker.name;
+						}
+					});
+					break;
+				case BETS_TYPES.MasodikFelidoVegeredmeny:
+					selectedBet.values?.forEach((item: BetsValue, index) => {
+						if (Number(item.odd) > secondHalfWinner[index].odd) {
+							secondHalfWinner[index].odd = Number(item.odd);
+							secondHalfWinner[index].bookmaker = bookmaker.name;
+						}
+					});
+					break;
+				case BETS_TYPES.MindketCsapatGol:
+					selectedBet.values?.forEach((item: BetsValue, index) => {
+						if (Number(item.odd) > bothTeamGoal[index].odd) {
+							bothTeamGoal[index].odd = Number(item.odd);
+							bothTeamGoal[index].bookmaker = bookmaker.name;
+						}
+					});
+					break;
+				case BETS_TYPES.GolokSzama:
+					console.log('Gól több vagy kevesebb', selectedBet);
 			}
 		});
 
+		// //? NEW
+		// newArray.forEach((item) => {
+		// 	result.arbitrage += 1 / Number(item.odd);
+		// });
+
+		// result.highestOdds = newArray;
+
 		switch (betType) {
-			case 'Match Winner':
+			case BETS_TYPES.Vegeredmeny:
 				matchWinner.forEach((item) => {
 					result.arbitrage += 1 / Number(item.odd);
 				});
 				result.highestOdds = matchWinner;
 				break;
-			case 'Home/Away':
+			case BETS_TYPES.HazaiVagyVendeg:
 				homeAway.forEach((item) => {
 					result.arbitrage += 1 / Number(item.odd);
 				});
