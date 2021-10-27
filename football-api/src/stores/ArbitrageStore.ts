@@ -16,12 +16,17 @@ interface IAnalyzedResult {
 	arbitrage: number;
 	// betType: BetsNames
 }
+interface IAnalyzedElement {
+	// betType: BetsNames;
+	[key: string]: IAnalyzedResult;
+}
 export interface IArbitrage {
 	homeTeam?: string;
 	awayTeam?: string;
 	fixture: number;
 	country: string;
 	date: string;
+	analyzed: IAnalyzedElement[];
 	matchWinner?: IAnalyzedResult;
 	homeAway?: IAnalyzedResult;
 }
@@ -37,72 +42,13 @@ export class ArbitrageStore {
 	@observable nextPage: number = null;
 	@observable totalPage: number = null;
 
+	@observable filtering = null;
+	@observable filetBookmakers = null;
+
 	@observable allLeaguesId: Array<number> = [];
 
 	constructor(MainStore: MainStore) {
 		this.MainStore = MainStore;
-
-		this.testArbitrage.push({
-			fixture: 12344,
-			country: 'Italy',
-			date: '2021-08-20',
-			matchWinner: {
-				highestOdds: [
-					{ name: 'highestHome', bookmaker: 'Unibet', odd: 0 },
-					{ name: 'highestDraw', bookmaker: 'William Hill', odd: 0 },
-					{ name: 'highestAway', bookmaker: 'Marathonbet', odd: 0 }
-				],
-				arbitrage: 1.0004
-			},
-			homeAway: {
-				highestOdds: [
-					{ name: 'highestHome', bookmaker: 'Marathonbet', odd: 6.5 },
-					{ name: 'highestAway', bookmaker: 'Betrics', odd: 1.0 }
-				],
-				arbitrage: 0.980004
-			}
-		});
-		this.testArbitrage.push({
-			fixture: 423432,
-			country: 'Italy',
-			date: '2021-08-20',
-			matchWinner: {
-				highestOdds: [
-					{ name: 'highestHome', bookmaker: 'Betrics', odd: 1.65 },
-					{ name: 'highestDraw', bookmaker: 'William Hill', odd: 2.0 },
-					{ name: 'highestAway', bookmaker: 'Bet365', odd: 6.0 }
-				],
-				arbitrage: 1.0004
-			},
-			homeAway: {
-				highestOdds: [
-					{ name: 'highestHome', bookmaker: 'Tippmixpro', odd: 3.2 },
-					{ name: 'highestAway', bookmaker: 'Betrics', odd: 7.6 }
-				],
-				arbitrage: 1.30004
-			}
-		});
-
-		this.testArbitrage.push({
-			fixture: 6433,
-			country: 'Germnay',
-			date: '2021-11-05',
-			matchWinner: {
-				highestOdds: [
-					{ name: 'highestHome', bookmaker: 'Unibet', odd: 0 },
-					{ name: 'highestDraw', bookmaker: 'William Hill', odd: 0 },
-					{ name: 'highestAway', bookmaker: 'Marathonbet', odd: 0 }
-				],
-				arbitrage: 1.1004
-			},
-			homeAway: {
-				highestOdds: [
-					{ name: 'highestHome', bookmaker: 'Marathonbet', odd: 0 },
-					{ name: 'highestAway', bookmaker: 'Betrics', odd: 0 }
-				],
-				arbitrage: 0.970004
-			}
-		});
 	}
 	// Init = flow(function* (this: ArbitrageStore) {
 	// 	const testFixtures = yield require('../data/testCurrentFixtures_England2021.json');
@@ -148,6 +94,10 @@ export class ArbitrageStore {
 		return;
 	});
 
+	@computed get getFilteredArbitrages() {
+		return [];
+	}
+
 	//TODO: Arbrigate calc
 	//TODO: Minden fogadóirodánál megkeresni a legnagyobb oddsot (H, D, V) esetekre
 	getHighestOdds = flow(function* (this: ArbitrageStore, leagueId?: number) {
@@ -189,6 +139,7 @@ export class ArbitrageStore {
 					fixture: currentFixture,
 					date: currentFixtureDate,
 					country: currentLeagueCountry,
+					analyzed: { ...MATCH_WINNER_ARBITRAGE, ...HOME_AWAY_ARBITRAGE },
 					matchWinner: MATCH_WINNER_ARBITRAGE,
 					homeAway: HOME_AWAY_ARBITRAGE
 				};
