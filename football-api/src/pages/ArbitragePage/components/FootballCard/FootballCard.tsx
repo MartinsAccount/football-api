@@ -1,7 +1,7 @@
 import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
 import { MainStore } from '../../../../stores/MainStore';
-import { IArbitrage } from '../../stores/ArbitrageStore';
+import { IArbitrage } from '../../models/models';
 import styles from './FootballCard.module.scss';
 
 interface IFootballCardProps {
@@ -13,8 +13,8 @@ interface IFootballCardProps {
 @observer
 class FootballCard extends Component<IFootballCardProps> {
 	render() {
-		const { MainStore, data } = this.props;
-		const { ArbitrageStore } = this.props.MainStore;
+		const { data } = this.props;
+		// const { ArbitrageStore } = this.props.MainStore;
 
 		return (
 			<article className={styles.cardContainer}>
@@ -35,6 +35,7 @@ class FootballCard extends Component<IFootballCardProps> {
 						</div>
 					)}
 				</div>
+				<article className={styles.cardModal}></article>
 			</article>
 		);
 	}

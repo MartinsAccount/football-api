@@ -1,41 +1,18 @@
-import { action, computed, flow, observable, toJS } from 'mobx';
+import { computed, flow, observable, toJS } from 'mobx';
 import { BETS_TYPES } from '../../../core/constants/constants';
-import { Bet, BetsNames, BetsValue, Bookmaker, Fixture, OddsInfo, OddsResponse } from '../../../core/models/models';
+import { Bet, BetsNames, BetsValue, Bookmaker, Fixture, OddsResponse } from '../../../core/models/models';
 import ArbitrageService from '../services/ArbitrageService';
 import { MainStore } from '../../../stores/MainStore';
-import { ILeagueOddsResponse, IOddsMapping, IOddsMappingResponse } from '../../OddsPage/stores/OddsStore';
+import { ILeagueOddsResponse, IOddsMapping, IOddsMappingResponse } from '../../OddsPage/models/models';
+import { IAnalyzedResult, IArbitrage } from '../models/models';
 
-interface IHighestOdds {
-	name: string;
-	bookmaker: string;
-	odd: number;
-}
-interface IAnalyzedResult {
-	// betType: BetsNames;
-	highestOdds: IHighestOdds[];
-	arbitrage: number;
-	// betType: BetsNames
-}
-interface IAnalyzedElement {
-	// betType: BetsNames;
-	[key: string]: IAnalyzedResult;
-}
-export interface IArbitrage {
-	homeTeam?: string;
-	awayTeam?: string;
-	fixture: number;
-	country: string;
-	date: string;
-	analyzed: IAnalyzedElement[];
-	matchWinner?: IAnalyzedResult;
-	homeAway?: IAnalyzedResult;
-}
 export class ArbitrageStore {
 	public MainStore: MainStore;
 
 	@observable testOdds: OddsResponse[];
 	@observable testFixtures: Fixture[];
 
+	//* Legfontosabb, (egy meccs kártya az object)
 	@observable Arbitrages: IArbitrage[] = [];
 	@observable testArbitrage: IArbitrage[] = [];
 
@@ -89,7 +66,7 @@ export class ArbitrageStore {
 			yield this.selectAllLeaguesId(this.nextPage);
 		}
 
-		console.log('mapping id-s', toJS(this.allLeaguesId));
+		console.log('ellenőrzéshez_from mapping all leagues id-s:', toJS(this.allLeaguesId));
 
 		return;
 	});
@@ -98,10 +75,9 @@ export class ArbitrageStore {
 		return [];
 	}
 
-	//TODO: Arbrigate calc
 	//TODO: Minden fogadóirodánál megkeresni a legnagyobb oddsot (H, D, V) esetekre
 	getHighestOdds = flow(function* (this: ArbitrageStore, leagueId?: number) {
-		// Összes különöböző league id-t összegyűjti
+		// Összes különöböző league id-t összegyűjti az elérhető meccsek alapján
 		yield this.selectAllLeaguesId();
 
 		// const bookmakers = yield ArbitrageService.GetHighestOdds();
@@ -114,34 +90,33 @@ export class ArbitrageStore {
 
 			const { response } = yield ArbitrageService.GetLeagueOdds(leagueId);
 			const leaguesOdds: ILeagueOddsResponse[] = response;
-			console.log('leaguesOdds', leaguesOdds);
+			console.log('ellenőrzéshez_leaguesOdds:', leaguesOdds);
 
 			for (let index = 0; index < leaguesOdds.length; index++) {
 				const currentFixture = leaguesOdds[index].fixture.id;
-				const currentFixtureDate = leaguesOdds[index].fixture.date;
-				const currentLeagueCountry = leaguesOdds[index].league.country;
+				const currentFixtureDate = leaguesOdds[index].fixture?.date || 'nincs dátum';
+				const currentLeagueCountry = leaguesOdds[index].league?.country || 'nincs ország';
 
-				const fixtureDate = Date.parse(leaguesOdds[index].fixture.date);
+				const fixtureDate = Date.parse(leaguesOdds[index].fixture?.date);
 
 				console.log('bookmakers', leaguesOdds[index].bookmakers);
 
 				if (Number(dateNow) - Number(fixtureDate) > 0) continue; //! már lejátszott meccs akkor tovább ugrik
 				if (leaguesOdds[index].bookmakers.length < 1) continue; //! ha nincs bookmaker akkor tovább
 
-				// const bookmakersArray = currentFixtureOdds.response[0].bookmakers || [];
 				// console.log('bookmakersArray', bookmakersArray);
-				const bookmakersArray: Bookmaker[] = leaguesOdds[index].bookmakers || [];
+				const bookmakersArray: Bookmaker[] = leaguesOdds[index]?.bookmakers || [];
 
 				const MATCH_WINNER_ARBITRAGE = yield this.analyzeBookmaker(bookmakersArray, 'Match Winner');
 				const HOME_AWAY_ARBITRAGE = yield this.analyzeBookmaker(bookmakersArray, 'Home/Away');
 
-				let arbitrageObj = {
+				let arbitrageObj: IArbitrage = {
 					fixture: currentFixture,
 					date: currentFixtureDate,
 					country: currentLeagueCountry,
-					analyzed: { ...MATCH_WINNER_ARBITRAGE, ...HOME_AWAY_ARBITRAGE },
-					matchWinner: MATCH_WINNER_ARBITRAGE,
-					homeAway: HOME_AWAY_ARBITRAGE
+					analyzed: [MATCH_WINNER_ARBITRAGE, HOME_AWAY_ARBITRAGE]
+					// matchWinner: MATCH_WINNER_ARBITRAGE,
+					// homeAway: HOME_AWAY_ARBITRAGE
 				};
 
 				this.Arbitrages.push(arbitrageObj);
@@ -325,35 +300,4 @@ export class ArbitrageStore {
 
 		return result;
 	};
-
-	// @action arbitrageCalculator(odd1: number, odd2: number, _stake1: number, _stake2?: number) {
-	// 	let bool = false;
-
-	// 	let win1 = 0;
-	// 	let win2 = 0;
-
-	// 	let stake1 = _stake1;
-	// 	let stake2 = _stake2 || _stake1 / 2;
-
-	// 	win1 = odd1 * stake1;
-	// 	win2 = odd2 * stake2;
-
-	// 	let sumWin = win1 + win2;
-	// 	let sumStake = stake1 + stake2;
-
-	// 	if (bool) {
-	// 		for (let i = 0; i < 20; i++) {}
-	// 	}
-
-	// 	if (sumStake < sumWin) {
-	// 		let profit1 = win1 - sumStake;
-	// 		let profit2 = win2 - sumStake;
-
-	// 		if (Math.abs(profit1 - profit2) > 400) {
-	// 			const newStake = stake2 + 200;
-
-	// 			this.arbitrageCalculator(odd1, odd2, stake1, newStake);
-	// 		}
-	// 	}
-	// }
 }

@@ -1,44 +1,12 @@
 import { action, computed, flow, observable, toJS } from 'mobx';
 import { LEAGUES } from '../../../core/constants/constants';
-import { Bet, BetsValue, Bookmaker, Fixture, OddsInfo, OddsResponse } from '../../../core/models/models';
+import { Bet, BetsValue, Bookmaker, IOddsMapping } from '../models/models';
 import OddsService from '../services/OddsService';
 import { MainStore } from '../../../stores/MainStore';
+import { Fixture, OddsInfo, OddsResponse } from '../../../core/models/models';
 
 // .response
-export interface ILeagueOddsResponse {
-	bookmakers: Bookmaker[];
-	fixture: {
-		date: string; // "2021-10-01T18:45:00+00:00"
-		id: number; // fixtureId
-	};
-	league: {
-		country: string;
-		id: number;
-		name: string; // Seria A
-		season: number; // 2021
-	};
-}
 
-export interface IOddsMappingResponse {
-	fixture: {
-		id: number;
-		date: string;
-		timestamp: number;
-	};
-	league: {
-		id: number; //? ez kell
-		season: number; //? lehet bármi nem biztos hogy === CURRENT SEASON-el
-	};
-	update: string; // date
-}
-export interface IOddsMapping {
-	paging: {
-		current: number;
-		total: number;
-	};
-	response: IOddsMappingResponse[];
-	results: number; //max 100 egy page-en
-}
 export class OddsStore {
 	public MainStore: MainStore;
 	// public OddsService: OddsService;
@@ -154,9 +122,32 @@ export class OddsStore {
 		// }
 	}
 
-	saveOdds = flow(function* (this: MainStore, country: string) {
+	saveOdds = flow(function* (this: MainStore, country: string, all?: boolean) {
 		let odds;
 		let response;
+
+		// TODO: Backenden kezelni a kéréseket
+		if (all) {
+			odds = yield OddsService.GetUnibetOdds(LEAGUES.ENGLAND);
+			if (odds.response.length < 1) return console.log('Nincs item');
+			yield OddsService.saveOdds(odds, 'england');
+
+			odds = yield OddsService.GetUnibetOdds(LEAGUES.ITALY);
+			if (odds.response.length < 1) return console.log('Nincs item');
+			yield OddsService.saveOdds(odds, 'italy');
+
+			odds = yield OddsService.GetUnibetOdds(LEAGUES.FRANCE);
+			if (odds.response.length < 1) return console.log('Nincs item');
+			yield OddsService.saveOdds(odds, 'france');
+
+			odds = yield OddsService.GetUnibetOdds(LEAGUES.SPAIN);
+			if (odds.response.length < 1) return console.log('Nincs item');
+			yield OddsService.saveOdds(odds, 'spain');
+
+			odds = yield OddsService.GetUnibetOdds(LEAGUES.GERMANY);
+			if (odds.response.length < 1) return console.log('Nincs item');
+			yield OddsService.saveOdds(odds, 'germany');
+		}
 
 		switch (country) {
 			case 'england':
@@ -177,9 +168,8 @@ export class OddsStore {
 		}
 
 		console.log('odds', odds);
-		if (odds.response.length < 1) return console.log('Nincs item');
 
-		response = yield OddsService.saveOdds(odds, country);
+		response = yield OddsService.saveOdds(odds, country); // TODO: Backendre átírni constansba a league ID-kat
 		console.log('response', response);
 	});
 
