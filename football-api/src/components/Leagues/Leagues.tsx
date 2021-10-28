@@ -21,15 +21,6 @@ class Leagues extends Component<ILeaguesProps> {
 		return (
 			<main>
 				<LoadingScreen />
-				<div onClick={() => MainStore.testFetch()} className="button">
-					Test Fetch MainStore
-				</div>
-				<div onClick={() => MainStore.baseballFetch()} className="button">
-					BASEBALL Fetch datas
-				</div>
-				<div onClick={() => MainStore.basketballFetch()} className="button">
-					KOSÁRLABDA Fetch datas
-				</div>
 				<div onClick={() => OddsStore.testFunc()} className="button">
 					Test actions with odds
 				</div>

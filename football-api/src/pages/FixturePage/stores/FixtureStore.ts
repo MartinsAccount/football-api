@@ -48,19 +48,19 @@ export class FixtureStore {
 
 		switch (country) {
 			case 'england':
-				_fixtures = yield require('../data/allMatchPremierLeague_2020.json');
+				_fixtures = yield require('../../../data/allMatchPremierLeague_2020.json');
 				break;
 			case 'germany':
-				_fixtures = yield require('../data/allMatchBundesliga_2020.json');
+				_fixtures = yield require('../../../data/allMatchBundesliga_2020.json');
 				break;
 			case 'spain':
-				_fixtures = yield require('../data/allMatchLaLiga_2020.json');
+				_fixtures = yield require('../../../data/allMatchLaLiga_2020.json');
 				break;
 			case 'italy':
-				_fixtures = yield require('../data/allMatchSeriaA_2020.json');
+				_fixtures = yield require('../../../data/allMatchSeriaA_2020.json');
 				break;
 			case 'france':
-				_fixtures = yield require('../data/allMatchFrance_2020.json');
+				_fixtures = yield require('../../../data/allMatchFrance_2020.json');
 		}
 
 		this.fixtures = _fixtures.response;

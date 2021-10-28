@@ -1,8 +1,8 @@
 import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
-import { LEAGUES } from '../../core/constants/constants';
-import { MainStore } from '../../stores/MainStore';
-import MyButton from '../MyButton/MyButton';
+import MyButton from '../../../../components/MyButton/MyButton';
+import { LEAGUES } from '../../../../core/constants/constants';
+import { MainStore } from '../../../../stores/MainStore';
 import styles from './ArbitrageButtons.module.scss';
 
 interface IArbitrageButtonsProps {
