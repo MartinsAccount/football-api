@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import MyButton from '../../../../components/MyButton/MyButton';
 import { LEAGUES } from '../../../../core/constants/constants';
 import { MainStore } from '../../../../stores/MainStore';
-import styles from './ArbitrageButtons.module.scss';
+import styles from './ArbitrageSidebar.module.scss';
 
 interface IArbitrageButtonsProps {
 	MainStore?: MainStore;
@@ -11,7 +11,7 @@ interface IArbitrageButtonsProps {
 
 @inject('MainStore')
 @observer
-class ArbitrageButtons extends Component<IArbitrageButtonsProps> {
+class ArbitrageSidebar extends Component<IArbitrageButtonsProps> {
 	render() {
 		const { MainStore } = this.props;
 		const { ArbitrageStore } = this.props.MainStore;
@@ -33,4 +33,4 @@ class ArbitrageButtons extends Component<IArbitrageButtonsProps> {
 	}
 }
 
-export default ArbitrageButtons;
+export default ArbitrageSidebar;

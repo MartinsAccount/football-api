@@ -1,7 +1,6 @@
 import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
 import { MainStore } from '../../../../stores/MainStore';
-import ArbitrageButtons from '../../components/ArbitrageButtons/ArbitrageButtons';
 import { IArbitrage } from '../../stores/ArbitrageStore';
 import styles from './FootballCard.module.scss';
 

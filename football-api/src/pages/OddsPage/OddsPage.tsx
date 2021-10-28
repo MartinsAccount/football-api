@@ -1,6 +1,8 @@
 import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
 import { MainStore } from '../../stores/MainStore';
+import OddsContent from './components/OddsContent/OddsContent';
+import OddsSidebar from './components/OddsSidebar/OddsSidebar';
 import styles from './OddsPage.module.scss';
 
 interface IOddsPageProps {
@@ -15,30 +17,10 @@ class OddsPage extends Component<IOddsPageProps> {
 		const { OddsStore } = this.props.MainStore;
 
 		return (
-			<>
-				<div className={styles.container}>
-					<button onClick={() => OddsStore.saveOdds('england')} className={styles.countryButton}>
-						Angol odds-ok mentése
-					</button>
-					<button onClick={() => OddsStore.saveOdds('germany')} className={styles.countryButton}>
-						Német odds-ok mentése
-					</button>
-					<button onClick={() => OddsStore.saveOdds('spain')} className={styles.countryButton}>
-						Spanyol odds-ok mentése
-					</button>
-					<button onClick={() => OddsStore.saveOdds('france')} className={styles.countryButton}>
-						Francia odds-ok mentése
-					</button>
-					<button onClick={() => OddsStore.saveOdds('italy')} className={styles.countryButton}>
-						Olasz odds-ok mentésen
-					</button>
-				</div>
-				<div className={styles.container}>
-					<button onClick={() => OddsStore.getLeagueOdds()} className={styles.countryButton}>
-						Odds-ok lekérése League alapján
-					</button>
-				</div>
-			</>
+			<main className={styles.pageContainer}>
+				<OddsSidebar />
+				<OddsContent />
+			</main>
 		);
 	}
 }

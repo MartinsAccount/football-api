@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { LEAGUES } from '../../core/constants/constants';
 import { MainStore } from '../../stores/MainStore';
 import styles from './ArbitragePage.module.scss';
-import ArbitrageButtons from './components/ArbitrageButtons/ArbitrageButtons';
+import ArbitrageSidebar from './components/ArbitrageSidebar/ArbitrageSidebar';
 import ArbitrageContent from './components/ArbitrageContent/ArbitrageContent';
 
 interface IArbitragePageProps {
@@ -19,7 +19,7 @@ class ArbitragePage extends Component<IArbitragePageProps> {
 
 		return (
 			<main className={styles.pageContainer}>
-				<ArbitrageButtons />
+				<ArbitrageSidebar />
 				<ArbitrageContent />
 			</main>
 		);
