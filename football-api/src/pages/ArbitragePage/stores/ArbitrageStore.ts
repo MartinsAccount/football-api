@@ -1,9 +1,9 @@
 import { action, computed, flow, observable, toJS } from 'mobx';
-import { BETS_TYPES } from '../core/constants/constants';
-import { Bet, BetsNames, BetsValue, Bookmaker, Fixture, OddsInfo, OddsResponse } from '../core/models/models';
-import DataService from '../services/DataService';
-import { MainStore } from './MainStore';
-import { ILeagueOddsResponse, IOddsMapping, IOddsMappingResponse } from './OddsStore';
+import { BETS_TYPES } from '../../../core/constants/constants';
+import { Bet, BetsNames, BetsValue, Bookmaker, Fixture, OddsInfo, OddsResponse } from '../../../core/models/models';
+import ArbitrageService from '../services/ArbitrageService';
+import { MainStore } from '../../../stores/MainStore';
+import { ILeagueOddsResponse, IOddsMapping, IOddsMappingResponse } from '../../OddsPage/stores/OddsStore';
 
 interface IHighestOdds {
 	name: string;
@@ -56,13 +56,13 @@ export class ArbitrageStore {
 	// });
 
 	getAvailableFixtures = flow(function* (this: ArbitrageStore) {
-		const response = yield DataService.GetAvailableFixtures();
+		const response = yield ArbitrageService.GetAvailableFixtures();
 
 		console.log(response);
 	});
 
 	selectAllLeaguesId = flow(function* (this: ArbitrageStore, nextPage: number = 1) {
-		const mapping: IOddsMapping = yield DataService.GetAvailableFixtures(nextPage);
+		const mapping: IOddsMapping = yield ArbitrageService.GetAvailableFixtures(nextPage);
 		const mappingResponse: IOddsMappingResponse[] = mapping.response;
 
 		const dateNow = Date.parse(new Date().toDateString());
@@ -104,7 +104,7 @@ export class ArbitrageStore {
 		// Összes különöböző league id-t összegyűjti
 		yield this.selectAllLeaguesId();
 
-		// const bookmakers = yield DataService.GetHighestOdds();
+		// const bookmakers = yield ArbitrageService.GetHighestOdds();
 		for (let index = 0; index < this.allLeaguesId.length; index++) {
 			// if (index > 1) return;
 
@@ -112,7 +112,7 @@ export class ArbitrageStore {
 
 			const leagueId = this.allLeaguesId[index];
 
-			const { response } = yield DataService.GetLeagueOdds(leagueId);
+			const { response } = yield ArbitrageService.GetLeagueOdds(leagueId);
 			const leaguesOdds: ILeagueOddsResponse[] = response;
 			console.log('leaguesOdds', leaguesOdds);
 

@@ -1,8 +1,8 @@
 import { action, computed, flow, observable, toJS } from 'mobx';
-import { LEAGUES } from '../core/constants/constants';
-import { Bet, BetsValue, Bookmaker, Fixture, OddsInfo, OddsResponse } from '../core/models/models';
-import DataService from '../services/DataService';
-import { MainStore } from './MainStore';
+import { LEAGUES } from '../../../core/constants/constants';
+import { Bet, BetsValue, Bookmaker, Fixture, OddsInfo, OddsResponse } from '../../../core/models/models';
+import OddsService from '../services/OddsService';
+import { MainStore } from '../../../stores/MainStore';
 
 // .response
 export interface ILeagueOddsResponse {
@@ -41,7 +41,7 @@ export interface IOddsMapping {
 }
 export class OddsStore {
 	public MainStore: MainStore;
-	// public DataService: DataService;
+	// public OddsService: OddsService;
 
 	@observable testOdds: OddsResponse[];
 	@observable testFixtures: Fixture[];
@@ -160,34 +160,34 @@ export class OddsStore {
 
 		switch (country) {
 			case 'england':
-				odds = yield DataService.GetUnibetOdds(LEAGUES.ENGLAND);
+				odds = yield OddsService.GetUnibetOdds(LEAGUES.ENGLAND);
 				break;
 			case 'italy':
-				odds = yield DataService.GetUnibetOdds(LEAGUES.ITALY);
+				odds = yield OddsService.GetUnibetOdds(LEAGUES.ITALY);
 				break;
 			case 'france':
-				odds = yield DataService.GetUnibetOdds(LEAGUES.FRANCE);
+				odds = yield OddsService.GetUnibetOdds(LEAGUES.FRANCE);
 				break;
 			case 'spain':
-				odds = yield DataService.GetUnibetOdds(LEAGUES.SPAIN);
+				odds = yield OddsService.GetUnibetOdds(LEAGUES.SPAIN);
 				break;
 			case 'germany':
-				odds = yield DataService.GetUnibetOdds(LEAGUES.GERMANY);
+				odds = yield OddsService.GetUnibetOdds(LEAGUES.GERMANY);
 				break;
 		}
 
 		console.log('odds', odds);
 		if (odds.response.length < 1) return console.log('Nincs item');
 
-		response = yield DataService.saveOdds(odds, country);
+		response = yield OddsService.saveOdds(odds, country);
 		console.log('response', response);
 	});
 
 	getLeagueOdds = flow(function* (this: MainStore) {
-		//! const response = yield DataService.GetLeagueOdds(LEAGUES.ITALY);
+		//! const response = yield OddsService.GetLeagueOdds(LEAGUES.ITALY);
 		//! const useData: ILeagueOddsResponse[] = response.response;
 
-		const response: IOddsMapping = yield DataService.GetAvailableFixtures();
+		const response: IOddsMapping = yield OddsService.GetAvailableFixtures();
 		// TODO Sok ligánál más a season szám valahol 2020, 2021 , 2022 stb // mapping-nél
 
 		console.log('response', response);

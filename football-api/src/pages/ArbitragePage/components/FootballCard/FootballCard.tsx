@@ -1,10 +1,8 @@
 import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
+import { MainStore } from '../../../../stores/MainStore';
 import ArbitrageButtons from '../../components/ArbitrageButtons/ArbitrageButtons';
-import { LEAGUES } from '../../core/constants/constants';
-import DataService from '../../services/DataService';
 import { IArbitrage } from '../../stores/ArbitrageStore';
-import { MainStore } from '../../stores/MainStore';
 import styles from './FootballCard.module.scss';
 
 interface IFootballCardProps {

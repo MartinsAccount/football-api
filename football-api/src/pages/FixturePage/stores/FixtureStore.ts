@@ -1,8 +1,8 @@
 import { computed, flow, observable, toJS } from 'mobx';
-import { LEAGUES } from '../core/constants/constants';
-import { Fixture, Fixtures } from '../core/models/models';
-import DataService from '../services/DataService';
-import { MainStore } from './MainStore';
+import { LEAGUES } from '../../../core/constants/constants';
+import { Fixture, Fixtures } from '../../../core/models/models';
+import FixtureService from '../services/FixtureService';
+import { MainStore } from '../../../stores/MainStore';
 
 type Countries = 'england' | 'germany' | 'france' | 'spain' | 'italy';
 
@@ -30,11 +30,11 @@ export class FixtureStore {
 	}
 
 	Init = flow(function* (this: FixtureStore) {
-		const englandFixtures = yield DataService.GetCurrentSeasonFixtures(LEAGUES.ENGLAND);
-		const germanyFixtures = yield DataService.GetCurrentSeasonFixtures(LEAGUES.GERMANY);
-		const franceFixtures = yield DataService.GetCurrentSeasonFixtures(LEAGUES.FRANCE);
-		const spainFixtures = yield DataService.GetCurrentSeasonFixtures(LEAGUES.SPAIN);
-		const italyFixtures = yield DataService.GetCurrentSeasonFixtures(LEAGUES.ITALY);
+		const englandFixtures = yield FixtureService.GetCurrentSeasonFixtures(LEAGUES.ENGLAND);
+		const germanyFixtures = yield FixtureService.GetCurrentSeasonFixtures(LEAGUES.GERMANY);
+		const franceFixtures = yield FixtureService.GetCurrentSeasonFixtures(LEAGUES.FRANCE);
+		const spainFixtures = yield FixtureService.GetCurrentSeasonFixtures(LEAGUES.SPAIN);
+		const italyFixtures = yield FixtureService.GetCurrentSeasonFixtures(LEAGUES.ITALY);
 
 		this.currentFixtures.england = englandFixtures.response;
 		this.currentFixtures.germany = germanyFixtures.response;

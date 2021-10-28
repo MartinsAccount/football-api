@@ -1,8 +1,8 @@
 import { flow, observable } from 'mobx';
 import DataService from '../services/DataService';
-import { ArbitrageStore } from './ArbitrageStore';
-import { FixtureStore } from './FixtureStore';
-import { OddsStore } from './OddsStore';
+import { ArbitrageStore } from '../pages/ArbitragePage/stores/ArbitrageStore';
+import { FixtureStore } from '../pages/FixturePage/stores/FixtureStore';
+import { OddsStore } from '../pages/OddsPage/stores/OddsStore';
 
 export class MainStore {
 	public OddsStore: OddsStore;
@@ -20,40 +20,16 @@ export class MainStore {
 		this.ArbitrageStore = new ArbitrageStore(this);
 		this.FixtureStore = new FixtureStore(this);
 
-		this.OddsStore.Init();
-		// this.ArbitrageStore.Init();
+		this.Init();
 	}
 
-	Init = flow(function* (this: MainStore) {});
-
-	testFetch = flow(function* (this: MainStore) {
-		// const curRound = yield DataService.GetCurrentRound(LEAGUES.ENGLAND);
-		// const response = yield DataService.GetCustomSeasonFixtures(2020, LEAGUES.ITALY);
-		// const response = yield DataService.GetUefaChampionsLeagueFixtures();
-		const response = yield DataService.GetUefaEuropaLeagueFixtures();
-		// const response = yield DataService.GetTodayFixtures();
-		// const response = yield DataService.GetStatistics(710559);
-		// const response = yield DataService.GetLeagues();
-		// console.log(curRound);
-		console.log(response);
-		console.log(JSON.stringify(response));
-	});
-
-	baseballFetch = flow(function* (this: MainStore) {
-		const response = yield DataService.GetHighestBaseballOdds();
-
-		const arbitrageOdd = 1 / response[0].odd + 1 / response[1].odd;
-
-		console.log('arbitrageOdd', arbitrageOdd);
-		console.log('response', response);
-	});
-
-	// TODO: FetchService
-	basketballFetch = flow(function* (this: MainStore) {
-		const response = yield DataService.GetHighestBasketballOdds();
-		const arbitrageOdd = 1 / response[0].odd + 1 / response[1].odd;
-
-		console.log('arbitrageOdd', arbitrageOdd);
-		console.log('response', response);
+	Init = flow(function* (this: MainStore) {
+		try {
+			yield this.OddsStore.Init();
+			// yield this.ArbitrageStore.Init();
+			// yield this.FixtureStore.Init();
+		} catch (e) {
+			console.log('error', e);
+		}
 	});
 }
