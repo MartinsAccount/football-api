@@ -1,6 +1,7 @@
 import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
 import { MainStore } from '../../../../stores/MainStore';
+import CustomStat from '../CustomStat/CustomStat';
 import styles from './FixtureContent.module.scss';
 
 interface IArbitrageContentProps {
@@ -18,34 +19,44 @@ class FixtureContent extends Component<IArbitrageContentProps> {
 			<section className={styles.contentContainer}>
 				{FixtureStore.fixtures && FixtureStore.results && (
 					<div className={styles.statistics}>
-						<div>Meccsek száma: {FixtureStore.getAllFixtures}</div>
-						<div>Összes gól: {FixtureStore.getAllGoals}</div>
-						<div>
-							Mindkét csapat gól: {FixtureStore.bothTeamsScore} (
-							{Math.round((FixtureStore.bothTeamsScore / FixtureStore.getAllFixtures) * 100)}%)
-						</div>
-						<div>
-							Első félidő összes gól: {FixtureStore.getFirstHalfGoals} (
-							{Math.round((FixtureStore.getFirstHalfGoals / FixtureStore.getAllGoals) * 100)}%)
-						</div>
-						<div>
-							Döntetlen meccsek: {FixtureStore.getDrawFixtures} (
-							{Math.round((FixtureStore.getDrawFixtures / FixtureStore.getAllFixtures) * 100)}
-							%)
-						</div>
-						<div>
-							Hazai nyert meccsek: {FixtureStore.getHomeWinners} (
-							{Math.round((FixtureStore.getHomeWinners / FixtureStore.getAllFixtures) * 100)}
-							%)
-						</div>
-						<div>
-							Páratlan gól: {FixtureStore.getOddGoals} (
-							{Math.round((FixtureStore.getOddGoals / FixtureStore.getAllFixtures) * 100)}%)
-						</div>
-						<div>
-							Páros gól: {FixtureStore.getEvenGoals} (
-							{Math.round((FixtureStore.getEvenGoals / FixtureStore.getAllFixtures) * 100)}%)
-						</div>
+						<h1 className={styles.header}>{FixtureStore.currentLeague}</h1>
+
+						<article className={styles.statContainer}>
+							<CustomStat title="Összes gól" data={FixtureStore.getAllGoals} />
+							<CustomStat title="Meccsek száma" data={FixtureStore.getAllFixtures} onCustomData={FixtureStore.getAllGoals} />
+						</article>
+						<article className={styles.statContainer}>
+							<CustomStat title="Mindkét csapat gól" data={FixtureStore.bothTeamsScore} />
+							<CustomStat
+								title="Első félidő összes gól"
+								data={FixtureStore.getFirstHalfGoals}
+								onCustomData={FixtureStore.getAllGoals}
+							/>
+						</article>
+						<article className={styles.statContainer}>
+							<CustomStat title="Döntetlen meccsek" data={FixtureStore.getDrawFixtures} />
+							<CustomStat title="Hazai nyert meccsek" data={FixtureStore.getHomeWinners} />
+						</article>
+						<article className={styles.statContainer}>
+							<CustomStat title="Páratlan gól" data={FixtureStore.getOddGoals} />
+							<CustomStat title="Páros gól" data={FixtureStore.getEvenGoals} />
+						</article>
+						<article className={styles.statContainer}>
+							<CustomStat title="0,5 gól felett" data={FixtureStore.overNullGoal} />
+							<CustomStat title="1,5 gól felett" data={FixtureStore.overOneGoal} />
+						</article>
+						<article className={styles.statContainer}>
+							<CustomStat
+								title="Csapatok száma minimum 1 döntetlen"
+								data={FixtureStore.teamWithDraw}
+								onCustomData={FixtureStore.teamsNumber}
+							/>
+							{/* <CustomStat
+								title="Csapatok száma minimum 1 döntetlen"
+								data={FixtureStore.teamWithDraw}
+								onCustomData={FixtureStore.teamsNumber}
+							/> */}
+						</article>
 					</div>
 				)}
 			</section>

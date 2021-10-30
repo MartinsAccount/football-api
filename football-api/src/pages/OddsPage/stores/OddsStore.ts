@@ -1,11 +1,45 @@
 import { action, computed, flow, observable, toJS } from 'mobx';
 import { LEAGUES } from '../../../core/constants/constants';
-import { Bet, BetsValue, Bookmaker, IOddsMapping } from '../models/models';
+import { Bet, BetsValue, Bookmaker, ILeagueOddsResponse, IOddsMapping, ISavedOdds } from '../models/models';
 import OddsService from '../services/OddsService';
 import { MainStore } from '../../../stores/MainStore';
-import { Fixture, OddsInfo, OddsResponse } from '../../../core/models/models';
+import { BetsNames, Fixture, Fixtures, OddsInfo, OddsResponse } from '../../../core/models/models';
+import FixtureService from '../../FixturePage/services/FixtureService';
 
 // .response
+
+const inside = {
+	home: {
+		sum: 0,
+		win: 0,
+		draw: 0,
+		lose: 0
+	},
+	away: {
+		sum: 0,
+		win: 0,
+		draw: 0,
+		lose: 0
+	}
+};
+
+const ODDS_INFO = {
+	sum: 0,
+	favoriteWin: 0,
+	unFavoriteWin: 0,
+	smallOdd: { ...inside },
+	midOdd: { ...inside },
+	highOdd: { ...inside }
+};
+
+const DRAW_INFO = {
+	sum: 0,
+	drawWhenHomeFavorite: 0,
+	drawWhenAwayFavorite: 0,
+	drawWhenNoOneFavorite: 0, // 2+ odds mindkettőre
+	drawWithGoals: 0,
+	drawWithoutGoals: 0
+};
 
 export class OddsStore {
 	public MainStore: MainStore;
@@ -14,47 +48,111 @@ export class OddsStore {
 	@observable testOdds: OddsResponse[];
 	@observable testFixtures: Fixture[];
 
-	@observable oddsInfos: OddsInfo = new OddsInfo();
-	@observable drawInfos = {
-		sum: 0,
-		drawWhenHomeFavorite: 0,
-		drawWhenAwayFavorite: 0,
-		drawWhenNoOneFavorite: 0, // 2+ odds mindkettőre
-		drawWithGoals: 0,
-		drawWithoutGoals: 0
-	};
+	@observable savedOdds: ISavedOdds;
+	@observable currentOdds: keyof ISavedOdds;
+	@observable currentFixtures: Fixture[];
+
+	@observable currentLeague: string;
+
+	@observable oddsInfos: OddsInfo;
+	@observable drawInfos;
+
+	@observable random;
 
 	constructor(MainStore: MainStore) {
 		this.MainStore = MainStore;
+
+		this.oddsInfos = { ...ODDS_INFO };
+		this.drawInfos = { ...DRAW_INFO };
 	}
 
-	Init = flow(function* (this: OddsStore) {});
+	Init = flow(function* (this: OddsStore) {
+		// const currentFixtures = yield FixtureService.GetCurrentSeasonFixtures(LEAGUES.SPAIN);
+		// console.log(JSON.stringify(currentFixtures));
+		// yield this.getSavedOdds();
+	});
 
-	testFunc = flow(function* (this: OddsStore) {
+	getSavedOdds = flow(function* (this: OddsStore) {
+		const { response } = yield OddsService.GetSavedOdds();
+
+		this.savedOdds = response;
+		console.log('odds', toJS(this.savedOdds));
+	});
+
+	@computed get getCurrentOdds(): ILeagueOddsResponse[] {
+		if (!this.currentOdds || !this.saveOdds) return [];
+
+		return this.savedOdds[this.currentOdds].odds;
+	}
+
+	changeCurrentOddsLeague = flow(function* (this: OddsStore, league: keyof ISavedOdds) {
+		this.currentOdds = league;
+
+		let _fixtures: Fixtures;
+		let _league: string;
+
+		switch (league) {
+			case 'englandOdds':
+				_fixtures = yield require('../../../data/allMatchPremierLeague_2021.json');
+				_league = 'Angol bajnokság';
+				break;
+			case 'germanyOdds':
+				_fixtures = yield require('../../../data/allMatchBundesliga_2021.json');
+				_league = 'Német bajnokság';
+				break;
+			case 'spainOdds':
+				_fixtures = yield require('../../../data/allMatchLaLiga_2021.json');
+				_league = 'Spanyol bajnokság';
+				break;
+			case 'italyOdds':
+				_fixtures = yield require('../../../data/allMatchSeriaA_2021.json');
+				_league = 'Olasz bajnokság';
+				break;
+			case 'franceOdds':
+				_league = 'Francia bajnokság';
+				_fixtures = yield require('../../../data/allMatchFrance_2021.json');
+		}
+
+		this.oddsInfos = { ...ODDS_INFO };
+		this.drawInfos = { ...DRAW_INFO };
+
+		this.currentFixtures = _fixtures.response;
+		this.currentLeague = _league;
+
+		this.analyzeOddsInfos();
+	});
+
+	analyzeOddsInfos = flow(function* (this: OddsStore) {
 		const fixtureIds = yield this.getAllFixtureIds;
 
 		yield fixtureIds.forEach((fixture) => {
-			const oddsObj: OddsResponse = this.testOdds.find((item: OddsResponse) => item.fixture.id === fixture);
-			const fixtureObj: Fixture = this.testFixtures.find((item: Fixture) => item.fixture.id === fixture);
+			const oddsObj: ILeagueOddsResponse = this.getCurrentOdds.find((item: ILeagueOddsResponse) => item.fixture.id === fixture);
+			const fixtureObj: Fixture = this.currentFixtures.find((item: Fixture) => item.fixture.id === fixture);
 
-			const bets: Bet[] = oddsObj.bookmakers[0].bets;
+			// let betType: BetsNames = 'Match Winner';
+			// const selectedBet = oddsObj.bookmakers[0].find((bet: Bet) => bet.name === betType);
+
+			const bets: Bet[] = oddsObj.bookmakers[0]?.bets;
 			const mainOdds: BetsValue[] = bets[0].values; // "Match Winners"
 
 			let favorite: 'home' | 'away' = null;
 			let favoriteOdd: number = null;
+			let unFavoriteOdd: number = null;
 
-			if (parseFloat(mainOdds[0].odd) < parseFloat(mainOdds[2].odd)) {
+			if (parseFloat(mainOdds[0].odd) <= parseFloat(mainOdds[2].odd)) {
 				favorite = 'home';
 				favoriteOdd = parseFloat(mainOdds[0].odd);
+				unFavoriteOdd = parseFloat(mainOdds[2].odd);
 			}
 			if (parseFloat(mainOdds[0].odd) > parseFloat(mainOdds[2].odd)) {
 				favorite = 'away';
 				favoriteOdd = parseFloat(mainOdds[2].odd);
+				unFavoriteOdd = parseFloat(mainOdds[0].odd);
 			}
 
-			let winFavorite: boolean = fixtureObj.teams[favorite].winner;
+			const winFavorite: boolean = fixtureObj.teams[favorite]?.winner;
 
-			this.changeOddsInfos(winFavorite, favoriteOdd, favorite);
+			this.changeOddsInfos(favorite, winFavorite, favoriteOdd, unFavoriteOdd);
 
 			if (winFavorite === null) {
 				const wasGoal: boolean = fixtureObj.goals.home > 0 ? true : false;
@@ -71,6 +169,8 @@ export class OddsStore {
 
 		if (favoriteOdd > 2) {
 			this.drawInfos.drawWhenNoOneFavorite += 1;
+			if (favorite === 'home') this.drawInfos.drawWhenHomeFavorite += 1;
+			if (favorite === 'away') this.drawInfos.drawWhenAwayFavorite += 1;
 		} else {
 			if (favorite === 'home') this.drawInfos.drawWhenHomeFavorite += 1;
 			if (favorite === 'away') this.drawInfos.drawWhenAwayFavorite += 1;
@@ -83,46 +183,57 @@ export class OddsStore {
 		}
 	}
 
-	@action changeOddsInfos(winFavorite: boolean, favoriteOdd: number, favorite: 'home' | 'away') {
+	@action changeOddsInfos(favorite: 'home' | 'away', winFavorite: boolean, favoriteOdd: number, unFavoriteOdd?: number) {
+		const _oddsInfos = { ...this.oddsInfos };
+
+		let oddSize;
+		if (favoriteOdd <= 1.5) oddSize = 'smallOdd';
+		if (favoriteOdd <= 1.9 && favoriteOdd > 1.5) oddSize = 'midOdd';
+		if (favoriteOdd > 1.9) oddSize = 'highOdd';
+
 		//TODO: 2.0
+		_oddsInfos.sum += 1;
+
 		if (winFavorite) {
-			this.oddsInfos.favoriteWin += 1;
+			_oddsInfos.favoriteWin += 1;
 		} else {
-			this.oddsInfos.unFavoriteWin += 1;
+			_oddsInfos.unFavoriteWin += 1;
 		}
 
-		if (favoriteOdd < 1.5) {
-			this.oddsInfos.smallOdd[favorite].sum += 1;
+		// change object
+		_oddsInfos[oddSize][favorite].sum += 1;
 
-			if (winFavorite === true) this.oddsInfos.smallOdd[favorite].win += 1;
-			if (winFavorite === null) this.oddsInfos.smallOdd[favorite].draw += 1;
-			if (winFavorite === false) this.oddsInfos.smallOdd[favorite].lose += 1;
-		}
-		if (favoriteOdd < 1.9 && favoriteOdd > 1.5) {
-			this.oddsInfos.midOdd[favorite].sum += 1;
+		if (winFavorite === true) _oddsInfos[oddSize][favorite].win += 1;
+		if (winFavorite === null) _oddsInfos[oddSize][favorite].draw += 1;
+		if (winFavorite === false) _oddsInfos[oddSize][favorite].lose += 1;
 
-			if (winFavorite === true) this.oddsInfos.midOdd[favorite].win += 1;
-			if (winFavorite === null) this.oddsInfos.midOdd[favorite].draw += 1;
-			if (winFavorite === false) this.oddsInfos.midOdd[favorite].lose += 1;
-		}
-		if (favoriteOdd > 1.9) {
-			this.oddsInfos.highOdd[favorite].sum += 1;
+		this.oddsInfos = _oddsInfos;
+	}
 
-			if (winFavorite === true) this.oddsInfos.highOdd[favorite].win += 1;
-			if (winFavorite === null) this.oddsInfos.highOdd[favorite].draw += 1;
-			if (winFavorite === false) this.oddsInfos.highOdd[favorite].lose += 1;
-		}
-
-		return;
+	@computed get homeSmallOdds() {
+		return `GY: ${this.oddsInfos.smallOdd.home.win} D: ${this.oddsInfos.smallOdd.home.draw} V: ${this.oddsInfos.smallOdd.home.lose}`;
+	}
+	@computed get awaySmallOdds() {
+		return `GY: ${this.oddsInfos.smallOdd.away.win} D: ${this.oddsInfos.smallOdd.away.draw} V: ${this.oddsInfos.smallOdd.away.lose}`;
+	}
+	@computed get homeMidOdds() {
+		return `GY: ${this.oddsInfos.midOdd.home.win} D: ${this.oddsInfos.midOdd.home.draw} V: ${this.oddsInfos.midOdd.home.lose}`;
+	}
+	@computed get awayMidOdds() {
+		return `GY: ${this.oddsInfos.midOdd.away.win} D: ${this.oddsInfos.midOdd.away.draw} V: ${this.oddsInfos.midOdd.away.lose}`;
+	}
+	@computed get homeHighOdds() {
+		return `GY: ${this.oddsInfos.highOdd.home.win} D: ${this.oddsInfos.highOdd.home.draw} V: ${this.oddsInfos.highOdd.home.lose}`;
+	}
+	@computed get awayHighOdds() {
+		return `GY: ${this.oddsInfos.highOdd.away.win} D: ${this.oddsInfos.highOdd.away.draw} V: ${this.oddsInfos.highOdd.away.lose}`;
 	}
 
 	@computed get getAllFixtureIds() {
-		// return (country) => {
-		return this.testOdds.map((oddsPerFix: OddsResponse) => oddsPerFix.fixture.id);
-		// }
+		return this.getCurrentOdds.map((oddsPerFix: ILeagueOddsResponse) => oddsPerFix.fixture.id);
 	}
 
-	saveOdds = flow(function* (this: MainStore, country: string, all?: boolean) {
+	saveOdds = flow(function* (this: OddsStore, country: string, all?: boolean) {
 		let odds;
 		let response;
 
@@ -173,7 +284,7 @@ export class OddsStore {
 		console.log('response', response);
 	});
 
-	getLeagueOdds = flow(function* (this: MainStore) {
+	getLeagueOdds = flow(function* (this: OddsStore) {
 		//! const response = yield OddsService.GetLeagueOdds(LEAGUES.ITALY);
 		//! const useData: ILeagueOddsResponse[] = response.response;
 

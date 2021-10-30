@@ -24,6 +24,11 @@ class OddsService {
 		return FetchService.get(ApiURLs.FOOTBALL.GET_LEAGUE_ODDS(leaguesId));
 	}
 
+	//! Backend
+	public GetSavedOdds() {
+		return FetchService.get(ApiURLs.BACKEND.GET_SAVED_ODDS());
+	}
+
 	//* POST requests
 	public saveOdds(body: any, country?: string) {
 		return FetchService.post(ApiURLs.BACKEND.SAVE_ODDS(country), body);

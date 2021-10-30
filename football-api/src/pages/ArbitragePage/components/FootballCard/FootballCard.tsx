@@ -22,18 +22,18 @@ class FootballCard extends Component<IFootballCardProps> {
 				<div>{data.date}</div>
 				<div>{data.country}</div>
 				<div className={styles.betTypes}>
-					{data.matchWinner && (
-						<div>
-							<div>Match winner</div>
-							<div className={styles.arbitrageNumber}>{data.matchWinner.arbitrage}</div>
-						</div>
-					)}
-					{data.homeAway && (
-						<div>
-							<div>Home / Away</div>
-							<div className={styles.arbitrageNumber}>{data.homeAway.arbitrage}</div>
-						</div>
-					)}
+					{/* {data.matchWinner && ( */}
+					<div>
+						<div>Match winner</div>
+						<div className={styles.arbitrageNumber}>{data?.analyzed[0]?.arbitrage}</div>
+					</div>
+					{/* )} */}
+					{/* {data.homeAway && ( */}
+					<div>
+						<div>Home / Away</div>
+						<div className={styles.arbitrageNumber}>{data?.analyzed[1]?.arbitrage}</div>
+					</div>
+					{/* )} */}
 				</div>
 				<article className={styles.cardModal}></article>
 			</article>

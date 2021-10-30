@@ -139,49 +139,50 @@ export interface OddsResponse {
 	update: string;
 }
 
-export class OddsInfo {
-	favoriteWin: 0;
-	unFavoriteWin: 0;
+export interface OddsInfo {
+	sum: number;
+	favoriteWin: number;
+	unFavoriteWin: number;
 	smallOdd: {
 		home: {
-			sum: 0;
-			win: 0;
-			draw: 0;
-			lose: 0;
+			sum: number;
+			win: number;
+			draw: number;
+			lose: number;
 		};
 		away: {
-			sum: 0;
-			win: 0;
-			draw: 0;
-			lose: 0;
+			sum: number;
+			win: number;
+			draw: number;
+			lose: number;
 		};
 	};
 	midOdd: {
 		home: {
-			sum: 0;
-			win: 0;
-			draw: 0;
-			lose: 0;
+			sum: number;
+			win: number;
+			draw: number;
+			lose: number;
 		};
 		away: {
-			sum: 0;
-			win: 0;
-			draw: 0;
-			lose: 0;
+			sum: number;
+			win: number;
+			draw: number;
+			lose: number;
 		};
 	};
 	highOdd: {
 		home: {
-			sum: 0;
-			win: 0;
-			draw: 0;
-			lose: 0;
+			sum: number;
+			win: number;
+			draw: number;
+			lose: number;
 		};
 		away: {
-			sum: 0;
-			win: 0;
-			draw: 0;
-			lose: 0;
+			sum: number;
+			win: number;
+			draw: number;
+			lose: number;
 		};
 	};
 }

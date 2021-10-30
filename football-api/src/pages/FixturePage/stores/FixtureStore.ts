@@ -10,8 +10,6 @@ interface currentFixture {
 	[key: string]: Fixture[];
 }
 export class FixtureStore {
-	// public OddsStore: OddsStore;
-	// public ArbitrageStore: ArbitrageStore;
 	public MainStore: MainStore;
 
 	@observable currentFixtures: currentFixture = {
@@ -24,6 +22,7 @@ export class FixtureStore {
 
 	@observable fixtures: Fixture[];
 	@observable results: number = 0;
+	@observable currentLeague: string;
 
 	constructor(MainStore: MainStore) {
 		this.MainStore = MainStore;
@@ -45,41 +44,41 @@ export class FixtureStore {
 
 	leaguesStatistics = flow(function* (this: FixtureStore, country: Countries) {
 		let _fixtures: Fixtures;
+		let _league: string;
 
 		switch (country) {
 			case 'england':
 				_fixtures = yield require('../../../data/allMatchPremierLeague_2020.json');
+				_league = 'Angol bajnokság';
 				break;
 			case 'germany':
 				_fixtures = yield require('../../../data/allMatchBundesliga_2020.json');
+				_league = 'Német bajnokság';
 				break;
 			case 'spain':
 				_fixtures = yield require('../../../data/allMatchLaLiga_2020.json');
+				_league = 'Spanyol bajnokság';
 				break;
 			case 'italy':
 				_fixtures = yield require('../../../data/allMatchSeriaA_2020.json');
+				_league = 'Olasz bajnokság';
 				break;
 			case 'france':
+				_league = 'Francia bajnokság';
 				_fixtures = yield require('../../../data/allMatchFrance_2020.json');
 		}
 
 		this.fixtures = _fixtures.response;
 		this.results = _fixtures.results;
+		this.currentLeague = _league;
 
 		console.log('fixtures', toJS(this.fixtures));
 	});
 
 	//TODO: Odds nélküli
-	//? Mennyi gól összesen
-	//? Mennyi meccs ahol mindkét csapat gól
-	//? Mennyi gól az első félidőkben
-	//? Mennyi gól a második félidőkben
-	//? Melyik félidőkben van több gól
-	//? Mennyi döntetlen
-	//? Mennyi hazai győzelem
-	//? Gólok száma páros vagy páratlan
-
 	//? Volt e mindegyik csapatnak legalább 1 döntetlene?
+	//? Volt gól
+	//? 1,5 gól felett
 
 	@computed get getAllGoals() {
 		const allGoals = this.fixtures
@@ -92,6 +91,26 @@ export class FixtureStore {
 			.reduce((prev, cur) => prev + cur);
 
 		return allGoals;
+	}
+
+	@computed get overNullGoal() {
+		let sumFixture = 0;
+
+		this.fixtures.forEach((fixture) => {
+			if (fixture.goals.home + fixture.goals.away > 0) sumFixture += 1;
+		});
+
+		return sumFixture;
+	}
+
+	@computed get overOneGoal() {
+		let sumFixture = 0;
+
+		this.fixtures.forEach((fixture) => {
+			if (fixture.goals.home + fixture.goals.away > 1) sumFixture += 1;
+		});
+
+		return sumFixture;
 	}
 
 	@computed get bothTeamsScore() {
@@ -135,6 +154,37 @@ export class FixtureStore {
 		});
 
 		return drawNumber;
+	}
+
+	@computed get teamsNumber() {
+		let teams = [];
+
+		this.fixtures.forEach((fixture) => {
+			if (!teams.includes(fixture.teams.home.id) && !teams.includes(fixture.teams.away.id)) {
+				teams.push(fixture.teams.home.id);
+				teams.push(fixture.teams.away.id);
+			}
+		});
+
+		return teams.length;
+	}
+
+	@computed get teamWithDraw() {
+		let teamHasDraw = [];
+
+		this.fixtures.forEach((fixture) => {
+			if (
+				fixture.goals.home === fixture.goals.away &&
+				!teamHasDraw.includes(fixture.teams.home.id) &&
+				!teamHasDraw.includes(fixture.teams.away.id)
+			) {
+				teamHasDraw.push(fixture.teams.home.id);
+				teamHasDraw.push(fixture.teams.away.id);
+			}
+			return null;
+		});
+
+		return teamHasDraw.length;
 	}
 
 	@computed get getHomeWinners() {

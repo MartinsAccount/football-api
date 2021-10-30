@@ -66,6 +66,7 @@ export class ArbitrageStore {
 			yield this.selectAllLeaguesId(this.nextPage);
 		}
 
+		console.log('ellenőrzéshez_from mapping all mappingresponse:', toJS(mappingResponse));
 		console.log('ellenőrzéshez_from mapping all leagues id-s:', toJS(this.allLeaguesId));
 
 		return;
@@ -87,6 +88,7 @@ export class ArbitrageStore {
 			const dateNow = Date.parse(new Date().toDateString());
 
 			const leagueId = this.allLeaguesId[index];
+			console.log('ellenőrzéshez_éles league id-k', leagueId);
 
 			const { response } = yield ArbitrageService.GetLeagueOdds(leagueId);
 			const leaguesOdds: ILeagueOddsResponse[] = response;

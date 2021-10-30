@@ -1,3 +1,4 @@
+import { OddsResponse } from '../../FixturePage/models/models';
 import { BetsNames } from './types';
 
 export interface BetsValue {
@@ -15,6 +16,16 @@ export interface Bookmaker {
 	bets: Bet[];
 }
 
+export interface ISavedOddsItem {
+	odds: ILeagueOddsResponse[];
+}
+export interface ISavedOdds {
+	englandOdds: ISavedOddsItem;
+	franceOdds: ISavedOddsItem;
+	germanyOdds: ISavedOddsItem;
+	italyOdds: ISavedOddsItem;
+	spainOdds: ISavedOddsItem;
+}
 export interface ILeagueOddsResponse {
 	bookmakers: Bookmaker[];
 	fixture: {

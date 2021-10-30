@@ -1,0 +1,12 @@
+@import '../../../../theme/theme.scss';
+
+.statItem {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 60px;
+	flex: 1;
+	background-color: $dark;
+	color: $white;
+	border-radius: $midRadius;
+}
