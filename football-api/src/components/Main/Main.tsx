@@ -32,6 +32,9 @@ class Main extends Component<IMainProps> {
 							<li>
 								<Link to="/arbitrage">Arbitrage</Link>
 							</li>
+							<li style={{ marginLeft: 'auto', marginRight: '20px', color: '#fff' }}>
+								Kérések száma: {ArbitrageStore.fetchNumber}
+							</li>
 						</ul>
 					</nav>
 

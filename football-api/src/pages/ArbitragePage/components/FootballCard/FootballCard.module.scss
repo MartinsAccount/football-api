@@ -17,6 +17,10 @@
 		margin-left: auto;
 		gap: 10px;
 
+		div {
+			width: 150px;
+		}
+
 		.arbitrageNumber {
 			background-color: $orange;
 			color: $dark;

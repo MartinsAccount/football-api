@@ -8,6 +8,7 @@ import { IAnalyzedResult, IArbitrage } from '../models/models';
 
 export class ArbitrageStore {
 	public MainStore: MainStore;
+	@observable fetchNumber: number = 0;
 
 	@observable testOdds: OddsResponse[];
 	@observable testFixtures: Fixture[];
@@ -41,6 +42,8 @@ export class ArbitrageStore {
 	selectAllLeaguesId = flow(function* (this: ArbitrageStore, nextPage: number = 1) {
 		const mapping: IOddsMapping = yield ArbitrageService.GetAvailableFixtures(nextPage);
 		const mappingResponse: IOddsMappingResponse[] = mapping.response;
+		//! fetch
+		this.fetchNumber += 1;
 
 		const dateNow = Date.parse(new Date().toDateString());
 
@@ -91,6 +94,8 @@ export class ArbitrageStore {
 			console.log('ellenőrzéshez_éles league id-k', leagueId);
 
 			const { response } = yield ArbitrageService.GetLeagueOdds(leagueId);
+			//! fetch
+			this.fetchNumber += 1;
 			const leaguesOdds: ILeagueOddsResponse[] = response;
 			console.log('ellenőrzéshez_leaguesOdds:', leaguesOdds);
 
