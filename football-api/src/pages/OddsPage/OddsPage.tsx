@@ -16,6 +16,20 @@ class OddsPage extends Component<IOddsPageProps> {
 		const { MainStore } = this.props;
 		const { OddsStore } = this.props.MainStore;
 
+		const leagues = ['england', 'spain', 'germany', 'france', 'italy'];
+		const stats = [
+			'getAllGoals',
+			'overNullGoal',
+			'overOneGoal',
+			'overTwoGoal',
+			'bothTeamsScore',
+			'getFirstHalfGoals',
+			'getSecondHalfGoals',
+			'getDrawFixtures',
+			'getHomeWinners',
+			'getOddGoals'
+		];
+
 		return (
 			<main className={styles.pageContainer}>
 				<OddsSidebar />

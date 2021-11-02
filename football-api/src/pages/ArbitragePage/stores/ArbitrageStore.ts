@@ -76,6 +76,9 @@ export class ArbitrageStore {
 	});
 
 	@computed get getFilteredArbitrages() {
+		if (this.filtering === 'goodArbitrage') {
+			// return this.Arbitrages.filter((it) => it.analyzed.some(item) => item.arbitrage < 0)
+		}
 		return [];
 	}
 
@@ -114,8 +117,8 @@ export class ArbitrageStore {
 				// console.log('bookmakersArray', bookmakersArray);
 				const bookmakersArray: Bookmaker[] = leaguesOdds[index]?.bookmakers || [];
 
-				const MATCH_WINNER_ARBITRAGE = yield this.analyzeBookmaker(bookmakersArray, 'Match Winner');
-				const HOME_AWAY_ARBITRAGE = yield this.analyzeBookmaker(bookmakersArray, 'Home/Away');
+				const MATCH_WINNER_ARBITRAGE = yield this.analyzeBookmaker(bookmakersArray, BETS_TYPES.Vegeredmeny);
+				const HOME_AWAY_ARBITRAGE = yield this.analyzeBookmaker(bookmakersArray, BETS_TYPES.HazaiVagyVendeg);
 
 				let arbitrageObj: IArbitrage = {
 					fixture: currentFixture,
@@ -141,7 +144,8 @@ export class ArbitrageStore {
 	analyzeBookmaker = (bookmakers: Bookmaker[], betType: BetsNames) => {
 		let result: IAnalyzedResult = {
 			highestOdds: null,
-			arbitrage: null
+			arbitrage: null,
+			name: null
 			// resultName: null // TODO: hogy melyik fogadáshoz tartozik betType: "matchWinner" pl
 		};
 
@@ -294,12 +298,14 @@ export class ArbitrageStore {
 					result.arbitrage += 1 / Number(item.odd);
 				});
 				result.highestOdds = matchWinner;
+				result.name = betType;
 				break;
 			case BETS_TYPES.HazaiVagyVendeg:
 				homeAway.forEach((item) => {
 					result.arbitrage += 1 / Number(item.odd);
 				});
 				result.highestOdds = homeAway;
+				result.name = betType;
 				break;
 		}
 

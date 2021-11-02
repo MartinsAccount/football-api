@@ -15,10 +15,12 @@ class FixtureSidebar extends Component<IArbitrageButtonsProps> {
 	render() {
 		const { MainStore } = this.props;
 		const { ArbitrageStore, FixtureStore } = this.props.MainStore;
+		const g = 'getAllGoals';
 
 		return (
 			<aside className={styles.buttonsContainer}>
 				<MyButton title="Angol statisztikák" onClick={() => FixtureStore.leaguesStatistics('england')} />
+				<MyButton title="Teszt log" onClick={() => console.log(FixtureStore[g])} />
 				<MyButton title="Német statisztikák" onClick={() => FixtureStore.leaguesStatistics('germany')} />
 				<MyButton title="Spanyol statisztikák" onClick={() => FixtureStore.leaguesStatistics('spain')} />
 				<MyButton title="Francia statisztikák" onClick={() => FixtureStore.leaguesStatistics('france')} />
@@ -26,7 +28,7 @@ class FixtureSidebar extends Component<IArbitrageButtonsProps> {
 
 				<div className={styles.marginTop}>
 					{/* <MyButton title="Arbitrage elemzés" onClick={() => ArbitrageStore.getHighestOdds()} type="primary" /> */}
-					{/* <MyButton title="Arbitrage elemzés" onClick={() => ArbitrageStore.getHighestOdds()} type="primary" /> */}
+					<MyButton title="Összes statisztika" onClick={() => FixtureStore.leaguesStatistics('all')} type="primary" />
 				</div>
 			</aside>
 		);

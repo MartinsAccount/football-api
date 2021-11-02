@@ -4,7 +4,7 @@ import { Fixture, Fixtures } from '../../../core/models/models';
 import FixtureService from '../services/FixtureService';
 import { MainStore } from '../../../stores/MainStore';
 
-type Countries = 'england' | 'germany' | 'france' | 'spain' | 'italy';
+type Countries = 'england' | 'germany' | 'france' | 'spain' | 'italy' | 'all';
 
 interface currentFixture {
 	[key: string]: Fixture[];
@@ -108,6 +108,15 @@ export class FixtureStore {
 
 		this.fixtures.forEach((fixture) => {
 			if (fixture.goals.home + fixture.goals.away > 1) sumFixture += 1;
+		});
+
+		return sumFixture;
+	}
+	@computed get overTwoGoal() {
+		let sumFixture = 0;
+
+		this.fixtures.forEach((fixture) => {
+			if (fixture.goals.home + fixture.goals.away > 2) sumFixture += 1;
 		});
 
 		return sumFixture;
