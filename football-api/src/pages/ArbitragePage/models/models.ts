@@ -5,6 +5,7 @@ export interface IHighestOdds {
 }
 export interface IAnalyzedResult {
 	// betType: BetsNames;
+	name: string;
 	highestOdds: IHighestOdds[];
 	arbitrage: number;
 	// betType: BetsNames

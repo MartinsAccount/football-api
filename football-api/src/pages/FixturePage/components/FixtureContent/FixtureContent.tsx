@@ -15,6 +15,20 @@ class FixtureContent extends Component<IArbitrageContentProps> {
 		const { MainStore } = this.props;
 		const { ArbitrageStore, FixtureStore } = this.props.MainStore;
 
+		const leagues = ['england', 'spain', 'germany', 'france', 'italy'];
+		const stats = [
+			'getAllGoals',
+			'overNullGoal',
+			'overOneGoal',
+			'overTwoGoal',
+			'bothTeamsScore',
+			'getFirstHalfGoals',
+			'getSecondHalfGoals',
+			'getDrawFixtures',
+			'getHomeWinners',
+			'getOddGoals'
+		];
+
 		return (
 			<section className={styles.contentContainer}>
 				{FixtureStore.fixtures && FixtureStore.results && (
