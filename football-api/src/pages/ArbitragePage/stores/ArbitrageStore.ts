@@ -112,8 +112,8 @@ export class ArbitrageStore {
 				// console.log('bookmakersArray', bookmakersArray);
 				const bookmakersArray: Bookmaker[] = leaguesOdds[index]?.bookmakers || [];
 
-				const MATCH_WINNER_ARBITRAGE = yield this.analyzeBookmaker(bookmakersArray, 'Match Winner');
-				const HOME_AWAY_ARBITRAGE = yield this.analyzeBookmaker(bookmakersArray, 'Home/Away');
+				const MATCH_WINNER_ARBITRAGE = yield this.analyzeBookmaker(bookmakersArray, BETS_TYPES.Vegeredmeny);
+				const HOME_AWAY_ARBITRAGE = yield this.analyzeBookmaker(bookmakersArray, BETS_TYPES.HazaiVagyVendeg);
 
 				let arbitrageObj: IArbitrage = {
 					fixture: currentFixture,
