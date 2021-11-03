@@ -3,7 +3,8 @@
 .cardContainer {
 	background-color: $dark;
 	color: $white;
-	// width: 250px;
+	position: relative;
+	cursor: pointer;
 	height: 70px;
 	width: 100%;
 	border-radius: $midRadius;
@@ -11,6 +12,12 @@
 	display: flex;
 	gap: 25px;
 	align-items: center;
+
+	&:hover {
+		.cardModal {
+			display: flex;
+		}
+	}
 
 	.betTypes {
 		display: flex;
@@ -34,9 +41,15 @@
 
 .cardModal {
 	display: none;
-	display: flex;
 	flex-direction: column;
 	align-items: center;
+	position: absolute;
+	background-color: red;
+	padding: 12px;
+	border-radius: $smallRadius;
+	top: -100%;
+	left: 50%;
+	transform: translateX(-50%);
 
 	.modalItem {
 		display: flex;

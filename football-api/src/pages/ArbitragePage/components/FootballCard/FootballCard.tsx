@@ -1,7 +1,7 @@
 import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
 import { MainStore } from '../../../../stores/MainStore';
-import { IArbitrage, IHighestOdds } from '../../models/models';
+import { IAnalyzedElement, IAnalyzedResult, IArbitrage, IHighestOdds } from '../../models/models';
 import styles from './FootballCard.module.scss';
 
 interface IFootballCardProps {
@@ -12,14 +12,17 @@ interface IFootballCardProps {
 @inject('MainStore')
 @observer
 class FootballCard extends Component<IFootballCardProps> {
-	bookmakeString = (highestOdds: IHighestOdds[]) => {
+	bookmakeString = (item: IAnalyzedElement) => {
+		const obj: IAnalyzedResult = Object.values(item)[0];
+		const highestOdds = obj.highestOdds || [];
+
 		let bookmakers = [];
 		let odds = [];
 
-		highestOdds.forEach((it) => {
+		highestOdds?.forEach((it) => {
 			bookmakers.push(it.bookmaker);
 		});
-		highestOdds.forEach((it) => {
+		highestOdds?.forEach((it) => {
 			let string = `${it.odd} (${it.name})`;
 			odds.push(string);
 		});
@@ -51,8 +54,8 @@ class FootballCard extends Component<IFootballCardProps> {
 					{data.analyzed.map((it) => (
 						<div className={styles.modalItem}>
 							<div>{it.name}</div>
-							<div>{this.bookmakeString(it.highestOdds.highestOdds)}</div>
-							<div>{it.arbitrage.arbitrage.toFixed(3)}</div>
+							<div>{this.bookmakeString(it)}</div>
+							<div>{it.arbitrage}</div>
 						</div>
 					))}
 				</article>
