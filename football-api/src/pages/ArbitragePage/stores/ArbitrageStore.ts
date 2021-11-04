@@ -42,31 +42,41 @@ export class ArbitrageStore {
 		console.log(response);
 	});
 
-	AwaitSetTimemout = flow(function* (this: ArbitrageStore) {
-		this.numberForAsyncTest += 1;
+	async otherFunc() {
+		return new Promise((resolve) => {
+			setTimeout(() => resolve(this.AwaitSetTimemout()), 3000);
+		});
+	}
+
+	AwaitSetTimemout = flow(function* (this: ArbitrageStore, start?: boolean) {
+		if (start) {
+			this.numberForAsyncTest = 0;
+		} else {
+			this.numberForAsyncTest += 1;
+		}
 
 		if (this.numberForAsyncTest < this.maxNumberForAsyncTest) {
 			if (this.numberForAsyncTest > 8) {
-				yield new Promise((resolve) =>
-					setTimeout(() => {
-						// this.numberForAsyncTest = 0;
-						this.AwaitSetTimemout();
-
-						console.log('settimeout function');
-					}, 5000)
-				);
+				yield new Promise((resolve) => {
+					setTimeout(async () => {
+						await resolve(this.AwaitSetTimemout());
+						console.log('settimeout');
+					}, 3000);
+				});
+				// yield this.otherFunc();
 			} else {
 				this.AwaitSetTimemout();
 				console.log('repeat this function');
 			}
 		}
+		// console.log('end function');
 
-		return;
+		return 'ok';
 	});
 	AsyncTest = flow(function* (this: ArbitrageStore) {
-		yield this.AwaitSetTimemout();
+		const test = yield this.AwaitSetTimemout(true);
 
-		console.log('FOLYAMAT VÉGE!');
+		console.log('FOLYAMAT VÉGE!', test);
 	});
 
 	selectAllLeaguesId = flow(function* (this: ArbitrageStore, nextPage: number = 1) {
