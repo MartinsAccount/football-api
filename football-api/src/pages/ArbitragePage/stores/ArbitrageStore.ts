@@ -42,10 +42,9 @@ export class ArbitrageStore {
 		console.log(response);
 	});
 
-	async otherFunc() {
-		return new Promise((resolve) => {
-			setTimeout(() => resolve(this.AwaitSetTimemout()), 3000);
-		});
+	//TODO MŰKÖDIK!
+	otherFunc(ms) {
+		return new Promise((resolve) => setTimeout(() => resolve(this.AwaitSetTimemout()), ms));
 	}
 
 	AwaitSetTimemout = flow(function* (this: ArbitrageStore, start?: boolean) {
@@ -71,12 +70,16 @@ export class ArbitrageStore {
 		}
 		// console.log('end function');
 
-		return 'ok';
+		return;
 	});
 	AsyncTest = flow(function* (this: ArbitrageStore) {
-		const test = yield this.AwaitSetTimemout(true);
+		console.log('FOLYAMAT KEZDETE!');
 
-		console.log('FOLYAMAT VÉGE!', test);
+		// TODO: MŰKÖDIK
+		yield this.otherFunc(3000);
+
+		// const test = yield this.AwaitSetTimemout(true);
+		console.log('FOLYAMAT VÉGE!');
 	});
 
 	selectAllLeaguesId = flow(function* (this: ArbitrageStore, nextPage: number = 1) {
