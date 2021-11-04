@@ -25,6 +25,9 @@ export class ArbitrageStore {
 
 	@observable allLeaguesId: Array<number> = [];
 
+	@observable numberForAsyncTest: number = 0;
+	@observable maxNumberForAsyncTest: number = 20;
+
 	constructor(MainStore: MainStore) {
 		this.MainStore = MainStore;
 	}
@@ -37,6 +40,33 @@ export class ArbitrageStore {
 		const response = yield ArbitrageService.GetAvailableFixtures();
 
 		console.log(response);
+	});
+
+	AwaitSetTimemout = flow(function* (this: ArbitrageStore) {
+		this.numberForAsyncTest += 1;
+
+		if (this.numberForAsyncTest < this.maxNumberForAsyncTest) {
+			if (this.numberForAsyncTest > 8) {
+				yield new Promise((resolve) =>
+					setTimeout(() => {
+						// this.numberForAsyncTest = 0;
+						this.AwaitSetTimemout();
+
+						console.log('settimeout function');
+					}, 5000)
+				);
+			} else {
+				this.AwaitSetTimemout();
+				console.log('repeat this function');
+			}
+		}
+
+		return;
+	});
+	AsyncTest = flow(function* (this: ArbitrageStore) {
+		yield this.AwaitSetTimemout();
+
+		console.log('FOLYAMAT VÉGE!');
 	});
 
 	selectAllLeaguesId = flow(function* (this: ArbitrageStore, nextPage: number = 1) {
