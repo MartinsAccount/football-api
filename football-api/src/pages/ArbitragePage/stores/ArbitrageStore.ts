@@ -26,7 +26,11 @@ export class ArbitrageStore {
 	@observable allLeaguesId: Array<number> = [];
 
 	@observable numberForAsyncTest: number = 0;
-	@observable maxNumberForAsyncTest: number = 20;
+	@observable maxNumberForAsyncTest: number = 30;
+
+	@observable actualFetchNumber: number = 0;
+	@observable hasAllId: boolean = false;
+	@observable finished: boolean = false;
 
 	constructor(MainStore: MainStore) {
 		this.MainStore = MainStore;
@@ -48,27 +52,10 @@ export class ArbitrageStore {
 	}
 
 	AwaitSetTimemout = flow(function* (this: ArbitrageStore, start?: boolean) {
-		if (start) {
-			this.numberForAsyncTest = 0;
-		} else {
-			this.numberForAsyncTest += 1;
-		}
+		this.actualFetchNumber += 1;
+		this.numberForAsyncTest += 1;
 
-		if (this.numberForAsyncTest < this.maxNumberForAsyncTest) {
-			if (this.numberForAsyncTest > 8) {
-				yield new Promise((resolve) => {
-					setTimeout(async () => {
-						await resolve(this.AwaitSetTimemout());
-						console.log('settimeout');
-					}, 3000);
-				});
-				// yield this.otherFunc();
-			} else {
-				this.AwaitSetTimemout();
-				console.log('repeat this function');
-			}
-		}
-		// console.log('end function');
+		yield this.AsyncTest();
 
 		return;
 	});
@@ -76,10 +63,72 @@ export class ArbitrageStore {
 		console.log('FOLYAMAT KEZDETE!');
 
 		// TODO: MŰKÖDIK
-		yield this.otherFunc(3000);
+		if (this.numberForAsyncTest < this.maxNumberForAsyncTest && this.actualFetchNumber % 9 !== 0) {
+			yield this.AwaitSetTimemout();
+			return;
+		}
+		if (this.numberForAsyncTest < this.maxNumberForAsyncTest && this.actualFetchNumber % 9 === 0) {
+			yield this.otherFunc(7000);
+			return;
+		}
+		if (this.numberForAsyncTest === this.maxNumberForAsyncTest) {
+			this.hasAllId = true;
+		}
+		if (this.hasAllId) {
+			console.log('FOLYAMAT VÉGE!');
+		}
+	});
 
-		// const test = yield this.AwaitSetTimemout(true);
-		console.log('FOLYAMAT VÉGE!');
+	timeoutAllLeaguesId(ms) {
+		return new Promise((resolve) => setTimeout(() => resolve(this.selectAllLeaguesId(this.nextPage)), ms));
+	}
+	helperAllLeaguesId = flow(function* (this: ArbitrageStore) {
+		if (this.nextPage < this.totalPage && this.fetchNumber % 9 !== 0) {
+			yield this.selectAllLeaguesId(this.nextPage);
+			return;
+		}
+		if (this.nextPage < this.totalPage && this.fetchNumber % 9 === 0) {
+			yield this.timeoutAllLeaguesId(70000); // 70 sec
+			return;
+		}
+		if (this.nextPage === this.totalPage) {
+			this.hasAllId = true;
+		}
+		if (this.hasAllId) {
+			console.log('FOLYAMAT VÉGE! /All leagues Id/', toJS(this.allLeaguesId));
+			yield this.helperHighestOdds();
+		}
+	});
+
+	timeoutHighestOdds(ms: number, arr: Array<number>) {
+		return new Promise((resolve) => setTimeout(() => resolve(this.getHighestOdds(arr)), ms));
+	}
+	helperHighestOdds = flow(function* (this: ArbitrageStore) {
+		console.log('FOLYAMAT KEZDETE! /getHighestOdds/');
+
+		let leaguesIds = [...this.allLeaguesId];
+		let first = leaguesIds.slice(0, 9);
+		let second = leaguesIds.slice(9, 18);
+		let third = leaguesIds.slice(18, 27);
+		let fourth = leaguesIds.slice(27, 36);
+		let fifth = leaguesIds.slice(36, 45);
+		let sixth = leaguesIds.slice(45, 54);
+
+		let loopLength = Math.round(this.allLeaguesId.length / 9) + 1;
+
+		if (first.length > 0) yield this.timeoutHighestOdds(70000, first); // 70 sec
+		if (second.length > 0) yield this.timeoutHighestOdds(140000, second); // 140 sec
+		if (third.length > 0) yield this.timeoutHighestOdds(210000, third); // 210 sec
+		if (fourth.length > 0) yield this.timeoutHighestOdds(280000, fourth); // 280 sec
+		if (fifth.length > 0) yield this.timeoutHighestOdds(350000, fifth); // 350 sec
+		if (sixth.length > 0) yield this.timeoutHighestOdds(420000, sixth); // 420 sec
+
+		//TODO: Le kell tesztelni
+		for (let i = 0; i < loopLength; i++) {
+			let limitedArr = this.allLeaguesId.slice(i * 9, (i + 1) * 9);
+
+			if (limitedArr.length > 0) yield this.timeoutHighestOdds(65000, limitedArr); // 65 sec
+		}
 	});
 
 	selectAllLeaguesId = flow(function* (this: ArbitrageStore, nextPage: number = 1) {
@@ -101,51 +150,37 @@ export class ArbitrageStore {
 			}
 		});
 
-		if (!this.totalPage) this.totalPage = mapping.paging.total;
-		this.nextPage = mapping.paging.current + 1;
-		console.log('ellenőrzéshez_total page:', this.totalPage);
-
-		if (this.nextPage <= this.totalPage) {
-			if (this.fetchNumber > 8) {
-				yield setTimeout(() => {
-					this.fetchNumber = 0;
-					this.selectAllLeaguesId(this.nextPage);
-					console.log('settimeout');
-				}, 60000);
-			} else {
-				this.selectAllLeaguesId(this.nextPage);
-			}
+		if (!this.totalPage) {
+			this.totalPage = mapping.paging.total;
+			console.log('ellenőrzéshez_total page:', this.totalPage);
 		}
+		this.nextPage = mapping.paging.current + 1;
+
 		// //! Ez csak teszt szám
 		// if (this.nextPage <= 2) {
 		// 	yield this.selectAllLeaguesId(this.nextPage);
 		// }
 
-		console.log('ellenőrzéshez_from mapping all mappingresponse:', toJS(mappingResponse));
-		console.log('ellenőrzéshez_from mapping all leagues id-s:', toJS(this.allLeaguesId));
+		// console.log('ellenőrzéshez_from mapping all mappingresponse:', toJS(mappingResponse));
+		// console.log('ellenőrzéshez_from mapping all leagues id-s:', toJS(this.allLeaguesId));
+
+		yield this.helperAllLeaguesId();
 
 		return;
 	});
 
-	@computed get getFilteredArbitrages() {
-		if (this.filtering === 'goodArbitrage') {
-			// return this.Arbitrages.filter((it) => it.analyzed.some(item) => item.arbitrage < 0)
-		}
-		return [];
-	}
-
 	//TODO: Minden fogadóirodánál megkeresni a legnagyobb oddsot (H, D, V) esetekre
-	getHighestOdds = flow(function* (this: ArbitrageStore, leagueId?: number) {
+	getHighestOdds = flow(function* (this: ArbitrageStore, leagueIds: Array<number>) {
 		// Összes különöböző league id-t összegyűjti az elérhető meccsek alapján
-		yield this.selectAllLeaguesId();
+		// yield this.selectAllLeaguesId();
 
 		// const bookmakers = yield ArbitrageService.GetHighestOdds();
-		for (let index = 0; index < this.allLeaguesId.length; index++) {
+		for (let index = 0; index < leagueIds.length; index++) {
 			// if (index > 1) return;
 
 			const dateNow = Date.parse(new Date().toDateString());
 
-			const leagueId = this.allLeaguesId[index];
+			const leagueId = leagueIds[index];
 			console.log('ellenőrzéshez_éles league id-k', leagueId);
 
 			const { response } = yield ArbitrageService.GetLeagueOdds(leagueId);
@@ -198,7 +233,6 @@ export class ArbitrageStore {
 			highestOdds: null,
 			arbitrage: null,
 			name: null
-			// resultName: null // TODO: hogy melyik fogadáshoz tartozik betType: "matchWinner" pl
 		};
 
 		let twoParamsStructure = [
@@ -210,20 +244,6 @@ export class ArbitrageStore {
 			{ name: 'highestDraw', bookmaker: '', odd: 0 },
 			{ name: 'highestAway', bookmaker: '', odd: 0 }
 		];
-
-		let matchWinner = [
-			{ name: 'highestHome', bookmaker: '', odd: 0 },
-			{ name: 'highestDraw', bookmaker: '', odd: 0 },
-			{ name: 'highestAway', bookmaker: '', odd: 0 }
-		];
-
-		let bothTeamGoal = [];
-		let homeAway = [
-			{ name: 'highestHome', bookmaker: '', odd: 0 },
-			{ name: 'highestAway', bookmaker: '', odd: 0 }
-		];
-
-		let newArray = [];
 
 		let twoParams = ['homeAway', 'bothTeamsGoal'];
 		let threeParams = ['matchWinner', 'firstHalfWinner', 'secondHalfWinner'];
@@ -270,9 +290,9 @@ export class ArbitrageStore {
 					break;
 				case BETS_TYPES.MindketCsapatGol:
 					selectedBet.values?.forEach((item: BetsValue, index) => {
-						if (Number(item.odd) > bothTeamGoal[index].odd) {
-							bothTeamGoal[index].odd = Number(item.odd);
-							bothTeamGoal[index].bookmaker = bookmaker.name;
+						if (Number(item.odd) > twoParamsStructure[index].odd) {
+							twoParamsStructure[index].odd = Number(item.odd);
+							twoParamsStructure[index].bookmaker = bookmaker.name;
 						}
 					});
 					break;
@@ -286,13 +306,13 @@ export class ArbitrageStore {
 				threeParamsStructure.forEach((item) => {
 					result.arbitrage += 1 / Number(item.odd);
 				});
-				result.highestOdds = matchWinner;
+				result.highestOdds = threeParamsStructure;
 				break;
 			case BETS_TYPES.HazaiVagyVendeg:
 				twoParamsStructure.forEach((item) => {
 					result.arbitrage += 1 / Number(item.odd);
 				});
-				result.highestOdds = homeAway;
+				result.highestOdds = twoParamsStructure;
 				break;
 		}
 		result.name = betType;
@@ -302,4 +322,11 @@ export class ArbitrageStore {
 
 		return result;
 	};
+
+	@computed get getFilteredArbitrages() {
+		if (this.filtering === 'goodArbitrage') {
+			// return this.Arbitrages.filter((it) => it.analyzed.some(item) => item.arbitrage < 0)
+		}
+		return [];
+	}
 }

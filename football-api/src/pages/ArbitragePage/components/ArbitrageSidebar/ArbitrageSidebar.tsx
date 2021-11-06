@@ -18,16 +18,16 @@ class ArbitrageSidebar extends Component<IArbitrageButtonsProps> {
 
 		return (
 			<aside className={styles.buttonsContainer}>
-				<MyButton title="Angol bajnokság" onClick={() => ArbitrageStore.getHighestOdds(LEAGUES.ENGLAND)} />
+				{/* <MyButton title="Angol bajnokság" onClick={() => ArbitrageStore.getHighestOdds(LEAGUES.ENGLAND)} />
 				<MyButton title="Német bajnokság" onClick={() => ArbitrageStore.getHighestOdds(LEAGUES.GERMANY)} />
 				<MyButton title="Spanyol bajnokság" onClick={() => ArbitrageStore.getHighestOdds(LEAGUES.SPAIN)} />
 				<MyButton title="Francia bajnokság" onClick={() => ArbitrageStore.getHighestOdds(LEAGUES.FRANCE)} />
-				<MyButton title="Olasz bajnokság" onClick={() => ArbitrageStore.getHighestOdds(LEAGUES.ITALY)} />
-				<MyButton title="Async Teszt" onClick={() => ArbitrageStore.AsyncTest()} />
+				<MyButton title="Olasz bajnokság" onClick={() => ArbitrageStore.getHighestOdds(LEAGUES.ITALY)} /> */}
+				<MyButton title="Async Teszt" onClick={() => ArbitrageStore.AwaitSetTimemout()} />
 
 				<div className={styles.marginTop}>
 					{/* <MyButton title="Arbitrage elemzés" onClick={() => ArbitrageStore.getHighestOdds()} type="primary" /> */}
-					<MyButton title="Arbitrage elemzés" onClick={() => ArbitrageStore.getHighestOdds()} type="primary" />
+					<MyButton title="Arbitrage elemzés" onClick={() => ArbitrageStore.selectAllLeaguesId()} type="primary" />
 				</div>
 			</aside>
 		);

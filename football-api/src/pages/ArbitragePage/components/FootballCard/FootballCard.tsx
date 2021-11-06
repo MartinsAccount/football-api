@@ -53,9 +53,9 @@ class FootballCard extends Component<IFootballCardProps> {
 				<article className={styles.cardModal}>
 					{data.analyzed.map((it) => (
 						<div className={styles.modalItem}>
-							<div>{it.name}</div>
+							<div>{it?.name}</div>
 							<div>{this.bookmakeString(it)}</div>
-							<div>{it.arbitrage}</div>
+							<div>{it?.arbitrage}</div>
 						</div>
 					))}
 				</article>
