@@ -131,6 +131,7 @@ export class ArbitrageStore {
 		}
 	});
 
+	// Összes különöböző league id-t összegyűjti az elérhető meccsek alapján
 	selectAllLeaguesId = flow(function* (this: ArbitrageStore, nextPage: number = 1) {
 		const mapping: IOddsMapping = yield ArbitrageService.GetAvailableFixtures(nextPage);
 		const mappingResponse: IOddsMappingResponse[] = mapping.response;
@@ -171,13 +172,8 @@ export class ArbitrageStore {
 
 	//TODO: Minden fogadóirodánál megkeresni a legnagyobb oddsot (H, D, V) esetekre
 	getHighestOdds = flow(function* (this: ArbitrageStore, leagueIds: Array<number>) {
-		// Összes különöböző league id-t összegyűjti az elérhető meccsek alapján
-		// yield this.selectAllLeaguesId();
-
 		// const bookmakers = yield ArbitrageService.GetHighestOdds();
 		for (let index = 0; index < leagueIds.length; index++) {
-			// if (index > 1) return;
-
 			const dateNow = Date.parse(new Date().toDateString());
 
 			const leagueId = leagueIds[index];
@@ -228,12 +224,18 @@ export class ArbitrageStore {
 		}
 	});
 
-	analyzeBookmaker = (bookmakers: Bookmaker[], betType: BetsNames) => {
+	analyzeBookmaker = (bookmakers: Bookmaker[], betType: BETS_TYPES) => {
 		let result: IAnalyzedResult = {
 			highestOdds: null,
 			arbitrage: null,
 			name: null
 		};
+		//? twoParams
+		const { MindketCsapatGol, HazaiVagyVendeg } = BETS_TYPES;
+		const twoParams = [HazaiVagyVendeg, MindketCsapatGol];
+		//? threeParams
+		const { Vegeredmeny, ElsoFelidoVegeredmeny, MasodikFelidoVegeredmeny } = BETS_TYPES;
+		const threeParams = [Vegeredmeny, ElsoFelidoVegeredmeny, MasodikFelidoVegeredmeny];
 
 		let twoParamsStructure = [
 			{ name: 'highestHome', bookmaker: '', odd: 0 },
@@ -245,13 +247,27 @@ export class ArbitrageStore {
 			{ name: 'highestAway', bookmaker: '', odd: 0 }
 		];
 
-		let twoParams = ['homeAway', 'bothTeamsGoal'];
-		let threeParams = ['matchWinner', 'firstHalfWinner', 'secondHalfWinner'];
-
 		bookmakers.forEach((bookmaker) => {
 			const selectedBet = bookmaker.bets.find((bet: Bet) => bet.name === betType);
 			if (!selectedBet) return;
 
+			//? NEW
+			// if (twoParams.includes(betType)) {
+			// 	selectedBet.values?.forEach((item: BetsValue, index) => {
+			// 		if (Number(item.odd) > twoParamsStructure[index].odd) {
+			// 			twoParamsStructure[index].odd = Number(item.odd);
+			// 			twoParamsStructure[index].bookmaker = bookmaker.name;
+			// 		}
+			// 	});
+			// }
+			// if (threeParams.includes(betType)) {
+			// 	selectedBet.values?.forEach((item: BetsValue, index) => {
+			// 		if (Number(item.odd) > threeParamsStructure[index].odd) {
+			// 			threeParamsStructure[index].odd = Number(item.odd);
+			// 			threeParamsStructure[index].bookmaker = bookmaker.name;
+			// 		}
+			// 	});
+			// }
 			switch (betType) {
 				case BETS_TYPES.Vegeredmeny:
 					//? New matchWinner --> threeParamsStructure
