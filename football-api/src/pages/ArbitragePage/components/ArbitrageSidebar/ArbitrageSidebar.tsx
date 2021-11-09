@@ -23,7 +23,7 @@ class ArbitrageSidebar extends Component<IArbitrageButtonsProps> {
 				<MyButton title="Spanyol bajnokság" onClick={() => ArbitrageStore.getHighestOdds(LEAGUES.SPAIN)} />
 				<MyButton title="Francia bajnokság" onClick={() => ArbitrageStore.getHighestOdds(LEAGUES.FRANCE)} />
 				<MyButton title="Olasz bajnokság" onClick={() => ArbitrageStore.getHighestOdds(LEAGUES.ITALY)} /> */}
-				<MyButton title="Async Teszt" onClick={() => ArbitrageStore.AwaitSetTimemout()} />
+				{/* <MyButton title="Async Teszt" onClick={() => ArbitrageStore.AwaitSetTimemout()} /> */}
 
 				<div className={styles.marginTop}>
 					{/* <MyButton title="Arbitrage elemzés" onClick={() => ArbitrageStore.getHighestOdds()} type="primary" /> */}
