@@ -9,7 +9,7 @@ export class MainStore {
 	public ArbitrageStore: ArbitrageStore;
 	public FixtureStore: FixtureStore;
 
-	@observable public isLoading: boolean = false;
+	@observable public isLoading: boolean = true;
 
 	@observable public Sport: string;
 

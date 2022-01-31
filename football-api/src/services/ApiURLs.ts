@@ -40,7 +40,7 @@ class ApiURLs {
 	};
 
 	BACKEND = {
-		SAVE_ODDS: (country?: string) => `${this.backend}/api/saveOdds?country=${country}`,
+		SAVE_ODDS: (country?: string) => `${this.backend}/api/odds?country=${country}`,
 		GET_SAVED_ODDS: () => `${this.backend}/api/odds`
 	};
 

@@ -16,6 +16,7 @@ class OddsService {
 	public GetAvailableFixtures(page: number = 1) {
 		return FetchService.get(ApiURLs.FOOTBALL.AVAILABLE_FIXTURES_FOR_ODDS(page));
 	}
+
 	public GetBookmakers() {
 		return FetchService.get(ApiURLs.FOOTBALL.GET_BOOKMAKERS());
 	}

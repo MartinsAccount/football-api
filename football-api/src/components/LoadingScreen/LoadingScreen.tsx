@@ -14,15 +14,20 @@ class LoadingScreen extends Component<ILoadingScreenProps> {
 		const { MainStore } = this.props;
 		const { OddsStore, ArbitrageStore } = this.props.MainStore;
 
-		if (MainStore.isLoading) {
-			return (
+		return (
+			<>
+				<div className={styles.loadingBackground}></div>
 				<div className={styles.loadingPopup}>
+					<div className={styles.ldsRing}>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
 					<h2>Loading...</h2>
 				</div>
-			);
-		}
-
-		return <div></div>;
+			</>
+		);
 	}
 }
 

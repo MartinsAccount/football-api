@@ -6,6 +6,7 @@ import styles from './Main.module.scss';
 import OddsPage from '../../pages/OddsPage/OddsPage';
 import FixturePage from '../../pages/FixturePage/FixturePage';
 import ArbitragePage from '../../pages/ArbitragePage/ArbitragePage';
+import LoadingScreen from '../LoadingScreen/LoadingScreen';
 
 interface IMainProps {
 	MainStore?: MainStore;
@@ -21,6 +22,8 @@ class Main extends Component<IMainProps> {
 		return (
 			<Router>
 				<div>
+					{MainStore.isLoading && <LoadingScreen />}
+
 					<nav className={styles.navbar}>
 						<ul>
 							<li>
