@@ -35,7 +35,7 @@ class OddsSidebar extends Component<IArbitrageButtonsProps> {
 				<MyButton title="Olasz odds-ok mentésen" onClick={() => OddsStore.saveOdds('italy')} />
 
 				<div className={styles.marginTop}>
-					<MyButton title="Összes odds mentése" onClick={() => console.log('összes mentése')} type="primary" />
+					<MyButton title="Összes odds mentése" onClick={() => OddsStore.saveOdds('all')} type="primary" />
 				</div>
 			</aside>
 		);

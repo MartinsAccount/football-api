@@ -237,50 +237,65 @@ export class OddsStore {
 		let odds;
 		let response;
 
+		this.MainStore.isLoading = true;
+
 		// TODO: Backenden kezelni a kéréseket
-		if (all) {
+		if (country === 'all') {
+			this.MainStore.loadingText = 'Angol meccsek mentése...';
 			odds = yield OddsService.GetUnibetOdds(LEAGUES.ENGLAND);
 			if (odds.response.length < 1) return console.log('Nincs item');
-			yield OddsService.saveOdds(odds, 'england');
+			let englands = yield OddsService.saveOdds(odds, 'england');
+			console.log(englands);
 
+			this.MainStore.loadingText = 'Olasz meccsek mentése..';
 			odds = yield OddsService.GetUnibetOdds(LEAGUES.ITALY);
 			if (odds.response.length < 1) return console.log('Nincs item');
-			yield OddsService.saveOdds(odds, 'italy');
+			let italies = yield OddsService.saveOdds(odds, 'italy');
+			console.log(italies);
 
+			this.MainStore.loadingText = 'Francia meccsek mentése..';
 			odds = yield OddsService.GetUnibetOdds(LEAGUES.FRANCE);
 			if (odds.response.length < 1) return console.log('Nincs item');
-			yield OddsService.saveOdds(odds, 'france');
+			let frances = yield OddsService.saveOdds(odds, 'france');
+			console.log(frances);
 
+			this.MainStore.loadingText = 'Spanyol meccsek mentése..';
 			odds = yield OddsService.GetUnibetOdds(LEAGUES.SPAIN);
 			if (odds.response.length < 1) return console.log('Nincs item');
-			yield OddsService.saveOdds(odds, 'spain');
+			let spains = yield OddsService.saveOdds(odds, 'spain');
+			console.log(spains);
 
+			this.MainStore.loadingText = 'Német meccsek mentése..';
 			odds = yield OddsService.GetUnibetOdds(LEAGUES.GERMANY);
 			if (odds.response.length < 1) return console.log('Nincs item');
-			yield OddsService.saveOdds(odds, 'germany');
+			let germanys = yield OddsService.saveOdds(odds, 'germany');
+			console.log(germanys);
+		} else {
+			switch (country) {
+				case 'england':
+					odds = yield OddsService.GetUnibetOdds(LEAGUES.ENGLAND);
+					break;
+				case 'italy':
+					odds = yield OddsService.GetUnibetOdds(LEAGUES.ITALY);
+					break;
+				case 'france':
+					odds = yield OddsService.GetUnibetOdds(LEAGUES.FRANCE);
+					break;
+				case 'spain':
+					odds = yield OddsService.GetUnibetOdds(LEAGUES.SPAIN);
+					break;
+				case 'germany':
+					odds = yield OddsService.GetUnibetOdds(LEAGUES.GERMANY);
+					break;
+			}
+
+			console.log('odds', odds);
+
+			// this.MainStore.isLoading = false;
+			response = yield OddsService.saveOdds(odds, country); // TODO: Backendre átírni constansba a league ID-kat
 		}
 
-		switch (country) {
-			case 'england':
-				odds = yield OddsService.GetUnibetOdds(LEAGUES.ENGLAND);
-				break;
-			case 'italy':
-				odds = yield OddsService.GetUnibetOdds(LEAGUES.ITALY);
-				break;
-			case 'france':
-				odds = yield OddsService.GetUnibetOdds(LEAGUES.FRANCE);
-				break;
-			case 'spain':
-				odds = yield OddsService.GetUnibetOdds(LEAGUES.SPAIN);
-				break;
-			case 'germany':
-				odds = yield OddsService.GetUnibetOdds(LEAGUES.GERMANY);
-				break;
-		}
-
-		console.log('odds', odds);
-
-		response = yield OddsService.saveOdds(odds, country); // TODO: Backendre átírni constansba a league ID-kat
+		this.MainStore.isLoading = false;
 		console.log('response', response);
 	});
 

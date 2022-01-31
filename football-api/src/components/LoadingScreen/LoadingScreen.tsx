@@ -24,7 +24,7 @@ class LoadingScreen extends Component<ILoadingScreenProps> {
 						<div></div>
 						<div></div>
 					</div>
-					<h2>Loading...</h2>
+					<h2>{MainStore.loadingText}</h2>
 				</div>
 			</>
 		);
