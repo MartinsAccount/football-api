@@ -9,28 +9,19 @@ import { IAnalyzedResult, IArbitrage } from '../models/models';
 export class ArbitrageStore {
 	public MainStore: MainStore;
 	@observable fetchNumber: number = 0;
-
 	@observable testOdds: OddsResponse[];
 	@observable testFixtures: Fixture[];
 
 	//* Legfontosabb, (egy meccs kártya az object)
 	@observable Arbitrages: IArbitrage[] = [];
-	@observable testArbitrage: IArbitrage[] = [];
 
 	@observable nextPage: number = null;
 	@observable totalPage: number = null;
 
 	@observable filtering = null;
-	@observable filetBookmakers = null;
 
 	@observable allLeaguesId: Array<number> = [];
-
-	@observable numberForAsyncTest: number = 0;
-	@observable maxNumberForAsyncTest: number = 30;
-
-	@observable actualFetchNumber: number = 0;
 	@observable hasAllId: boolean = false;
-	@observable finished: boolean = false;
 
 	constructor(MainStore: MainStore) {
 		this.MainStore = MainStore;
@@ -39,45 +30,6 @@ export class ArbitrageStore {
 	// 	const testFixtures = yield require('../data/testCurrentFixtures_England2021.json');
 	// 	this.testFixtures = testFixtures.response;
 	// });
-
-	getAvailableFixtures = flow(function* (this: ArbitrageStore) {
-		const response = yield ArbitrageService.GetAvailableFixtures();
-
-		console.log(response);
-	});
-
-	//TODO MŰKÖDIK!
-	otherFunc(ms) {
-		return new Promise((resolve) => setTimeout(() => resolve(this.AwaitSetTimemout()), ms));
-	}
-
-	AwaitSetTimemout = flow(function* (this: ArbitrageStore, start?: boolean) {
-		this.actualFetchNumber += 1;
-		this.numberForAsyncTest += 1;
-
-		yield this.AsyncTest();
-
-		return;
-	});
-	AsyncTest = flow(function* (this: ArbitrageStore) {
-		console.log('FOLYAMAT KEZDETE!');
-
-		// TODO: MŰKÖDIK
-		if (this.numberForAsyncTest < this.maxNumberForAsyncTest && this.actualFetchNumber % 9 !== 0) {
-			yield this.AwaitSetTimemout();
-			return;
-		}
-		if (this.numberForAsyncTest < this.maxNumberForAsyncTest && this.actualFetchNumber % 9 === 0) {
-			yield this.otherFunc(7000);
-			return;
-		}
-		if (this.numberForAsyncTest === this.maxNumberForAsyncTest) {
-			this.hasAllId = true;
-		}
-		if (this.hasAllId) {
-			console.log('FOLYAMAT VÉGE!');
-		}
-	});
 
 	timeoutAllLeaguesId(ms) {
 		return new Promise((resolve) => setTimeout(() => resolve(this.selectAllLeaguesId(this.nextPage)), ms));
@@ -107,25 +59,11 @@ export class ArbitrageStore {
 		console.log('FOLYAMAT KEZDETE! /getHighestOdds/');
 
 		let leaguesIds = [...this.allLeaguesId];
-		let first = leaguesIds.slice(0, 9);
-		let second = leaguesIds.slice(9, 18);
-		let third = leaguesIds.slice(18, 27);
-		let fourth = leaguesIds.slice(27, 36);
-		let fifth = leaguesIds.slice(36, 45);
-		let sixth = leaguesIds.slice(45, 54);
-
 		let loopLength = Math.round(this.allLeaguesId.length / 9) + 1;
 
-		if (first.length > 0) yield this.timeoutHighestOdds(70000, first); // 70 sec
-		if (second.length > 0) yield this.timeoutHighestOdds(140000, second); // 140 sec
-		if (third.length > 0) yield this.timeoutHighestOdds(210000, third); // 210 sec
-		if (fourth.length > 0) yield this.timeoutHighestOdds(280000, fourth); // 280 sec
-		if (fifth.length > 0) yield this.timeoutHighestOdds(350000, fifth); // 350 sec
-		if (sixth.length > 0) yield this.timeoutHighestOdds(420000, sixth); // 420 sec
-
-		//TODO: Le kell tesztelni
+		//TODO: Le kell tesztelni - mehet 10-ig és 60 sec-el?
 		for (let i = 0; i < loopLength; i++) {
-			let limitedArr = this.allLeaguesId.slice(i * 9, (i + 1) * 9);
+			let limitedArr = leaguesIds.slice(i * 9, (i + 1) * 9);
 
 			if (limitedArr.length > 0) yield this.timeoutHighestOdds(65000, limitedArr); // 65 sec
 		}
