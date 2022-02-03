@@ -15,6 +15,9 @@ class OddsContent extends Component<IArbitrageContentProps> {
 		const { MainStore } = this.props;
 		const { OddsStore } = this.props.MainStore;
 
+		// TODO
+		const datas = [OddsStore.awaySmallOdds];
+
 		return (
 			<section className={styles.contentContainer}>
 				{OddsStore.currentFixtures && OddsStore.currentOdds && (

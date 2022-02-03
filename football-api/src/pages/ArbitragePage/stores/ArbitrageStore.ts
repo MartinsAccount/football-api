@@ -1,16 +1,15 @@
 import { computed, flow, observable, toJS } from 'mobx';
 import { BETS_TYPES } from '../../../core/constants/constants';
-import { Bet, BetsNames, BetsValue, Bookmaker, Fixture, OddsResponse } from '../../../core/models/models';
-import ArbitrageService from '../services/ArbitrageService';
-import { MainStore } from '../../../stores/MainStore';
+import { Bet, BetsValue, Bookmaker } from '../../../core/models/models';
+import { IAnalyzedResult, IArbitrage, IHighestOdds } from '../models/models';
 import { ILeagueOddsResponse, IOddsMapping, IOddsMappingResponse } from '../../OddsPage/models/models';
-import { IAnalyzedResult, IArbitrage } from '../models/models';
+import { MainStore } from '../../../stores/MainStore';
+import ArbitrageService from '../services/ArbitrageService';
 
 export class ArbitrageStore {
 	public MainStore: MainStore;
+
 	@observable fetchNumber: number = 0;
-	@observable testOdds: OddsResponse[];
-	@observable testFixtures: Fixture[];
 
 	//* Legfontosabb, (egy meccs kártya az object)
 	@observable Arbitrages: IArbitrage[] = [];
@@ -27,56 +26,19 @@ export class ArbitrageStore {
 		this.MainStore = MainStore;
 	}
 	// Init = flow(function* (this: ArbitrageStore) {
-	// 	const testFixtures = yield require('../data/testCurrentFixtures_England2021.json');
-	// 	this.testFixtures = testFixtures.response;
 	// });
-
-	timeoutAllLeaguesId(ms) {
-		return new Promise((resolve) => setTimeout(() => resolve(this.selectAllLeaguesId(this.nextPage)), ms));
-	}
-	helperAllLeaguesId = flow(function* (this: ArbitrageStore) {
-		if (this.nextPage < this.totalPage && this.fetchNumber % 9 !== 0) {
-			yield this.selectAllLeaguesId(this.nextPage);
-			return;
-		}
-		if (this.nextPage < this.totalPage && this.fetchNumber % 9 === 0) {
-			yield this.timeoutAllLeaguesId(70000); // 70 sec
-			return;
-		}
-		if (this.nextPage === this.totalPage) {
-			this.hasAllId = true;
-		}
-		if (this.hasAllId) {
-			console.log('FOLYAMAT VÉGE! /All leagues Id/', toJS(this.allLeaguesId));
-			yield this.helperHighestOdds();
-		}
-	});
-
-	timeoutHighestOdds(ms: number, arr: Array<number>) {
-		return new Promise((resolve) => setTimeout(() => resolve(this.getHighestOdds(arr)), ms));
-	}
-	helperHighestOdds = flow(function* (this: ArbitrageStore) {
-		console.log('FOLYAMAT KEZDETE! /getHighestOdds/');
-
-		let leaguesIds = [...this.allLeaguesId];
-		let loopLength = Math.round(this.allLeaguesId.length / 9) + 1;
-
-		//TODO: Le kell tesztelni - mehet 10-ig és 60 sec-el?
-		for (let i = 0; i < loopLength; i++) {
-			let limitedArr = leaguesIds.slice(i * 9, (i + 1) * 9);
-
-			if (limitedArr.length > 0) yield this.timeoutHighestOdds(65000, limitedArr); // 65 sec
-		}
-	});
 
 	// Összes különöböző league id-t összegyűjti az elérhető meccsek alapján
 	selectAllLeaguesId = flow(function* (this: ArbitrageStore, nextPage: number = 1) {
+		this.MainStore.isLoading = true;
+		this.MainStore.loadingText = `League ID-k összegyűjtése => ${nextPage}/${this?.totalPage} oldal`;
+
 		const mapping: IOddsMapping = yield ArbitrageService.GetAvailableFixtures(nextPage);
 		const mappingResponse: IOddsMappingResponse[] = mapping.response;
 		//! fetch
 		this.fetchNumber += 1;
 
-		const dateNow = Date.parse(new Date().toDateString());
+		const dateNow = Date.parse(new Date().toDateString()); // 1643842800000
 
 		yield mappingResponse.forEach((item: IOddsMappingResponse) => {
 			const fixtureDate = Date.parse(item.fixture.date);
@@ -91,11 +53,12 @@ export class ArbitrageStore {
 
 		if (!this.totalPage) {
 			this.totalPage = mapping.paging.total;
-			console.log('ellenőrzéshez_total page:', this.totalPage);
+			console.log('ellenőrzéshez_totalPage:', this.totalPage);
 		}
+
 		this.nextPage = mapping.paging.current + 1;
 
-		// //! Ez csak teszt szám
+		//! Ez csak teszt szám
 		// if (this.nextPage <= 2) {
 		// 	yield this.selectAllLeaguesId(this.nextPage);
 		// }
@@ -107,6 +70,50 @@ export class ArbitrageStore {
 
 		return;
 	});
+
+	helperAllLeaguesId = flow(function* (this: ArbitrageStore) {
+		if (this.nextPage < this.totalPage && this.fetchNumber % 10 !== 0) {
+			yield this.selectAllLeaguesId(this.nextPage);
+			return;
+		}
+		if (this.nextPage < this.totalPage && this.fetchNumber % 10 === 0) {
+			this.MainStore.loadingText = '60 másodperc szünet';
+			yield this.timeoutAllLeaguesId(62000); // 62 sec
+			return;
+		}
+		if (this.nextPage === this.totalPage) {
+			this.hasAllId = true;
+		}
+		if (this.hasAllId) {
+			console.log('FOLYAMAT VÉGE! /All leagues Id/:', toJS(this.allLeaguesId));
+			yield this.helperHighestOdds();
+		}
+	});
+
+	timeoutAllLeaguesId(ms): Promise<NodeJS.Timeout> {
+		return new Promise((resolve) => setTimeout(() => resolve(this.selectAllLeaguesId(this.nextPage)), ms));
+	}
+
+	helperHighestOdds = flow(function* (this: ArbitrageStore) {
+		console.log('FOLYAMAT KEZDETE! /getHighestOdds/');
+
+		let leaguesIds = [...this.allLeaguesId];
+		let loopLength = Math.round(this.allLeaguesId.length / 9) + 1;
+
+		//TODO: Le kell tesztelni - mehet 10-ig és 60 sec-el?
+		for (let i = 0; i < loopLength; i++) {
+			this.MainStore.loadingText = `Arbitrage elemzés... ${i * 9}/${leaguesIds.length}`;
+			if (i * 9 > leaguesIds.length) this.MainStore.isLoading = false;
+
+			let limitedArr = leaguesIds.slice(i * 9, (i + 1) * 9);
+
+			if (limitedArr.length > 0) yield this.timeoutHighestOdds(62000, limitedArr); // 62 sec
+		}
+	});
+
+	timeoutHighestOdds(ms: number, arr: Array<number>): Promise<unknown> {
+		return new Promise((resolve) => setTimeout(() => resolve(this.getHighestOdds(arr)), ms));
+	}
 
 	//TODO: Minden fogadóirodánál megkeresni a legnagyobb oddsot (H, D, V) esetekre
 	getHighestOdds = flow(function* (this: ArbitrageStore, leagueIds: Array<number>) {
@@ -120,6 +127,7 @@ export class ArbitrageStore {
 			const { response } = yield ArbitrageService.GetLeagueOdds(leagueId);
 			//! fetch
 			this.fetchNumber += 1;
+
 			const leaguesOdds: ILeagueOddsResponse[] = response;
 			console.log('ellenőrzéshez_leaguesOdds:', leaguesOdds);
 
@@ -127,6 +135,7 @@ export class ArbitrageStore {
 				const currentFixture = leaguesOdds[index].fixture.id;
 				const currentFixtureDate = leaguesOdds[index].fixture?.date || 'nincs dátum';
 				const currentLeagueCountry = leaguesOdds[index].league?.country || 'nincs ország';
+				const currentLeagueName = leaguesOdds[index].league?.name || 'nincs név';
 
 				const fixtureDate = Date.parse(leaguesOdds[index].fixture?.date);
 
@@ -138,6 +147,17 @@ export class ArbitrageStore {
 				// console.log('bookmakersArray', bookmakersArray);
 				const bookmakersArray: Bookmaker[] = leaguesOdds[index]?.bookmakers || [];
 
+				//? New:
+				const CALCULATE_ARBITRAGE: BETS_TYPES[] = [BETS_TYPES.Vegeredmeny, BETS_TYPES.HazaiVagyVendeg];
+				const CALCULATED_ARBITRAGE: IAnalyzedResult[] = [];
+
+				for (let bet of CALCULATE_ARBITRAGE) {
+					const result = yield this.analyzeBookmaker(bookmakersArray, bet);
+
+					CALCULATED_ARBITRAGE.push(result);
+				}
+				//? New:
+
 				const MATCH_WINNER_ARBITRAGE = yield this.analyzeBookmaker(bookmakersArray, BETS_TYPES.Vegeredmeny);
 				const HOME_AWAY_ARBITRAGE = yield this.analyzeBookmaker(bookmakersArray, BETS_TYPES.HazaiVagyVendeg);
 
@@ -145,7 +165,9 @@ export class ArbitrageStore {
 					fixture: currentFixture,
 					date: currentFixtureDate,
 					country: currentLeagueCountry,
-					analyzed: [MATCH_WINNER_ARBITRAGE, HOME_AWAY_ARBITRAGE]
+					leagueName: currentLeagueName,
+					// analyzed: [MATCH_WINNER_ARBITRAGE, HOME_AWAY_ARBITRAGE]
+					analyzed: [...CALCULATED_ARBITRAGE] //? New
 					// matchWinner: MATCH_WINNER_ARBITRAGE,
 					// homeAway: HOME_AWAY_ARBITRAGE
 				};
@@ -162,117 +184,133 @@ export class ArbitrageStore {
 		}
 	});
 
-	analyzeBookmaker = (bookmakers: Bookmaker[], betType: BETS_TYPES) => {
+	analyzeBookmaker = (bookmakers: Bookmaker[], betType: BETS_TYPES): IAnalyzedResult => {
 		let result: IAnalyzedResult = {
 			highestOdds: null,
 			arbitrage: null,
-			name: null
+			name: betType
 		};
 		//? twoParams
 		const { MindketCsapatGol, HazaiVagyVendeg } = BETS_TYPES;
-		const twoParams = [HazaiVagyVendeg, MindketCsapatGol];
+		const twoParams = [HazaiVagyVendeg, MindketCsapatGol, 222];
 		//? threeParams
 		const { Vegeredmeny, ElsoFelidoVegeredmeny, MasodikFelidoVegeredmeny } = BETS_TYPES;
 		const threeParams = [Vegeredmeny, ElsoFelidoVegeredmeny, MasodikFelidoVegeredmeny];
 
-		let twoParamsStructure = [
+		let twoParamsStructure: IHighestOdds[] = [
 			{ name: 'highestHome', bookmaker: '', odd: 0 },
 			{ name: 'highestAway', bookmaker: '', odd: 0 }
 		];
-		let threeParamsStructure = [
+		let threeParamsStructure: IHighestOdds[] = [
 			{ name: 'highestHome', bookmaker: '', odd: 0 },
 			{ name: 'highestDraw', bookmaker: '', odd: 0 },
 			{ name: 'highestAway', bookmaker: '', odd: 0 }
 		];
 
-		bookmakers.forEach((bookmaker) => {
+		bookmakers.forEach((bookmaker: Bookmaker) => {
 			const selectedBet = bookmaker.bets.find((bet: Bet) => bet.name === betType);
 			if (!selectedBet) return;
 
 			//? NEW
-			// if (twoParams.includes(betType)) {
-			// 	selectedBet.values?.forEach((item: BetsValue, index) => {
-			// 		if (Number(item.odd) > twoParamsStructure[index].odd) {
-			// 			twoParamsStructure[index].odd = Number(item.odd);
-			// 			twoParamsStructure[index].bookmaker = bookmaker.name;
-			// 		}
-			// 	});
-			// }
-			// if (threeParams.includes(betType)) {
-			// 	selectedBet.values?.forEach((item: BetsValue, index) => {
-			// 		if (Number(item.odd) > threeParamsStructure[index].odd) {
-			// 			threeParamsStructure[index].odd = Number(item.odd);
-			// 			threeParamsStructure[index].bookmaker = bookmaker.name;
-			// 		}
-			// 	});
-			// }
-			switch (betType) {
-				case BETS_TYPES.Vegeredmeny:
-					//? New matchWinner --> threeParamsStructure
-					selectedBet.values?.forEach((item: BetsValue, index) => {
-						if (Number(item.odd) > threeParamsStructure[index].odd) {
-							threeParamsStructure[index].odd = Number(item.odd);
-							threeParamsStructure[index].bookmaker = bookmaker.name;
-						}
-					});
-					break;
-				case BETS_TYPES.HazaiVagyVendeg:
-					//TODO:  values undefined hiba
-					//? New homeAway --> twoParamsStructure
-					selectedBet.values?.forEach((item: BetsValue, index) => {
-						if (Number(item.odd) > twoParamsStructure[index].odd) {
-							twoParamsStructure[index].odd = Number(item.odd);
-							twoParamsStructure[index].bookmaker = bookmaker.name;
-						}
-					});
-					break;
-				case BETS_TYPES.ElsoFelidoVegeredmeny:
-					selectedBet.values?.forEach((item: BetsValue, index) => {
-						if (Number(item.odd) > threeParamsStructure[index].odd) {
-							threeParamsStructure[index].odd = Number(item.odd);
-							threeParamsStructure[index].bookmaker = bookmaker.name;
-						}
-					});
-					break;
-				case BETS_TYPES.MasodikFelidoVegeredmeny:
-					selectedBet.values?.forEach((item: BetsValue, index) => {
-						if (Number(item.odd) > threeParamsStructure[index].odd) {
-							threeParamsStructure[index].odd = Number(item.odd);
-							threeParamsStructure[index].bookmaker = bookmaker.name;
-						}
-					});
-					break;
-				case BETS_TYPES.MindketCsapatGol:
-					selectedBet.values?.forEach((item: BetsValue, index) => {
-						if (Number(item.odd) > twoParamsStructure[index].odd) {
-							twoParamsStructure[index].odd = Number(item.odd);
-							twoParamsStructure[index].bookmaker = bookmaker.name;
-						}
-					});
-					break;
-				case BETS_TYPES.GolokSzama:
-					console.log('Gól több vagy kevesebb', selectedBet);
+			if (twoParams.includes(betType)) {
+				selectedBet.values?.forEach((item: BetsValue, index) => {
+					if (Number(item.odd) > twoParamsStructure[index].odd) {
+						twoParamsStructure[index].odd = Number(item.odd);
+						twoParamsStructure[index].bookmaker = bookmaker.name;
+					}
+				});
+				return;
 			}
+			if (threeParams.includes(betType)) {
+				selectedBet.values?.forEach((item: BetsValue, index) => {
+					if (Number(item.odd) > threeParamsStructure[index].odd) {
+						threeParamsStructure[index].odd = Number(item.odd);
+						threeParamsStructure[index].bookmaker = bookmaker.name;
+					}
+				});
+				return;
+			}
+			// switch (betType) {
+			// 	case BETS_TYPES.Vegeredmeny:
+			// 		//? New matchWinner --> threeParamsStructure
+			// 		selectedBet.values?.forEach((item: BetsValue, index) => {
+			// 			if (Number(item.odd) > threeParamsStructure[index].odd) {
+			// 				threeParamsStructure[index].odd = Number(item.odd);
+			// 				threeParamsStructure[index].bookmaker = bookmaker.name;
+			// 			}
+			// 		});
+			// 		break;
+			// 	case BETS_TYPES.HazaiVagyVendeg:
+			// 		//TODO:  values undefined hiba
+			// 		//? New homeAway --> twoParamsStructure
+			// 		selectedBet.values?.forEach((item: BetsValue, index) => {
+			// 			if (Number(item.odd) > twoParamsStructure[index].odd) {
+			// 				twoParamsStructure[index].odd = Number(item.odd);
+			// 				twoParamsStructure[index].bookmaker = bookmaker.name;
+			// 			}
+			// 		});
+			// 		break;
+			// 	case BETS_TYPES.ElsoFelidoVegeredmeny:
+			// 		selectedBet.values?.forEach((item: BetsValue, index) => {
+			// 			if (Number(item.odd) > threeParamsStructure[index].odd) {
+			// 				threeParamsStructure[index].odd = Number(item.odd);
+			// 				threeParamsStructure[index].bookmaker = bookmaker.name;
+			// 			}
+			// 		});
+			// 		break;
+			// 	case BETS_TYPES.MasodikFelidoVegeredmeny:
+			// 		selectedBet.values?.forEach((item: BetsValue, index) => {
+			// 			if (Number(item.odd) > threeParamsStructure[index].odd) {
+			// 				threeParamsStructure[index].odd = Number(item.odd);
+			// 				threeParamsStructure[index].bookmaker = bookmaker.name;
+			// 			}
+			// 		});
+			// 		break;
+			// 	case BETS_TYPES.MindketCsapatGol:
+			// 		selectedBet.values?.forEach((item: BetsValue, index) => {
+			// 			if (Number(item.odd) > twoParamsStructure[index].odd) {
+			// 				twoParamsStructure[index].odd = Number(item.odd);
+			// 				twoParamsStructure[index].bookmaker = bookmaker.name;
+			// 			}
+			// 		});
+			// 		break;
+			// 	case BETS_TYPES.GolokSzama:
+			// 		console.log('Gól több vagy kevesebb', selectedBet);
+			// }
 		});
 
-		switch (betType) {
-			case BETS_TYPES.Vegeredmeny:
-				threeParamsStructure.forEach((item) => {
-					result.arbitrage += 1 / Number(item.odd);
-				});
-				result.highestOdds = threeParamsStructure;
-				break;
-			case BETS_TYPES.HazaiVagyVendeg:
-				twoParamsStructure.forEach((item) => {
-					result.arbitrage += 1 / Number(item.odd);
-				});
-				result.highestOdds = twoParamsStructure;
-				break;
+		//? NEW
+		if (twoParams.includes(betType)) {
+			twoParamsStructure.forEach((item: IHighestOdds) => {
+				result.arbitrage += 1 / Number(item.odd);
+			});
+			result.highestOdds = twoParamsStructure;
 		}
-		result.name = betType;
+		if (threeParams.includes(betType)) {
+			threeParamsStructure.forEach((item: IHighestOdds) => {
+				result.arbitrage += 1 / Number(item.odd);
+			});
+			result.highestOdds = threeParamsStructure;
+		}
+
+		// switch (betType) {
+		// 	case BETS_TYPES.Vegeredmeny:
+		// 		threeParamsStructure.forEach((item) => {
+		// 			result.arbitrage += 1 / Number(item.odd);
+		// 		});
+		// 		result.highestOdds = threeParamsStructure;
+		// 		break;
+		// 	case BETS_TYPES.HazaiVagyVendeg:
+		// 		twoParamsStructure.forEach((item) => {
+		// 			result.arbitrage += 1 / Number(item.odd);
+		// 		});
+		// 		result.highestOdds = twoParamsStructure;
+		// 		break;
+		// }
+
 		result.arbitrage = result.arbitrage.toFixed(3) as any;
 
-		console.log(result);
+		console.log('result', result);
 
 		return result;
 	};

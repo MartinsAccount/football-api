@@ -1,6 +1,5 @@
 import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
-import { LEAGUES } from '../../core/constants/constants';
 import { MainStore } from '../../stores/MainStore';
 import styles from './ArbitragePage.module.scss';
 import ArbitrageSidebar from './components/ArbitrageSidebar/ArbitrageSidebar';
@@ -14,8 +13,8 @@ interface IArbitragePageProps {
 @observer
 class ArbitragePage extends Component<IArbitragePageProps> {
 	render() {
-		const { MainStore } = this.props;
-		const { ArbitrageStore } = this.props.MainStore;
+		// const { MainStore } = this.props;
+		// const { ArbitrageStore } = this.props.MainStore;
 
 		return (
 			<main className={styles.pageContainer}>

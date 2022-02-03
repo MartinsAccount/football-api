@@ -139,50 +139,50 @@ export interface OddsResponse {
 	update: string;
 }
 
-export interface OddsInfo {
-	sum: number;
-	favoriteWin: number;
-	unFavoriteWin: number;
-	smallOdd: {
-		home: {
-			sum: number;
-			win: number;
-			draw: number;
-			lose: number;
-		};
-		away: {
-			sum: number;
-			win: number;
-			draw: number;
-			lose: number;
-		};
-	};
-	midOdd: {
-		home: {
-			sum: number;
-			win: number;
-			draw: number;
-			lose: number;
-		};
-		away: {
-			sum: number;
-			win: number;
-			draw: number;
-			lose: number;
-		};
-	};
-	highOdd: {
-		home: {
-			sum: number;
-			win: number;
-			draw: number;
-			lose: number;
-		};
-		away: {
-			sum: number;
-			win: number;
-			draw: number;
-			lose: number;
-		};
-	};
-}
+// export interface OddsInfo {
+// 	sum: number;
+// 	favoriteWin: number;
+// 	unFavoriteWin: number;
+// 	smallOdd: {
+// 		home: {
+// 			sum: number;
+// 			win: number;
+// 			draw: number;
+// 			lose: number;
+// 		};
+// 		away: {
+// 			sum: number;
+// 			win: number;
+// 			draw: number;
+// 			lose: number;
+// 		};
+// 	};
+// 	midOdd: {
+// 		home: {
+// 			sum: number;
+// 			win: number;
+// 			draw: number;
+// 			lose: number;
+// 		};
+// 		away: {
+// 			sum: number;
+// 			win: number;
+// 			draw: number;
+// 			lose: number;
+// 		};
+// 	};
+// 	highOdd: {
+// 		home: {
+// 			sum: number;
+// 			win: number;
+// 			draw: number;
+// 			lose: number;
+// 		};
+// 		away: {
+// 			sum: number;
+// 			win: number;
+// 			draw: number;
+// 			lose: number;
+// 		};
+// 	};
+// }

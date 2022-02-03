@@ -21,7 +21,8 @@ export interface IArbitrage {
 	fixture: number;
 	country: string;
 	date: string;
-	analyzed: IAnalyzedElement[];
+	leagueName: string;
+	analyzed: IAnalyzedResult[];
 	matchWinner?: IAnalyzedResult;
 	homeAway?: IAnalyzedResult;
 }

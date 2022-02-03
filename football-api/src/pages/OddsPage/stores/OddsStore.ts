@@ -1,45 +1,10 @@
 import { action, computed, flow, observable, toJS } from 'mobx';
 import { LEAGUES } from '../../../core/constants/constants';
-import { Bet, BetsValue, Bookmaker, ILeagueOddsResponse, IOddsMapping, ISavedOdds } from '../models/models';
+import { Bet, BetsValue, ILeagueOddsResponse, IOddsMapping, ISavedOdds } from '../models/models';
 import OddsService from '../services/OddsService';
 import { MainStore } from '../../../stores/MainStore';
-import { BetsNames, Fixture, Fixtures, OddsInfo, OddsResponse } from '../../../core/models/models';
-import FixtureService from '../../FixturePage/services/FixtureService';
-
-// .response
-
-const inside = {
-	home: {
-		sum: 0,
-		win: 0,
-		draw: 0,
-		lose: 0
-	},
-	away: {
-		sum: 0,
-		win: 0,
-		draw: 0,
-		lose: 0
-	}
-};
-
-const ODDS_INFO = {
-	sum: 0,
-	favoriteWin: 0,
-	unFavoriteWin: 0,
-	smallOdd: { ...inside },
-	midOdd: { ...inside },
-	highOdd: { ...inside }
-};
-
-const DRAW_INFO = {
-	sum: 0,
-	drawWhenHomeFavorite: 0,
-	drawWhenAwayFavorite: 0,
-	drawWhenNoOneFavorite: 0, // 2+ odds mindkettőre
-	drawWithGoals: 0,
-	drawWithoutGoals: 0
-};
+import { Fixture, Fixtures, OddsResponse } from '../../../core/models/models';
+import { DRAW_INFO, ODDS_INFO } from '../constants/constants';
 
 export class OddsStore {
 	public MainStore: MainStore;
@@ -54,10 +19,8 @@ export class OddsStore {
 
 	@observable currentLeague: string;
 
-	@observable oddsInfos: OddsInfo;
-	@observable drawInfos;
-
-	@observable random;
+	@observable oddsInfos: typeof ODDS_INFO;
+	@observable drawInfos: typeof DRAW_INFO;
 
 	constructor(MainStore: MainStore) {
 		this.MainStore = MainStore;
@@ -125,12 +88,9 @@ export class OddsStore {
 	analyzeOddsInfos = flow(function* (this: OddsStore) {
 		const fixtureIds = yield this.getAllFixtureIds;
 
-		yield fixtureIds.forEach((fixture) => {
+		yield fixtureIds.forEach((fixture: number) => {
 			const oddsObj: ILeagueOddsResponse = this.getCurrentOdds.find((item: ILeagueOddsResponse) => item.fixture.id === fixture);
 			const fixtureObj: Fixture = this.currentFixtures.find((item: Fixture) => item.fixture.id === fixture);
-
-			// let betType: BetsNames = 'Match Winner';
-			// const selectedBet = oddsObj.bookmakers[0].find((bet: Bet) => bet.name === betType);
 
 			const bets: Bet[] = oddsObj.bookmakers[0]?.bets;
 			const mainOdds: BetsValue[] = bets[0].values; // "Match Winners"
@@ -186,7 +146,8 @@ export class OddsStore {
 	@action changeOddsInfos(favorite: 'home' | 'away', winFavorite: boolean, favoriteOdd: number, unFavoriteOdd?: number) {
 		const _oddsInfos = { ...this.oddsInfos };
 
-		let oddSize;
+		let oddSize: 'smallOdd' | 'midOdd' | 'highOdd';
+
 		if (favoriteOdd <= 1.5) oddSize = 'smallOdd';
 		if (favoriteOdd <= 1.9 && favoriteOdd > 1.5) oddSize = 'midOdd';
 		if (favoriteOdd > 1.9) oddSize = 'highOdd';
@@ -291,7 +252,6 @@ export class OddsStore {
 
 			console.log('odds', odds);
 
-			// this.MainStore.isLoading = false;
 			response = yield OddsService.saveOdds(odds, country); // TODO: Backendre átírni constansba a league ID-kat
 		}
 

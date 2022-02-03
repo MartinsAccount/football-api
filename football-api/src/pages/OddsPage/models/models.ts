@@ -50,7 +50,7 @@ export interface IOddsMappingResponse {
 		id: number; //? ez kell
 		season: number; //? lehet bármi nem biztos hogy === CURRENT SEASON-el
 	};
-	update: string; // date
+	update: Date; // date
 }
 export interface IOddsMapping {
 	paging: {

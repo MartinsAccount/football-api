@@ -12,19 +12,18 @@ interface IFootballCardProps {
 @inject('MainStore')
 @observer
 class FootballCard extends Component<IFootballCardProps> {
-	bookmakeString = (item: IAnalyzedElement) => {
-		const obj: IAnalyzedResult = Object.values(item)[0];
-		const highestOdds = obj.highestOdds || [];
+	bookmakerString = (item: IAnalyzedResult): string => {
+		// const obj: IAnalyzedResult = Object.values(item)[0];
+		const highestOdds = item.highestOdds || [];
 
 		let bookmakers = [];
 		let odds = [];
 
 		highestOdds?.forEach((it) => {
+			let bet = `${it.odd} (${it.name})`;
+
 			bookmakers.push(it.bookmaker);
-		});
-		highestOdds?.forEach((it) => {
-			let string = `${it.odd} (${it.name})`;
-			odds.push(string);
+			odds.push(bet);
 		});
 
 		const joined = `${bookmakers.join('/')} - ${odds.join('/')}`;
@@ -37,9 +36,9 @@ class FootballCard extends Component<IFootballCardProps> {
 
 		return (
 			<article className={styles.cardContainer}>
-				<div>{data.fixture}</div>
-				<div>{data.date}</div>
 				<div>{data.country}</div>
+				<div>{data.leagueName}</div>
+				<div>{data.date}</div>
 				<div className={styles.betTypes}>
 					<div>
 						<div>Match winner</div>
@@ -50,11 +49,12 @@ class FootballCard extends Component<IFootballCardProps> {
 						<div className={styles.arbitrageNumber}>{data?.analyzed[1]?.arbitrage}</div>
 					</div>
 				</div>
+
 				<article className={styles.cardModal}>
-					{data.analyzed.map((it) => (
+					{data.analyzed.map((it: IAnalyzedResult) => (
 						<div className={styles.modalItem}>
 							<div>{it?.name}</div>
-							<div>{this.bookmakeString(it)}</div>
+							<div>{this.bookmakerString(it)}</div>
 							<div>{it?.arbitrage}</div>
 						</div>
 					))}
