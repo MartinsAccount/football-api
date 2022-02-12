@@ -1,6 +1,6 @@
 import { LEAGUES } from '../../../core/constants/constants';
 import ApiURLs from '../../../services/ApiURLs';
-import FetchService from '../../../services/FetchService';
+import FetchService from '../../../services/FetchService3';
 
 type ILeagues = keyof typeof LEAGUES;
 

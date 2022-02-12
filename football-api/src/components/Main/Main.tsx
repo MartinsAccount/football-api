@@ -1,7 +1,7 @@
 import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
 import { MainStore } from '../../stores/MainStore';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 import styles from './Main.module.scss';
 import OddsPage from '../../pages/OddsPage/OddsPage';
 import FixturePage from '../../pages/FixturePage/FixturePage';
@@ -27,13 +27,19 @@ class Main extends Component<IMainProps> {
 					<nav className={styles.navbar}>
 						<ul>
 							<li>
-								<Link to="/odds">Odds műveletek</Link>
+								<NavLink activeStyle={{ backgroundColor: '#801414' }} to="/odds">
+									Odds műveletek
+								</NavLink>
 							</li>
 							<li>
-								<Link to="/fixtures">Meccs statisztikák</Link>
+								<NavLink activeStyle={{ backgroundColor: '#801414' }} to="/fixtures">
+									Meccs statisztikák
+								</NavLink>
 							</li>
 							<li>
-								<Link to="/arbitrage">Arbitrage</Link>
+								<NavLink activeStyle={{ backgroundColor: '#801414' }} to="/arbitrage">
+									Arbitrage
+								</NavLink>
 							</li>
 							<li style={{ marginLeft: 'auto', marginRight: '20px', color: '#fff' }}>
 								Kérések száma: {ArbitrageStore.fetchNumber}

@@ -3,14 +3,33 @@ $dark: #212529;
 $orange: #ff9e00;
 $white: rgb(238, 238, 238);
 $fontFamily: sans-serif;
+$navColor: #801414;
 
 $smallRadius: 4px;
 $midRadius: 8px;
+$largeRadius: 20px;
 
 @mixin centering {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+@mixin content {
+	position: relative;
+	top: 60px;
+	left: 300px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	padding: 30px;
+}
+@mixin sidebar {
+	position: fixed;
+	top: 60px;
+	left: 0;
+	z-index: 120;
+	background-color: #fff;
 }
 
 /* CSS */

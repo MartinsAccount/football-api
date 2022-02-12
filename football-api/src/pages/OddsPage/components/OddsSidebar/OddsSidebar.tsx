@@ -17,26 +17,28 @@ class OddsSidebar extends Component<IArbitrageButtonsProps> {
 		const { ArbitrageStore, OddsStore } = this.props.MainStore;
 
 		return (
-			<aside className={styles.buttonsContainer}>
-				<MyButton title="Angol odds-ok elemzése" onClick={() => OddsStore.changeCurrentOddsLeague('englandOdds')} />
-				<MyButton title="Német odds-ok elemzése" onClick={() => OddsStore.changeCurrentOddsLeague('germanyOdds')} />
-				<MyButton title="Spanyol odds-ok elemzése" onClick={() => OddsStore.changeCurrentOddsLeague('spainOdds')} />
-				<MyButton title="Francia odds-ok elemzése" onClick={() => OddsStore.changeCurrentOddsLeague('franceOdds')} />
-				<MyButton title="Olasz odds-ok elemzése" onClick={() => OddsStore.changeCurrentOddsLeague('italyOdds')} />
+			<aside className={styles.sidebar}>
+				<section className={styles.buttonsContainer}>
+					<MyButton title="Angol odds-ok elemzése" onClick={() => OddsStore.changeCurrentOddsLeague('englandOdds')} />
+					<MyButton title="Német odds-ok elemzése" onClick={() => OddsStore.changeCurrentOddsLeague('germanyOdds')} />
+					<MyButton title="Spanyol odds-ok elemzése" onClick={() => OddsStore.changeCurrentOddsLeague('spainOdds')} />
+					<MyButton title="Francia odds-ok elemzése" onClick={() => OddsStore.changeCurrentOddsLeague('franceOdds')} />
+					<MyButton title="Olasz odds-ok elemzése" onClick={() => OddsStore.changeCurrentOddsLeague('italyOdds')} />
 
-				<div className={styles.marginTop}>
-					<MyButton title="Összes mentett odds lekérése" onClick={() => OddsStore.getSavedOdds()} type="primary" />
-				</div>
+					<div className={styles.marginTop}>
+						<MyButton title="Összes mentett odds lekérése" onClick={() => OddsStore.getSavedOdds()} type="primary" />
+					</div>
 
-				<MyButton title="Angol odds-ok mentése" onClick={() => OddsStore.saveOdds('england')} />
-				<MyButton title="Német odds-ok mentése" onClick={() => OddsStore.saveOdds('germany')} />
-				<MyButton title="Spanyol odds-ok mentése" onClick={() => OddsStore.saveOdds('spain')} />
-				<MyButton title="Francia odds-ok mentése" onClick={() => OddsStore.saveOdds('france')} />
-				<MyButton title="Olasz odds-ok mentésen" onClick={() => OddsStore.saveOdds('italy')} />
+					<MyButton title="Angol odds-ok mentése" onClick={() => OddsStore.saveOdds('england')} />
+					<MyButton title="Német odds-ok mentése" onClick={() => OddsStore.saveOdds('germany')} />
+					<MyButton title="Spanyol odds-ok mentése" onClick={() => OddsStore.saveOdds('spain')} />
+					<MyButton title="Francia odds-ok mentése" onClick={() => OddsStore.saveOdds('france')} />
+					<MyButton title="Olasz odds-ok mentésen" onClick={() => OddsStore.saveOdds('italy')} />
 
-				<div className={styles.marginTop}>
-					<MyButton title="Összes odds mentése" onClick={() => OddsStore.saveOdds('all')} type="primary" />
-				</div>
+					<div className={styles.marginTop}>
+						<MyButton title="Összes odds mentése" onClick={() => OddsStore.saveOdds('all')} type="primary" />
+					</div>
+				</section>
 			</aside>
 		);
 	}

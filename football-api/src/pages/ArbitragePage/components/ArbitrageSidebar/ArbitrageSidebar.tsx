@@ -1,7 +1,6 @@
 import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
 import MyButton from '../../../../components/MyButton/MyButton';
-import { LEAGUES } from '../../../../core/constants/constants';
 import { MainStore } from '../../../../stores/MainStore';
 import styles from './ArbitrageSidebar.module.scss';
 
@@ -17,19 +16,17 @@ class ArbitrageSidebar extends Component<IArbitrageButtonsProps> {
 		const { ArbitrageStore } = this.props.MainStore;
 
 		return (
-			<aside className={styles.buttonsContainer}>
-				{/* <MyButton title="Angol bajnokság" onClick={() => ArbitrageStore.getHighestOdds(LEAGUES.ENGLAND)} />
-				<MyButton title="Német bajnokság" onClick={() => ArbitrageStore.getHighestOdds(LEAGUES.GERMANY)} />
-				<MyButton title="Spanyol bajnokság" onClick={() => ArbitrageStore.getHighestOdds(LEAGUES.SPAIN)} />
-				<MyButton title="Francia bajnokság" onClick={() => ArbitrageStore.getHighestOdds(LEAGUES.FRANCE)} />
-				<MyButton title="Olasz bajnokság" onClick={() => ArbitrageStore.getHighestOdds(LEAGUES.ITALY)} /> */}
-				{/* <MyButton title="Async Teszt" onClick={() => ArbitrageStore.AwaitSetTimemout()} /> */}
-
-				<div className={styles.marginTop}>
-					{/* <MyButton title="Arbitrage elemzés" onClick={() => ArbitrageStore.getHighestOdds()} type="primary" /> */}
+			<aside className={styles.sidebar}>
+				<section className={styles.buttonsContainer}>
 					<MyButton title="Arbitrage elemzés" onClick={() => ArbitrageStore.selectAllLeaguesId()} type="primary" />
-					<MyButton title="Teszt lekérések" onClick={() => ArbitrageStore.testFetch()} type="primary" />
-				</div>
+					{/* <MyButton title="Teszt lekérések" onClick={() => ArbitrageStore.testFetch()} type="primary" /> */}
+					<MyButton
+						active={ArbitrageStore.filtering === 'goodArbitrage'}
+						title="1 alatti arbitrage"
+						onClick={() => ArbitrageStore.setFilter('goodArbitrage')}
+					/>
+					<MyButton active={!ArbitrageStore.filtering} title="Összes kártya" onClick={() => ArbitrageStore.setFilter(null)} />
+				</section>
 			</aside>
 		);
 	}

@@ -5,18 +5,23 @@ interface IMyButtonProps {
 	title: string;
 	type: 'default' | 'primary';
 	onClick: () => void;
+	active: boolean;
 }
 
 export default class MyButton extends Component<IMyButtonProps> {
 	static defaultProps = {
-		type: 'default'
+		type: 'default',
+		active: false
 	};
 
 	render() {
-		const { title, type, onClick } = this.props;
+		const { title, type, onClick, active } = this.props;
 
 		return (
-			<button className={type === 'primary' ? styles.primaryButton : styles.defaultButton} onClick={onClick}>
+			<button
+				className={`${type === 'primary' ? styles.primaryButton : styles.defaultButton} ${active && styles.active}`}
+				onClick={onClick}
+			>
 				{title}
 			</button>
 		);

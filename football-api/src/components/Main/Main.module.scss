@@ -9,7 +9,13 @@
 
 .navbar {
 	background-color: rgb(37, 35, 35);
-	box-shadow: 0 8px 16px rgba($color: #222121, $alpha: 0.2);
+	box-shadow: 0 8px 16px rgba($color: #fbfafa, $alpha: 0.2);
+	position: fixed;
+	height: 60px;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
 
 	ul {
 		display: flex;
@@ -17,7 +23,8 @@
 		list-style-type: none;
 
 		li {
-			padding: 20px 0;
+			text-align: center;
+			@include centering;
 		}
 	}
 
@@ -25,9 +32,15 @@
 		text-decoration: none;
 		color: $fontColor;
 		padding: 20px;
+		height: 60px;
+		display: inline-block;
 
 		&:hover {
-			background-color: rgb(92, 38, 38);
+			background-color: $navColor;
 		}
 	}
+}
+
+.active {
+	background-color: $navColor;
 }

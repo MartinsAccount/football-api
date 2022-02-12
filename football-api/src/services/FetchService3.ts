@@ -1,16 +1,12 @@
-// import { API_KEY, API_KEY_GINA, API_KEY3 } from '../core/constants/constants';
-import { MainStore } from '../stores/MainStore';
+import { API_KEY } from '../core/constants/constants';
 
 type ISports = 'football' | 'baseball' | 'basketball';
 
-export class FetchService2 {
-	/* private myHeaders = new Headers(); */
-	public requestNumber = 0;
+class FetchService {
+	// private myHeaders = new Headers();
 
-	public MainStore: MainStore;
-
-	constructor(MainStore: MainStore) {
-		this.MainStore = MainStore;
+	constructor() {
+		// this.myHeaders.append('x-rapidapi-key', API_KEY);
 	}
 
 	public async get(url: string, sport: ISports = 'football') {
@@ -19,17 +15,11 @@ export class FetchService2 {
 		const API_KEY = '91b0609029c3b070f6c0de0c6e7c8950';
 		const API_KEY_GINA = '4aa4db2cf2cad515253c1a2b0fc662a3';
 
-		this.MainStore.ArbitrageStore.increaseFetchNumber();
-
 		if (sport === 'football') myHeaders.append('x-rapidapi-host', 'v3.football.api-sports.io');
 		if (sport === 'basketball') myHeaders.append('x-rapidapi-host', 'v1.basketball.api-sports.io');
 		if (sport === 'baseball') myHeaders.append('x-rapidapi-host', 'v1.baseball.api-sports.io');
 
-		if (this.MainStore.ArbitrageStore.fetchNumber < 3) {
-			myHeaders.append('x-rapidapi-key', API_KEY);
-		} else {
-			myHeaders.append('x-rapidapi-key', API_KEY_GINA);
-		}
+		myHeaders.append('x-rapidapi-key', API_KEY);
 
 		const requestOptions: RequestInit = {
 			method: 'GET',
@@ -40,8 +30,6 @@ export class FetchService2 {
 		let result = null;
 
 		result = await fetch(url, requestOptions);
-		this.requestNumber += 1;
-		console.log('result', result);
 
 		if (result.ok) return result.json();
 		throw result;
@@ -70,3 +58,5 @@ export class FetchService2 {
 		}
 	}
 }
+
+export default new FetchService();

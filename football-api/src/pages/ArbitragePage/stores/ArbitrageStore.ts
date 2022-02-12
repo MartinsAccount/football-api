@@ -7,6 +7,8 @@ import { MainStore } from '../../../stores/MainStore';
 import ArbitrageService from '../services/ArbitrageService';
 import ApiURLs from '../../../services/ApiURLs';
 
+type IFilters = 'goodArbitrage';
+
 export class ArbitrageStore {
 	public MainStore: MainStore;
 
@@ -19,7 +21,7 @@ export class ArbitrageStore {
 	@observable totalPage: number = null;
 
 	@observable selectedItem: IAnalyzedResult = null;
-	@observable filtering: string = null;
+	@observable filtering: IFilters = null;
 
 	@observable allLeaguesId: Array<number> = [];
 	@observable hasAllId: boolean = false;
@@ -38,7 +40,7 @@ export class ArbitrageStore {
 		for (let index = 0; index < ids.length; index++) {
 			console.log('oldFetchNumber', this.fetchNumber);
 
-			const resp = yield this.MainStore.FetchService2.get(ApiURLs.FOOTBALL.GET_LEAGUE_ODDS(ids[index]));
+			const resp = yield this.MainStore.FetchService.get(ApiURLs.FOOTBALL.GET_LEAGUE_ODDS(ids[index]));
 
 			console.log('response', resp);
 			console.log('newFetchNumber', this.fetchNumber);
@@ -60,7 +62,7 @@ export class ArbitrageStore {
 
 		// const mapping: IOddsMapping = yield ArbitrageService.GetAvailableFixtures(nextPage);
 		//? NEW FETCH
-		const mapping: IOddsMapping = yield this.MainStore.FetchService2.get(ApiURLs.FOOTBALL.AVAILABLE_FIXTURES_FOR_ODDS(nextPage));
+		const mapping: IOddsMapping = yield this.MainStore.FetchService.get(ApiURLs.FOOTBALL.AVAILABLE_FIXTURES_FOR_ODDS(nextPage));
 		console.log('mapping_ellenőrzéshez', mapping);
 		const mappingResponse: IOddsMappingResponse[] = mapping.response;
 		//! fetch
@@ -92,7 +94,7 @@ export class ArbitrageStore {
 		// }
 
 		// console.log('ellenőrzéshez_from mapping all mappingresponse:', toJS(mappingResponse));
-		// console.log('ellenőrzéshez_from mapping all leagues id-s:', toJS(this.allLeaguesId));
+		console.log('ellenőrzéshez_from mapping all leagues id-s:', toJS(this.allLeaguesId));
 
 		// TODO: Éles:
 		yield this.helperAllLeaguesId();
@@ -158,7 +160,7 @@ export class ArbitrageStore {
 
 			// const { response } = yield ArbitrageService.GetLeagueOdds(leagueId);
 			//? NEW FETCH
-			const { response } = yield this.MainStore.FetchService2.get(ApiURLs.FOOTBALL.GET_LEAGUE_ODDS(leagueId));
+			const { response } = yield this.MainStore.FetchService.get(ApiURLs.FOOTBALL.GET_LEAGUE_ODDS(leagueId));
 			//! fetch
 			// this.fetchNumber += 1;
 			console.log('new fetch', response);
@@ -360,7 +362,7 @@ export class ArbitrageStore {
 		return result;
 	};
 
-	@action setFilter(filter: string) {
+	@action setFilter(filter: IFilters) {
 		this.filtering = filter;
 	}
 

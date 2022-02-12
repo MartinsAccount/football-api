@@ -2,7 +2,6 @@ import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
 import { MainStore } from '../../../../stores/MainStore';
 import { IArbitrage } from '../../models/models';
-import FootballCard from '../FootballCard/FootballCard';
 import Modal from '../Modal/Modal';
 import RowItem from '../RowItem/RowItem';
 import styles from './ArbitrageContent.module.scss';
@@ -20,18 +19,10 @@ class ArbitrageContent extends Component<IArbitrageContentProps> {
 
 		return (
 			<section className={styles.contentContainer}>
-				<div className={styles.filterButtons}>
-					<div onClick={() => ArbitrageStore.setFilter('goodArbitrage')}>1 alatti arbitrage</div>
-					<div onClick={() => ArbitrageStore.setFilter('')}>Összes kártya</div>
-				</div>
-				{/* 	{ArbitrageStore.getArbitrages.map((data: IArbitrage, index: number) => (
-					<FootballCard key={data.fixture} data={data} />
-				))}
- */}
 				<div className={styles.tableContainer}>
 					<table className={styles.table}>
 						{ArbitrageStore.getArbitrages.map((data: IArbitrage, index: number) => (
-							<RowItem key={data.fixture} data={data} index={index} />
+							<RowItem key={index} data={data} index={index} />
 						))}
 					</table>
 				</div>
