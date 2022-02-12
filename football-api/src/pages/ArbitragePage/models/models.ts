@@ -20,3 +20,5 @@ export interface IArbitrage {
 	leagueName: string;
 	analyzed: IAnalyzedResult[];
 }
+
+export type IFilters = 'goodArbitrage';

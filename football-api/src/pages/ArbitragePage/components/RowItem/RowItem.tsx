@@ -45,7 +45,9 @@ class RowItem extends Component<IRowItemProps> {
 						<th className={styles.cell}>Date</th>
 
 						{data.analyzed.map((item: IAnalyzedResult) => (
-							<th className={styles.cell}>{item.name}</th>
+							<th key={`${item.name}${index}`} className={styles.cell}>
+								{item.name}
+							</th>
 						))}
 					</tr>
 				</thead>
@@ -61,6 +63,7 @@ class RowItem extends Component<IRowItemProps> {
 
 				{data.analyzed.map((item: IAnalyzedResult) => (
 					<td
+						key={`${item.name}${index}`}
 						onClick={() => ArbitrageStore.setSelectedItem(item)}
 						className={`${styles.clickableCell} ${item.arbitrage < 1 && styles.arbitrageNumber}`}
 					>

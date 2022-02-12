@@ -1,16 +1,30 @@
 import { action, computed, flow, observable, toJS } from 'mobx';
 import { BETS_TYPES } from '../../../core/constants/constants';
 import { Bet, BetsValue, Bookmaker } from '../../../core/models/models';
-import { IAnalyzedResult, IArbitrage, IHighestOdds } from '../models/models';
+import { IAnalyzedResult, IArbitrage, IFilters, IHighestOdds } from '../models/models';
 import { ILeagueOddsResponse, IOddsMapping, IOddsMappingResponse } from '../../OddsPage/models/models';
 import { MainStore } from '../../../stores/MainStore';
-import ArbitrageService from '../services/ArbitrageService';
 import ApiURLs from '../../../services/ApiURLs';
-
-type IFilters = 'goodArbitrage';
 
 export class ArbitrageStore {
 	public MainStore: MainStore;
+
+	private CALCULATE_ARBITRAGE: BETS_TYPES[] = [
+		BETS_TYPES.Vegeredmeny,
+		BETS_TYPES.HazaiVagyVendeg,
+		BETS_TYPES.ElsoFelidoVegeredmeny,
+		BETS_TYPES.MasodikFelidoVegeredmeny,
+		BETS_TYPES.MindketCsapatGol,
+		BETS_TYPES.ElsoFelidoMindketCsapatGol,
+		BETS_TYPES.MasodikFelidoMindketCsapatGol,
+		BETS_TYPES.HazaiMindketFelidoGyozelem,
+		BETS_TYPES.VendegMindketFelidoGyozelem
+	];
+	private CALCULATE_GOAL_NUMBER_ARBITRAGE: BETS_TYPES[] = [
+		BETS_TYPES.GolokSzama,
+		BETS_TYPES.HazaiGolokSzama,
+		BETS_TYPES.VendegGolokSzama
+	];
 
 	@observable fetchNumber: number = 0;
 
@@ -29,10 +43,22 @@ export class ArbitrageStore {
 	constructor(MainStore: MainStore) {
 		this.MainStore = MainStore;
 
-		this.Arbitrages = require('../../../data/testArbitrages2.json');
+		// this.Arbitrages = require('../../../data/testArbitrages2.json');
 	}
 	// Init = flow(function* (this: ArbitrageStore) {
 	// });
+
+	@action setSelectedItem(item: IAnalyzedResult = null) {
+		this.selectedItem = item;
+	}
+
+	@action increaseFetchNumber() {
+		this.fetchNumber += 1;
+	}
+
+	@action setFilter(filter: IFilters) {
+		this.filtering = filter;
+	}
 
 	testFetch = flow(function* (this: ArbitrageStore) {
 		const ids = [39, 78, 61, 140];
@@ -47,26 +73,13 @@ export class ArbitrageStore {
 		}
 	});
 
-	@action setSelectedItem(item: IAnalyzedResult = null) {
-		this.selectedItem = item;
-	}
-
-	@action increaseFetchNumber() {
-		this.fetchNumber += 1;
-	}
-
 	// Összes különöböző league id-t összegyűjti az elérhető meccsek alapján
 	selectAllLeaguesId = flow(function* (this: ArbitrageStore, nextPage: number = 1) {
 		this.MainStore.isLoading = true;
 		this.MainStore.loadingText = `League ID-k összegyűjtése => ${nextPage}/${this?.totalPage} oldal`;
 
-		// const mapping: IOddsMapping = yield ArbitrageService.GetAvailableFixtures(nextPage);
-		//? NEW FETCH
 		const mapping: IOddsMapping = yield this.MainStore.FetchService.get(ApiURLs.FOOTBALL.AVAILABLE_FIXTURES_FOR_ODDS(nextPage));
-		console.log('mapping_ellenőrzéshez', mapping);
 		const mappingResponse: IOddsMappingResponse[] = mapping.response;
-		//! fetch
-		// this.fetchNumber += 1;
 
 		const dateNow = Date.parse(new Date().toDateString()); // 1643842800000
 
@@ -88,16 +101,16 @@ export class ArbitrageStore {
 
 		this.nextPage = mapping.paging.current + 1;
 
-		//! Ez csak teszt szám
+		// Ez csak teszt szám
 		// if (this.nextPage <= 2) {
 		// 	yield this.selectAllLeaguesId(this.nextPage);
 		// }
 
-		// console.log('ellenőrzéshez_from mapping all mappingresponse:', toJS(mappingResponse));
+		console.log('ellenőrzéshez_from mapping all mappingresponse:', toJS(mappingResponse));
 		console.log('ellenőrzéshez_from mapping all leagues id-s:', toJS(this.allLeaguesId));
 
-		// TODO: Éles:
 		yield this.helperAllLeaguesId();
+		// teszt
 		// yield this.helperHighestOdds();
 
 		return;
@@ -110,7 +123,7 @@ export class ArbitrageStore {
 		}
 		if (this.nextPage < this.totalPage && this.fetchNumber % 10 === 0) {
 			this.MainStore.loadingText = '60 másodperc szünet';
-			yield this.timeoutAllLeaguesId(62000); // 62 sec
+			yield this.timeoutAllLeaguesId(61000); // 61 sec
 			return;
 		}
 		if (this.nextPage === this.totalPage) {
@@ -127,11 +140,10 @@ export class ArbitrageStore {
 	}
 
 	helperHighestOdds = flow(function* (this: ArbitrageStore) {
-		console.log('FOLYAMAT KEZDETE! /getHighestOdds/');
+		console.log('FOLYAMAT KEZDETE! -------------/getHighestOdds/-----------');
 
 		let leaguesIds = [...this.allLeaguesId];
 		let loopLength = Math.round(this.allLeaguesId.length / 9) + 1;
-		console.log('All leagues ID', leaguesIds);
 
 		//TODO: Le kell tesztelni - mehet 10-ig és 60 sec-el?
 		for (let i = 0; i < loopLength; i++) {
@@ -140,7 +152,6 @@ export class ArbitrageStore {
 
 			let limitedArr = leaguesIds.slice(i * 9, (i + 1) * 9);
 
-			// yield this.getHighestOdds(limitedArr); // TODO
 			if (limitedArr.length > 0) yield this.timeoutHighestOdds(61000, limitedArr); // 62 sec
 		}
 	});
@@ -149,21 +160,15 @@ export class ArbitrageStore {
 		return new Promise((resolve) => setTimeout(() => resolve(this.getHighestOdds(arr)), ms));
 	}
 
-	//TODO: Minden fogadóirodánál megkeresni a legnagyobb oddsot (H, D, V) esetekre
+	// Minden fogadóirodánál megkeresi a legnagyobb oddsot (H, D, V) esetekre
 	getHighestOdds = flow(function* (this: ArbitrageStore, leagueIds: Array<number>) {
-		// const bookmakers = yield ArbitrageService.GetHighestOdds();
 		for (let index = 0; index < leagueIds.length; index++) {
 			const dateNow = Date.parse(new Date().toDateString());
 
 			const leagueId = leagueIds[index];
-			console.log('ellenőrzéshez_éles all league id', leagueIds, 'ellenőrzéshez_éles current league id', leagueId);
+			console.log('ellenőrzéshez_éles current league id', leagueId);
 
-			// const { response } = yield ArbitrageService.GetLeagueOdds(leagueId);
-			//? NEW FETCH
 			const { response } = yield this.MainStore.FetchService.get(ApiURLs.FOOTBALL.GET_LEAGUE_ODDS(leagueId));
-			//! fetch
-			// this.fetchNumber += 1;
-			console.log('new fetch', response);
 
 			const leaguesOdds: ILeagueOddsResponse[] = response;
 			console.log('ellenőrzéshez_leaguesOdds:', leaguesOdds);
@@ -184,31 +189,14 @@ export class ArbitrageStore {
 				// console.log('bookmakersArray', bookmakersArray);
 				const bookmakersArray: Bookmaker[] = leaguesOdds[index]?.bookmakers || [];
 
-				//? New:
-				const CALCULATE_ARBITRAGE: BETS_TYPES[] = [
-					BETS_TYPES.Vegeredmeny,
-					BETS_TYPES.HazaiVagyVendeg,
-					BETS_TYPES.ElsoFelidoVegeredmeny,
-					BETS_TYPES.MasodikFelidoVegeredmeny,
-					BETS_TYPES.MindketCsapatGol,
-					BETS_TYPES.ElsoFelidoMindketCsapatGol,
-					BETS_TYPES.MasodikFelidoMindketCsapatGol,
-					BETS_TYPES.HazaiMindketFelidoGyozelem,
-					BETS_TYPES.VendegMindketFelidoGyozelem
-				];
-				const CALCULATE_GOAL_NUMBER_ARBITRAGE: BETS_TYPES[] = [
-					BETS_TYPES.GolokSzama,
-					BETS_TYPES.HazaiGolokSzama,
-					BETS_TYPES.VendegGolokSzama
-				];
 				const CALCULATED_ARBITRAGE: IAnalyzedResult[] = [];
 
-				for (let bet of CALCULATE_ARBITRAGE) {
+				for (let bet of this.CALCULATE_ARBITRAGE) {
 					const result = yield this.analyzeBookmaker(bookmakersArray, bet);
 
 					CALCULATED_ARBITRAGE.push(result);
 				}
-				for (let bet of CALCULATE_GOAL_NUMBER_ARBITRAGE) {
+				for (let bet of this.CALCULATE_GOAL_NUMBER_ARBITRAGE) {
 					const goals = [2.5, 3.5];
 
 					for (let goal of goals) {
@@ -217,28 +205,20 @@ export class ArbitrageStore {
 						CALCULATED_ARBITRAGE.push(result);
 					}
 				}
-				//? New:
-
-				// const MATCH_WINNER_ARBITRAGE = yield this.analyzeBookmaker(bookmakersArray, BETS_TYPES.Vegeredmeny);
-				// const HOME_AWAY_ARBITRAGE = yield this.analyzeBookmaker(bookmakersArray, BETS_TYPES.HazaiVagyVendeg);
 
 				let arbitrageObj: IArbitrage = {
 					fixture: currentFixture,
 					date: currentFixtureDate,
 					country: currentLeagueCountry,
 					leagueName: currentLeagueName,
-					// analyzed: [MATCH_WINNER_ARBITRAGE, HOME_AWAY_ARBITRAGE]
 					analyzed: [...CALCULATED_ARBITRAGE] //? New
 				};
 
 				this.Arbitrages.push(arbitrageObj);
+				this.MainStore.isLoading = false;
 
 				console.log('----------Arbitrage number----------', toJS(this.Arbitrages));
-				console.log(
-					`
-			FINISHED 
-			`
-				);
+				console.log('FINISHED--FINISHED--FINISHED---FINISHED---FINISHED---FINISHED---FINISHED---FINISHED---FINISHED---FINISHED');
 			}
 		}
 	});
@@ -361,10 +341,6 @@ export class ArbitrageStore {
 
 		return result;
 	};
-
-	@action setFilter(filter: IFilters) {
-		this.filtering = filter;
-	}
 
 	@computed get getArbitrages() {
 		if (this.filtering === 'goodArbitrage') {

@@ -26,8 +26,8 @@ class Modal extends Component<IModalProps> {
 							<th className={styles.cell}>Name</th>
 							<th className={styles.cell}>Odd</th>
 						</tr>
-						{ArbitrageStore.selectedItem.highestOdds.map((item: IHighestOdds) => (
-							<tr>
+						{ArbitrageStore.selectedItem.highestOdds.map((item: IHighestOdds, index: number) => (
+							<tr key={index}>
 								<td className={styles.cell}>{item?.bookmaker}</td>
 								<td className={styles.cell}>{item?.name}</td>
 								<td className={styles.cell}>{item?.odd}</td>

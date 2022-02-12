@@ -21,13 +21,13 @@ export class FetchService {
 		if (sport === 'basketball') myHeaders.append('x-rapidapi-host', 'v1.basketball.api-sports.io');
 		if (sport === 'baseball') myHeaders.append('x-rapidapi-host', 'v1.baseball.api-sports.io');
 
-		if (this.MainStore.ArbitrageStore.fetchNumber < 70) {
+		if (this.MainStore.ArbitrageStore.fetchNumber < 90) {
 			myHeaders.append('x-rapidapi-key', API_KEY);
 		} else {
 			myHeaders.append('x-rapidapi-key', API_KEY_GINA);
 		}
 
-		if (this.MainStore.ArbitrageStore.fetchNumber === 150) this.MainStore.isLoading = false;
+		if (this.MainStore.ArbitrageStore.fetchNumber === 180) this.MainStore.isLoading = false;
 
 		const requestOptions: RequestInit = {
 			method: 'GET',
@@ -38,8 +38,6 @@ export class FetchService {
 		let result = null;
 
 		result = await fetch(url, requestOptions);
-
-		console.log('result', result);
 
 		if (result.ok) return result.json();
 		throw result;
