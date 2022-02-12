@@ -28,6 +28,7 @@ class ArbitrageSidebar extends Component<IArbitrageButtonsProps> {
 				<div className={styles.marginTop}>
 					{/* <MyButton title="Arbitrage elemzés" onClick={() => ArbitrageStore.getHighestOdds()} type="primary" /> */}
 					<MyButton title="Arbitrage elemzés" onClick={() => ArbitrageStore.selectAllLeaguesId()} type="primary" />
+					<MyButton title="Teszt lekérések" onClick={() => ArbitrageStore.testFetch()} type="primary" />
 				</div>
 			</aside>
 		);

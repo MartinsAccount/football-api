@@ -14,6 +14,8 @@
 	align-items: center;
 
 	&:hover {
+		opacity: 0.9;
+
 		.cardModal {
 			display: flex;
 		}
@@ -44,7 +46,9 @@
 	flex-direction: column;
 	align-items: center;
 	position: absolute;
-	background-color: red;
+	background-color: rgb(150, 45, 45);
+	width: 600px;
+	z-index: 999;
 	padding: 12px;
 	border-radius: $smallRadius;
 	top: -100%;
@@ -56,5 +60,11 @@
 		flex-direction: row;
 		align-items: center;
 		gap: 12px;
+		margin: 10px;
+		border: 1px solid rgb(129, 129, 129);
+
+		.arbitrageNumber {
+			font-weight: 900;
+		}
 	}
 }

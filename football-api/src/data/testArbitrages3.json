@@ -1,0 +1,526 @@
+[
+	{
+		"fixture": 707368,
+		"date": "2022-02-13T15:45:00+00:00",
+		"country": "Netherlands",
+		"leagueName": "Eredivisie",
+		"analyzed": [
+			{
+				"highestOdds": [
+					{ "name": "Home", "bookmaker": "William Hill", "odd": 1.22 },
+					{ "name": "Draw", "bookmaker": "Tipico", "odd": 8 },
+					{ "name": "Away", "bookmaker": "Pinnacle", "odd": 18.86 }
+				],
+				"arbitrage": 0.998,
+				"name": "Match Winner"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Home", "bookmaker": "William Hill", "odd": 1.07 },
+					{ "name": "Away", "bookmaker": "Unibet", "odd": 15 }
+				],
+				"arbitrage": 1.001,
+				"name": "Home/Away"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Home", "bookmaker": "William Hill", "odd": 1.62 },
+					{ "name": "Draw", "bookmaker": "Pinnacle", "odd": 3.17 },
+					{ "name": "Away", "bookmaker": "Pinnacle", "odd": 12.02 }
+				],
+				"arbitrage": 1.016,
+				"name": "First Half Winner"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Home", "bookmaker": "William Hill", "odd": 1.5 },
+					{ "name": "Draw", "bookmaker": "Marathonbet", "odd": 3.8 },
+					{ "name": "Away", "bookmaker": "Marathonbet", "odd": 11.5 }
+				],
+				"arbitrage": 1.017,
+				"name": "Second Half Winner"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Yes", "bookmaker": "Pinnacle", "odd": 2.4 },
+					{ "name": "No", "bookmaker": "William Hill", "odd": 1.8 }
+				],
+				"arbitrage": 0.972,
+				"name": "Both Teams Score"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Yes", "bookmaker": "Pinnacle", "odd": 5.8 },
+					{ "name": "No", "bookmaker": "William Hill", "odd": 1.2 }
+				],
+				"arbitrage": 1.006,
+				"name": "Both Teams Score - First Half"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Yes", "bookmaker": "Unibet", "odd": 4.35 },
+					{ "name": "No", "bookmaker": "William Hill", "odd": 1.29 }
+				],
+				"arbitrage": 1.005,
+				"name": "Both Teams To Score - Second Half"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Yes", "bookmaker": "William Hill", "odd": 2.62 },
+					{ "name": "No", "bookmaker": "NordicBet", "odd": 1.65 }
+				],
+				"arbitrage": 0.988,
+				"name": "Home win both halves"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Yes", "bookmaker": "Unibet", "odd": 81 },
+					{ "name": "highestAway", "bookmaker": "", "odd": 0 }
+				],
+				"arbitrage": null,
+				"name": "Away win both halves"
+			},
+			{
+				"highestOdds": [
+					{ "bookmaker": "Dafabet", "odd": null },
+					{ "bookmaker": "Dafabet", "odd": null }
+				],
+				"arbitrage": null,
+				"name": "Goals Over/Under"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Over 3.5", "bookmaker": "Dafabet", "odd": 2.42 },
+					{ "name": "Under 3.5", "bookmaker": "Dafabet", "odd": 1.6 }
+				],
+				"arbitrage": 1.038,
+				"name": "Goals Over/Under"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Over 2.5", "bookmaker": "888Sport", "odd": 1.82 },
+					{ "name": "Under 2.5", "bookmaker": "888Sport", "odd": 1.94 }
+				],
+				"arbitrage": 1.065,
+				"name": "Total - Home"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Over 3.5", "bookmaker": "888Sport", "odd": 3.2 },
+					{ "name": "Under 3.5", "bookmaker": "888Sport", "odd": 1.33 }
+				],
+				"arbitrage": 1.064,
+				"name": "Total - Home"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Over 2.5", "bookmaker": "888Sport", "odd": 23 },
+					{ "name": "Under 2.5", "bookmaker": "888Sport", "odd": 1.01 }
+				],
+				"arbitrage": 1.034,
+				"name": "Total - Away"
+			},
+			{
+				"highestOdds": [
+					{ "bookmaker": "888Sport", "odd": null },
+					{ "bookmaker": "888Sport", "odd": null }
+				],
+				"arbitrage": null,
+				"name": "Total - Away"
+			}
+		]
+	},
+	{
+		"fixture": 709080,
+		"date": "2022-02-12T14:00:00+00:00",
+		"country": "Czech-Republic",
+		"leagueName": "Czech Liga",
+		"analyzed": [
+			{
+				"highestOdds": [
+					{ "name": "Home", "bookmaker": "SBO", "odd": 2.15 },
+					{ "name": "Draw", "bookmaker": "Marathonbet", "odd": 3.6 },
+					{ "name": "Away", "bookmaker": "Pinnacle", "odd": 3.72 }
+				],
+				"arbitrage": 1.012,
+				"name": "Match Winner"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Home", "bookmaker": "Betway", "odd": 1.55 },
+					{ "name": "Away", "bookmaker": "Pinnacle", "odd": 2.7 }
+				],
+				"arbitrage": 1.016,
+				"name": "Home/Away"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Home", "bookmaker": "William Hill", "odd": 2.8 },
+					{ "name": "Draw", "bookmaker": "Pinnacle", "odd": 2.29 },
+					{ "name": "Away", "bookmaker": "Pinnacle", "odd": 4.2 }
+				],
+				"arbitrage": 1.032,
+				"name": "First Half Winner"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Home", "bookmaker": "William Hill", "odd": 2.6 },
+					{ "name": "Draw", "bookmaker": "Marathonbet", "odd": 2.59 },
+					{ "name": "Away", "bookmaker": "1xBet", "odd": 3.72 }
+				],
+				"arbitrage": 1.04,
+				"name": "Second Half Winner"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Yes", "bookmaker": "William Hill", "odd": 1.8 },
+					{ "name": "No", "bookmaker": "Pinnacle", "odd": 2.18 }
+				],
+				"arbitrage": 1.014,
+				"name": "Both Teams Score"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Yes", "bookmaker": "Bet365", "odd": 4.5 },
+					{ "name": "No", "bookmaker": "Marathonbet", "odd": 1.22 }
+				],
+				"arbitrage": 1.042,
+				"name": "Both Teams Score - First Half"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Yes", "bookmaker": "Bet365", "odd": 3.25 },
+					{ "name": "No", "bookmaker": "Marathonbet", "odd": 1.34 }
+				],
+				"arbitrage": 1.054,
+				"name": "Both Teams To Score - Second Half"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Yes", "bookmaker": "William Hill", "odd": 6.5 },
+					{ "name": "No", "bookmaker": "Marathonbet", "odd": 1.12 }
+				],
+				"arbitrage": 1.047,
+				"name": "Home win both halves"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Yes", "bookmaker": "Marathonbet", "odd": 15 },
+					{ "name": "No", "bookmaker": "William Hill", "odd": 1.04 }
+				],
+				"arbitrage": 1.028,
+				"name": "Away win both halves"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Over 2.5", "bookmaker": "Dafabet", "odd": 2 },
+					{ "name": "Under 2.5", "bookmaker": "Dafabet", "odd": 1.88 }
+				],
+				"arbitrage": 1.032,
+				"name": "Goals Over/Under"
+			},
+			{
+				"highestOdds": [
+					{ "bookmaker": "Dafabet", "odd": null },
+					{ "bookmaker": "Dafabet", "odd": null }
+				],
+				"arbitrage": null,
+				"name": "Goals Over/Under"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Over 2.5", "bookmaker": "888Sport", "odd": 4.6 },
+					{ "name": "Under 2.5", "bookmaker": "888Sport", "odd": 1.17 }
+				],
+				"arbitrage": 1.072,
+				"name": "Total - Home"
+			},
+			{
+				"highestOdds": [
+					{ "bookmaker": "888Sport", "odd": null },
+					{ "bookmaker": "888Sport", "odd": null }
+				],
+				"arbitrage": null,
+				"name": "Total - Home"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Over 2.5", "bookmaker": "888Sport", "odd": 8 },
+					{ "name": "Under 2.5", "bookmaker": "888Sport", "odd": 1.07 }
+				],
+				"arbitrage": 1.06,
+				"name": "Total - Away"
+			},
+			{
+				"highestOdds": [
+					{ "bookmaker": "888Sport", "odd": null },
+					{ "bookmaker": "888Sport", "odd": null }
+				],
+				"arbitrage": null,
+				"name": "Total - Away"
+			}
+		]
+	},
+	{
+		"fixture": 709079,
+		"date": "2022-02-13T17:00:00+00:00",
+		"country": "Czech-Republic",
+		"leagueName": "Czech Liga",
+		"analyzed": [
+			{
+				"highestOdds": [
+					{ "name": "Home", "bookmaker": "SBO", "odd": 2.04 },
+					{ "name": "Draw", "bookmaker": "Pinnacle", "odd": 3.96 },
+					{ "name": "Away", "bookmaker": "Unibet", "odd": 3.7 }
+				],
+				"arbitrage": 1.013,
+				"name": "Match Winner"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Home", "bookmaker": "William Hill", "odd": 1.5 },
+					{ "name": "Away", "bookmaker": "Unibet", "odd": 2.75 }
+				],
+				"arbitrage": 1.03,
+				"name": "Home/Away"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Home", "bookmaker": "William Hill", "odd": 2.6 },
+					{ "name": "Draw", "bookmaker": "Pinnacle", "odd": 2.39 },
+					{ "name": "Away", "bookmaker": "Pinnacle", "odd": 4.29 }
+				],
+				"arbitrage": 1.036,
+				"name": "First Half Winner"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Home", "bookmaker": "1xBet", "odd": 2.3 },
+					{ "name": "Draw", "bookmaker": "Marathonbet", "odd": 2.67 },
+					{ "name": "Away", "bookmaker": "Unibet", "odd": 3.85 }
+				],
+				"arbitrage": 1.069,
+				"name": "Second Half Winner"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Yes", "bookmaker": "Bwin", "odd": 1.68 },
+					{ "name": "No", "bookmaker": "Marathonbet", "odd": 2.21 }
+				],
+				"arbitrage": 1.048,
+				"name": "Both Teams Score"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Yes", "bookmaker": "Unibet", "odd": 4.3 },
+					{ "name": "No", "bookmaker": "Marathonbet", "odd": 1.24 }
+				],
+				"arbitrage": 1.039,
+				"name": "Both Teams Score - First Half"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Yes", "bookmaker": "Bwin", "odd": 3.1 },
+					{ "name": "No", "bookmaker": "Marathonbet", "odd": 1.38 }
+				],
+				"arbitrage": 1.047,
+				"name": "Both Teams To Score - Second Half"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Yes", "bookmaker": "Unibet", "odd": 5.8 },
+					{ "name": "No", "bookmaker": "Marathonbet", "odd": 1.13 }
+				],
+				"arbitrage": 1.057,
+				"name": "Home win both halves"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Yes", "bookmaker": "Marathonbet", "odd": 15.25 },
+					{ "name": "No", "bookmaker": "William Hill", "odd": 1.03 }
+				],
+				"arbitrage": 1.036,
+				"name": "Away win both halves"
+			},
+			{
+				"highestOdds": [
+					{ "bookmaker": "Dafabet", "odd": null },
+					{ "bookmaker": "Dafabet", "odd": null }
+				],
+				"arbitrage": null,
+				"name": "Goals Over/Under"
+			},
+			{
+				"highestOdds": [
+					{ "bookmaker": "Dafabet", "odd": null },
+					{ "bookmaker": "Dafabet", "odd": null }
+				],
+				"arbitrage": null,
+				"name": "Goals Over/Under"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Over 2.5", "bookmaker": "888Sport", "odd": 3.95 },
+					{ "name": "Under 2.5", "bookmaker": "888Sport", "odd": 1.22 }
+				],
+				"arbitrage": 1.073,
+				"name": "Total - Home"
+			},
+			{
+				"highestOdds": [
+					{ "bookmaker": "888Sport", "odd": null },
+					{ "bookmaker": "888Sport", "odd": null }
+				],
+				"arbitrage": null,
+				"name": "Total - Home"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Over 2.5", "bookmaker": "888Sport", "odd": 8 },
+					{ "name": "Under 2.5", "bookmaker": "888Sport", "odd": 1.07 }
+				],
+				"arbitrage": 1.06,
+				"name": "Total - Away"
+			},
+			{
+				"highestOdds": [
+					{ "bookmaker": "888Sport", "odd": null },
+					{ "bookmaker": "888Sport", "odd": null }
+				],
+				"arbitrage": null,
+				"name": "Total - Away"
+			}
+		]
+	},
+	{
+		"fixture": 709290,
+		"date": "2022-02-11T16:00:00+00:00",
+		"country": "Slovakia",
+		"leagueName": "Super Liga",
+		"analyzed": [
+			{
+				"highestOdds": [
+					{ "name": "Home", "bookmaker": "1xBet", "odd": 2.02 },
+					{ "name": "Draw", "bookmaker": "Marathonbet", "odd": 3.52 },
+					{ "name": "Away", "bookmaker": "Pinnacle", "odd": 3.58 }
+				],
+				"arbitrage": 1.058,
+				"name": "Match Winner"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Home", "bookmaker": "Bet365", "odd": 1.5 },
+					{ "name": "Away", "bookmaker": "10Bet", "odd": 2.65 }
+				],
+				"arbitrage": 1.044,
+				"name": "Home/Away"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Home", "bookmaker": "Pinnacle", "odd": 2.65 },
+					{ "name": "Draw", "bookmaker": "Pinnacle", "odd": 2.2 },
+					{ "name": "Away", "bookmaker": "1xBet", "odd": 4.22 }
+				],
+				"arbitrage": 1.069,
+				"name": "First Half Winner"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Home", "bookmaker": "1xBet", "odd": 2.38 },
+					{ "name": "Draw", "bookmaker": "Marathonbet", "odd": 2.51 },
+					{ "name": "Away", "bookmaker": "1xBet", "odd": 3.74 }
+				],
+				"arbitrage": 1.086,
+				"name": "Second Half Winner"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Yes", "bookmaker": "Bwin", "odd": 1.82 },
+					{ "name": "No", "bookmaker": "NordicBet", "odd": 2 }
+				],
+				"arbitrage": 1.049,
+				"name": "Both Teams Score"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Yes", "bookmaker": "Bet365", "odd": 5 },
+					{ "name": "No", "bookmaker": "Marathonbet", "odd": 1.19 }
+				],
+				"arbitrage": 1.04,
+				"name": "Both Teams Score - First Half"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Yes", "bookmaker": "Bwin", "odd": 3.4 },
+					{ "name": "No", "bookmaker": "Marathonbet", "odd": 1.31 }
+				],
+				"arbitrage": 1.057,
+				"name": "Both Teams To Score - Second Half"
+			},
+			{
+				"highestOdds": [
+					{ "name": "highestHome", "bookmaker": "", "odd": 0 },
+					{ "name": "highestAway", "bookmaker": "", "odd": 0 }
+				],
+				"arbitrage": null,
+				"name": "Home win both halves"
+			},
+			{
+				"highestOdds": [
+					{ "name": "highestHome", "bookmaker": "", "odd": 0 },
+					{ "name": "highestAway", "bookmaker": "", "odd": 0 }
+				],
+				"arbitrage": null,
+				"name": "Away win both halves"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Over 2.5", "bookmaker": "888Sport", "odd": 1.89 },
+					{ "name": "Under 2.5", "bookmaker": "888Sport", "odd": 1.83 }
+				],
+				"arbitrage": 1.076,
+				"name": "Goals Over/Under"
+			},
+			{
+				"highestOdds": [
+					{ "name": "Over 3.5", "bookmaker": "888Sport", "odd": 3.35 },
+					{ "name": "Under 3.5", "bookmaker": "888Sport", "odd": 1.28 }
+				],
+				"arbitrage": 1.08,
+				"name": "Goals Over/Under"
+			},
+			{
+				"highestOdds": [
+					{ "bookmaker": "888Sport", "odd": null },
+					{ "bookmaker": "888Sport", "odd": null }
+				],
+				"arbitrage": null,
+				"name": "Total - Home"
+			},
+			{
+				"highestOdds": [
+					{ "bookmaker": "888Sport", "odd": null },
+					{ "bookmaker": "888Sport", "odd": null }
+				],
+				"arbitrage": null,
+				"name": "Total - Home"
+			},
+			{
+				"highestOdds": [
+					{ "bookmaker": "888Sport", "odd": null },
+					{ "bookmaker": "888Sport", "odd": null }
+				],
+				"arbitrage": null,
+				"name": "Total - Away"
+			},
+			{
+				"highestOdds": [
+					{ "bookmaker": "888Sport", "odd": null },
+					{ "bookmaker": "888Sport", "odd": null }
+				],
+				"arbitrage": null,
+				"name": "Total - Away"
+			}
+		]
+	}
+]

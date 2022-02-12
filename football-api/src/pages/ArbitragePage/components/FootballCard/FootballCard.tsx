@@ -1,7 +1,7 @@
 import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
 import { MainStore } from '../../../../stores/MainStore';
-import { IAnalyzedElement, IAnalyzedResult, IArbitrage, IHighestOdds } from '../../models/models';
+import { IAnalyzedResult, IArbitrage, IHighestOdds } from '../../models/models';
 import styles from './FootballCard.module.scss';
 
 interface IFootballCardProps {
@@ -19,8 +19,8 @@ class FootballCard extends Component<IFootballCardProps> {
 		let bookmakers = [];
 		let odds = [];
 
-		highestOdds?.forEach((it) => {
-			let bet = `${it.odd} (${it.name})`;
+		highestOdds?.forEach((it: IHighestOdds) => {
+			let bet = `${it.odd} - (${it.name})`;
 
 			bookmakers.push(it.bookmaker);
 			odds.push(bet);
@@ -55,7 +55,7 @@ class FootballCard extends Component<IFootballCardProps> {
 						<div className={styles.modalItem}>
 							<div>{it?.name}</div>
 							<div>{this.bookmakerString(it)}</div>
-							<div>{it?.arbitrage}</div>
+							<div className={styles.arbitrageNumber}>{it?.arbitrage}</div>
 						</div>
 					))}
 				</article>

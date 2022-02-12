@@ -10,10 +10,6 @@ export interface IAnalyzedResult {
 	arbitrage: number;
 	// betType: BetsNames
 }
-export interface IAnalyzedElement {
-	// betType: BetsNames;
-	[key: string]: IAnalyzedResult;
-}
 
 export interface IArbitrage {
 	homeTeam?: string;
@@ -23,6 +19,4 @@ export interface IArbitrage {
 	date: string;
 	leagueName: string;
 	analyzed: IAnalyzedResult[];
-	matchWinner?: IAnalyzedResult;
-	homeAway?: IAnalyzedResult;
 }
