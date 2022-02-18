@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { MainStore } from '../../../../stores/MainStore';
 import { IAnalyzedResult, IArbitrage, IHighestOdds } from '../../models/models';
 import styles from './RowItem.module.scss';
+import { v4 as uuidv4 } from 'uuid';
 
 interface IRowItemProps {
 	MainStore?: MainStore;
@@ -45,7 +46,7 @@ class RowItem extends Component<IRowItemProps> {
 						<th className={styles.cell}>Date</th>
 
 						{data.analyzed.map((item: IAnalyzedResult) => (
-							<th key={`${item.name}${index}`} className={styles.cell}>
+							<th key={uuidv4()} className={styles.cell}>
 								{item.name}
 							</th>
 						))}
@@ -63,11 +64,11 @@ class RowItem extends Component<IRowItemProps> {
 
 				{data.analyzed.map((item: IAnalyzedResult) => (
 					<td
-						key={`${item.name}${index}`}
+						key={uuidv4()}
 						onClick={() => ArbitrageStore.setSelectedItem(item)}
-						className={`${styles.clickableCell} ${item.arbitrage < 1 && styles.arbitrageNumber}`}
+						className={`${styles.clickableCell} ${item.arbitrage < 1 && item.arbitrage !== null && styles.arbitrageNumber}`}
 					>
-						{item.arbitrage}
+						{!item.arbitrage ? '-' : item.arbitrage}
 					</td>
 				))}
 			</tr>

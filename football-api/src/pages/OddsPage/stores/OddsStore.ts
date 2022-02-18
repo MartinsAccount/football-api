@@ -5,6 +5,7 @@ import OddsService from '../services/OddsService';
 import { MainStore } from '../../../stores/MainStore';
 import { Fixture, Fixtures, OddsResponse } from '../../../core/models/models';
 import { DRAW_INFO, ODDS_INFO } from '../constants/constants';
+import ApiURLs from '../../../services/ApiURLs';
 
 export class OddsStore {
 	public MainStore: MainStore;
@@ -203,33 +204,43 @@ export class OddsStore {
 		// TODO: Backenden kezelni a kéréseket
 		if (country === 'all') {
 			this.MainStore.loadingText = 'Angol meccsek mentése...';
-			odds = yield OddsService.GetUnibetOdds(LEAGUES.ENGLAND);
+			// odds = yield OddsService.GetUnibetOdds(LEAGUES.ENGLAND);
+			odds = yield this.MainStore.FetchService.get(ApiURLs.FOOTBALL.GET_UNIBET_ODDS(LEAGUES.ENGLAND));
 			if (odds.response.length < 1) return console.log('Nincs item');
-			let englands = yield OddsService.saveOdds(odds, 'england');
+			// let englands = yield OddsService.saveOdds(odds, 'england');
+			let englands = yield this.MainStore.FetchService.post(ApiURLs.BACKEND.SAVE_ODDS('england'), odds);
 			console.log(englands);
 
 			this.MainStore.loadingText = 'Olasz meccsek mentése..';
-			odds = yield OddsService.GetUnibetOdds(LEAGUES.ITALY);
+			// odds = yield OddsService.GetUnibetOdds(LEAGUES.ITALY);
+			odds = yield this.MainStore.FetchService.get(ApiURLs.FOOTBALL.GET_UNIBET_ODDS(LEAGUES.ITALY));
 			if (odds.response.length < 1) return console.log('Nincs item');
-			let italies = yield OddsService.saveOdds(odds, 'italy');
+			// let italies = yield OddsService.saveOdds(odds, 'italy');
+			let italies = yield this.MainStore.FetchService.post(ApiURLs.BACKEND.SAVE_ODDS('italy'), odds);
 			console.log(italies);
 
 			this.MainStore.loadingText = 'Francia meccsek mentése..';
-			odds = yield OddsService.GetUnibetOdds(LEAGUES.FRANCE);
+			// odds = yield OddsService.GetUnibetOdds(LEAGUES.FRANCE);
+			odds = yield this.MainStore.FetchService.get(ApiURLs.FOOTBALL.GET_UNIBET_ODDS(LEAGUES.FRANCE));
 			if (odds.response.length < 1) return console.log('Nincs item');
-			let frances = yield OddsService.saveOdds(odds, 'france');
+			// let frances = yield OddsService.saveOdds(odds, 'france');
+			let frances = yield this.MainStore.FetchService.post(ApiURLs.BACKEND.SAVE_ODDS('france'), odds);
 			console.log(frances);
 
 			this.MainStore.loadingText = 'Spanyol meccsek mentése..';
-			odds = yield OddsService.GetUnibetOdds(LEAGUES.SPAIN);
+			// odds = yield OddsService.GetUnibetOdds(LEAGUES.SPAIN);
+			odds = yield this.MainStore.FetchService.get(ApiURLs.FOOTBALL.GET_UNIBET_ODDS(LEAGUES.SPAIN));
 			if (odds.response.length < 1) return console.log('Nincs item');
-			let spains = yield OddsService.saveOdds(odds, 'spain');
+			// let spains = yield OddsService.saveOdds(odds, 'spain');
+			let spains = yield this.MainStore.FetchService.post(ApiURLs.BACKEND.SAVE_ODDS('spain'), odds);
 			console.log(spains);
 
 			this.MainStore.loadingText = 'Német meccsek mentése..';
-			odds = yield OddsService.GetUnibetOdds(LEAGUES.GERMANY);
+			// odds = yield OddsService.GetUnibetOdds(LEAGUES.GERMANY);
+			odds = yield this.MainStore.FetchService.get(ApiURLs.FOOTBALL.GET_UNIBET_ODDS(LEAGUES.GERMANY));
 			if (odds.response.length < 1) return console.log('Nincs item');
-			let germanys = yield OddsService.saveOdds(odds, 'germany');
+			// let germanys = yield OddsService.saveOdds(odds, 'germany');
+			let germanys = yield this.MainStore.FetchService.post(ApiURLs.BACKEND.SAVE_ODDS('germany'), odds);
 			console.log(germanys);
 		} else {
 			switch (country) {

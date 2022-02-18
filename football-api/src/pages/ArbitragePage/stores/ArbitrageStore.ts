@@ -26,8 +26,6 @@ export class ArbitrageStore {
 		BETS_TYPES.VendegGolokSzama
 	];
 
-	@observable fetchNumber: number = 0;
-
 	//* Legfontosabb, (egy meccs kártya az object)
 	@observable Arbitrages: IArbitrage[] = [];
 
@@ -43,17 +41,13 @@ export class ArbitrageStore {
 	constructor(MainStore: MainStore) {
 		this.MainStore = MainStore;
 
-		// this.Arbitrages = require('../../../data/testArbitrages2.json');
+		this.Arbitrages = require('../../../data/testArbitrages3.json');
 	}
 	// Init = flow(function* (this: ArbitrageStore) {
 	// });
 
 	@action setSelectedItem(item: IAnalyzedResult = null) {
 		this.selectedItem = item;
-	}
-
-	@action increaseFetchNumber() {
-		this.fetchNumber += 1;
 	}
 
 	@action setFilter(filter: IFilters) {
@@ -64,12 +58,12 @@ export class ArbitrageStore {
 		const ids = [39, 78, 61, 140];
 
 		for (let index = 0; index < ids.length; index++) {
-			console.log('oldFetchNumber', this.fetchNumber);
+			// console.log('oldFetchNumber', this.fetchNumber);
 
 			const resp = yield this.MainStore.FetchService.get(ApiURLs.FOOTBALL.GET_LEAGUE_ODDS(ids[index]));
 
 			console.log('response', resp);
-			console.log('newFetchNumber', this.fetchNumber);
+			// console.log('newFetchNumber', this.fetchNumber);
 		}
 	});
 
@@ -117,11 +111,11 @@ export class ArbitrageStore {
 	});
 
 	helperAllLeaguesId = flow(function* (this: ArbitrageStore) {
-		if (this.nextPage < this.totalPage && this.fetchNumber % 10 !== 0) {
+		if (this.nextPage < this.totalPage && this.MainStore.fetchNumber % 10 !== 0) {
 			yield this.selectAllLeaguesId(this.nextPage);
 			return;
 		}
-		if (this.nextPage < this.totalPage && this.fetchNumber % 10 === 0) {
+		if (this.nextPage < this.totalPage && this.MainStore.fetchNumber % 10 === 0) {
 			this.MainStore.loadingText = '60 másodperc szünet';
 			yield this.timeoutAllLeaguesId(61000); // 61 sec
 			return;
@@ -193,6 +187,10 @@ export class ArbitrageStore {
 
 				for (let bet of this.CALCULATE_ARBITRAGE) {
 					const result = yield this.analyzeBookmaker(bookmakersArray, bet);
+
+					if (this.MainStore.fetchNumber > 180 && this.MainStore.fetchNumber < 200) {
+						console.log('ARBITRAGES STRINGIFY', JSON.stringify(this.Arbitrages));
+					}
 
 					CALCULATED_ARBITRAGE.push(result);
 				}
@@ -344,7 +342,7 @@ export class ArbitrageStore {
 
 	@computed get getArbitrages() {
 		if (this.filtering === 'goodArbitrage') {
-			return this.Arbitrages.filter((it) => it.analyzed.some((item) => Number(item.arbitrage) < 1));
+			return this.Arbitrages.filter((it) => it.analyzed.some((item) => Number(item.arbitrage) < 1 && item.arbitrage !== null));
 		}
 		return this.Arbitrages;
 	}

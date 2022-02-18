@@ -12,7 +12,7 @@ interface IArbitrageButtonsProps {
 @observer
 class ArbitrageSidebar extends Component<IArbitrageButtonsProps> {
 	render() {
-		const { MainStore } = this.props;
+		// const { MainStore } = this.props;
 		const { ArbitrageStore } = this.props.MainStore;
 
 		return (

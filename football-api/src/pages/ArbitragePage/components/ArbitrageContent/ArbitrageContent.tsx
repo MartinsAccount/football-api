@@ -5,6 +5,7 @@ import { IArbitrage } from '../../models/models';
 import Modal from '../Modal/Modal';
 import RowItem from '../RowItem/RowItem';
 import styles from './ArbitrageContent.module.scss';
+import { v4 as uuidv4 } from 'uuid';
 
 interface IArbitrageContentProps {
 	MainStore?: MainStore;
@@ -22,7 +23,7 @@ class ArbitrageContent extends Component<IArbitrageContentProps> {
 				<div className={styles.tableContainer}>
 					<table className={styles.table}>
 						{ArbitrageStore.getArbitrages.map((data: IArbitrage, index: number) => (
-							<RowItem key={index} data={data} index={index} />
+							<RowItem key={uuidv4()} data={data} index={index} />
 						))}
 					</table>
 				</div>

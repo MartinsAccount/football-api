@@ -41,9 +41,7 @@ class Main extends Component<IMainProps> {
 									Arbitrage
 								</NavLink>
 							</li>
-							<li style={{ marginLeft: 'auto', marginRight: '20px', color: '#fff' }}>
-								Kérések száma: {ArbitrageStore.fetchNumber}
-							</li>
+							<li style={{ marginLeft: 'auto', marginRight: '20px', color: '#fff' }}>Kérések száma: {MainStore.fetchNumber}</li>
 						</ul>
 					</nav>
 

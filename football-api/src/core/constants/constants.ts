@@ -1,5 +1,3 @@
-import { IBetsTypes } from '../models/models';
-
 export const API_KEY = '91b0609029c3b070f6c0de0c6e7c8950';
 export const API_KEY_GINA = '4aa4db2cf2cad515253c1a2b0fc662a3';
 export const API_KEY3 = ''; // TODO
@@ -7,6 +5,30 @@ export const API_KEY3 = ''; // TODO
 
 export const CURRENT_SEASON = 2021;
 export const UNIBET = 16;
+
+// TODO: TOP bookmakerek kiválasztása ahol a legnagyobbak az oddsok
+const BOOKMAKERS = [
+	'Bwin',
+	'NordicBet',
+	'10Bet',
+	'William Hill',
+	'Bet365',
+	'Marathonbet',
+	'Unibet',
+	'Betsson',
+	'188Bet',
+	'Pinnacle',
+	'SBO',
+	'Netbet',
+	'1xBet',
+	'Sportingbet',
+	'ComeOn',
+	'Betway',
+	'Tipico',
+	'Betcris',
+	'888Sport',
+	'Dafabet'
+];
 
 export enum LEAGUES {
 	ENGLAND = 39,

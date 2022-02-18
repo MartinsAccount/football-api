@@ -1,5 +1,4 @@
-import { flow, observable } from 'mobx';
-import DataService from '../services/DataService';
+import { action, flow, observable } from 'mobx';
 import { ArbitrageStore } from '../pages/ArbitragePage/stores/ArbitrageStore';
 import { FixtureStore } from '../pages/FixturePage/stores/FixtureStore';
 import { OddsStore } from '../pages/OddsPage/stores/OddsStore';
@@ -15,15 +14,17 @@ export class MainStore {
 	@observable public isLoading: boolean = false;
 	@observable public loadingText: string = 'Loading...';
 
+	@observable fetchNumber: number = 0;
+
 	@observable public Sport: string;
 
 	constructor() {
 		this.Sport = 'football';
+		this.FetchService = new FetchService(this);
 
 		this.OddsStore = new OddsStore(this);
 		this.ArbitrageStore = new ArbitrageStore(this);
 		this.FixtureStore = new FixtureStore(this);
-		this.FetchService = new FetchService(this);
 
 		this.Init();
 	}
@@ -37,4 +38,8 @@ export class MainStore {
 			console.log('error', e);
 		}
 	});
+
+	@action increaseFetchNumber() {
+		this.fetchNumber += 1;
+	}
 }

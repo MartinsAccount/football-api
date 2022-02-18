@@ -5,11 +5,12 @@
 }
 
 .tableContainer {
-	width: 100% !important;
+	width: calc(100% - 300px) !important;
 	overflow-x: auto;
 
 	.table {
 		border: 1px solid #888;
 		border-collapse: collapse;
+		position: relative;
 	}
 }
