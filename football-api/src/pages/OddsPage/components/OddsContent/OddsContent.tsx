@@ -19,6 +19,8 @@ class OddsContent extends Component<IArbitrageContentProps> {
 
 		return (
 			<section className={styles.contentContainer}>
+				<h1 className={styles.header}>{OddsStore.currentLeague}</h1>
+
 				<div className={styles.tableContainer}>
 					<table className={styles.table}>
 						<thead>
