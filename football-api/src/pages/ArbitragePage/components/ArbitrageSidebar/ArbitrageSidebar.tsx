@@ -25,7 +25,16 @@ class ArbitrageSidebar extends Component<IArbitrageButtonsProps> {
 						title="1 alatti arbitrage"
 						onClick={() => ArbitrageStore.setFilter('goodArbitrage')}
 					/>
-					<MyButton active={!ArbitrageStore.filtering} title="Összes kártya" onClick={() => ArbitrageStore.setFilter(null)} />
+					<MyButton
+						// active={!ArbitrageStore.filtering}
+						title={`Legjobb fogadóirodák`}
+						onClick={() => console.log('top bookmakers', ArbitrageStore.topBookmakers)}
+					/>
+					<MyButton
+						active={!ArbitrageStore.filtering}
+						title={`Összes (${ArbitrageStore.Arbitrages.length})`}
+						onClick={() => ArbitrageStore.setFilter(null)}
+					/>
 				</section>
 			</aside>
 		);

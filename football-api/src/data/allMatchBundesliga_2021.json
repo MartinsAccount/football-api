@@ -2744,7 +2744,7 @@
 				"date": "2021-10-16T13:30:00+00:00",
 				"timestamp": 1634391000,
 				"periods": { "first": 1634391000, "second": 1634394600 },
-				"venue": { "id": null, "name": "Europa-Park-Stadion", "city": "Freiburg im Breisgau" },
+				"venue": { "id": 12717, "name": "Europa-Park Stadion", "city": "Freiburg im Breisgau" },
 				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
@@ -3291,9 +3291,9 @@
 				"timezone": "UTC",
 				"date": "2021-10-30T16:30:00+00:00",
 				"timestamp": 1635611400,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1635611400, "second": 1635615000 },
 				"venue": { "id": 10491, "name": "Deutsche Bank Park", "city": "Frankfurt am Main" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -3313,10 +3313,10 @@
 				},
 				"away": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": null }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 1 },
+				"fulltime": { "home": 1, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -3408,13 +3408,13 @@
 		{
 			"fixture": {
 				"id": 719434,
-				"referee": null,
+				"referee": "Tobias Reichel, Germany",
 				"timezone": "UTC",
 				"date": "2021-10-31T16:30:00+00:00",
 				"timestamp": 1635697800,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1635697800, "second": 1635701400 },
 				"venue": { "id": 703, "name": "Stadion im BORUSSIA-PARK", "city": "Mönchengladbach" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -3430,14 +3430,14 @@
 					"id": 163,
 					"name": "Borussia Monchengladbach",
 					"logo": "https://media.api-sports.io/football/teams/163.png",
-					"winner": null
+					"winner": true
 				},
-				"away": { "id": 176, "name": "VfL BOCHUM", "logo": "https://media.api-sports.io/football/teams/176.png", "winner": null }
+				"away": { "id": 176, "name": "VfL BOCHUM", "logo": "https://media.api-sports.io/football/teams/176.png", "winner": false }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 2, "away": 0 },
+				"fulltime": { "home": 2, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -3450,7 +3450,7 @@
 				"date": "2021-10-30T13:30:00+00:00",
 				"timestamp": 1635600600,
 				"periods": { "first": 1635600600, "second": 1635604200 },
-				"venue": { "id": null, "name": "Europa-Park-Stadion", "city": "Freiburg im Breisgau" },
+				"venue": { "id": 12717, "name": "Europa-Park Stadion", "city": "Freiburg im Breisgau" },
 				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
@@ -3529,13 +3529,13 @@
 		{
 			"fixture": {
 				"id": 719437,
-				"referee": null,
+				"referee": "Patrick Ittrich, Germany",
 				"timezone": "UTC",
 				"date": "2021-10-31T14:30:00+00:00",
 				"timestamp": 1635690600,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1635690600, "second": 1635694200 },
 				"venue": { "id": 698, "name": "WWK Arena", "city": "Augsburg" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -3551,19 +3551,19 @@
 					"id": 170,
 					"name": "FC Augsburg",
 					"logo": "https://media.api-sports.io/football/teams/170.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 172,
 					"name": "VfB Stuttgart",
 					"logo": "https://media.api-sports.io/football/teams/172.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 4, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 1 },
+				"fulltime": { "home": 4, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -3613,13 +3613,13 @@
 		{
 			"fixture": {
 				"id": 719439,
-				"referee": null,
+				"referee": "Sascha Stegemann, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-06T14:30:00+00:00",
 				"timestamp": 1636209000,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1636209000, "second": 1636212600 },
 				"venue": { "id": 700, "name": "Allianz Arena", "city": "München" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -3635,14 +3635,19 @@
 					"id": 157,
 					"name": "Bayern Munich",
 					"logo": "https://media.api-sports.io/football/teams/157.png",
-					"winner": null
+					"winner": true
 				},
-				"away": { "id": 160, "name": "SC Freiburg", "logo": "https://media.api-sports.io/football/teams/160.png", "winner": null }
+				"away": {
+					"id": 160,
+					"name": "SC Freiburg",
+					"logo": "https://media.api-sports.io/football/teams/160.png",
+					"winner": false
+				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 2, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -3650,13 +3655,13 @@
 		{
 			"fixture": {
 				"id": 719440,
-				"referee": null,
+				"referee": "Felix Zwayer, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-06T17:30:00+00:00",
 				"timestamp": 1636219800,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1636219800, "second": 1636223400 },
 				"venue": { "id": 738, "name": "Red Bull Arena", "city": "Leipzig" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -3668,18 +3673,18 @@
 				"round": "Regular Season - 11"
 			},
 			"teams": {
-				"home": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": null },
+				"home": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": true },
 				"away": {
 					"id": 165,
 					"name": "Borussia Dortmund",
 					"logo": "https://media.api-sports.io/football/teams/165.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 2, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -3687,13 +3692,13 @@
 		{
 			"fixture": {
 				"id": 719441,
-				"referee": null,
+				"referee": "Marco Fritz, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-06T14:30:00+00:00",
 				"timestamp": 1636209000,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1636209000, "second": 1636212600 },
 				"venue": { "id": 752, "name": "VOLKSWAGEN ARENA", "city": "Wolfsburg" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -3709,14 +3714,19 @@
 					"id": 161,
 					"name": "VfL Wolfsburg",
 					"logo": "https://media.api-sports.io/football/teams/161.png",
-					"winner": null
+					"winner": true
 				},
-				"away": { "id": 170, "name": "FC Augsburg", "logo": "https://media.api-sports.io/football/teams/170.png", "winner": null }
+				"away": {
+					"id": 170,
+					"name": "FC Augsburg",
+					"logo": "https://media.api-sports.io/football/teams/170.png",
+					"winner": false
+				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 1, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -3724,13 +3734,13 @@
 		{
 			"fixture": {
 				"id": 719442,
-				"referee": null,
+				"referee": "Christian Dingert, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-06T14:30:00+00:00",
 				"timestamp": 1636209000,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1636209000, "second": 1636212600 },
 				"venue": { "id": 750, "name": "Mercedes-Benz-Arena", "city": "Stuttgart" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -3746,19 +3756,19 @@
 					"id": 172,
 					"name": "VfB Stuttgart",
 					"logo": "https://media.api-sports.io/football/teams/172.png",
-					"winner": null
+					"winner": false
 				},
 				"away": {
 					"id": 188,
 					"name": "Arminia Bielefeld",
 					"logo": "https://media.api-sports.io/football/teams/188.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 0, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 1 },
+				"fulltime": { "home": 0, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -3766,13 +3776,13 @@
 		{
 			"fixture": {
 				"id": 719443,
-				"referee": null,
+				"referee": "Robert Schroder, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-05T19:30:00+00:00",
 				"timestamp": 1636140600,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1636140600, "second": 1636144200 },
 				"venue": { "id": 11899, "name": "MEWA ARENA", "city": "Mainz" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -3797,10 +3807,10 @@
 					"winner": null
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 1 },
+				"fulltime": { "home": 1, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -3808,13 +3818,13 @@
 		{
 			"fixture": {
 				"id": 719444,
-				"referee": null,
+				"referee": "Robert Hartmann, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-07T14:30:00+00:00",
 				"timestamp": 1636295400,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1636295400, "second": 1636299000 },
 				"venue": { "id": 694, "name": "Olympiastadion Berlin", "city": "Berlin" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -3839,10 +3849,10 @@
 					"winner": null
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 1, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -3850,13 +3860,13 @@
 		{
 			"fixture": {
 				"id": 719445,
-				"referee": null,
+				"referee": "Tobias Stieler, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-07T16:30:00+00:00",
 				"timestamp": 1636302600,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1636302600, "second": 1636306200 },
 				"venue": { "id": 731, "name": "RheinEnergieStadion", "city": "Köln" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -3876,10 +3886,10 @@
 					"winner": null
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 2 },
+				"fulltime": { "home": 2, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -3887,13 +3897,13 @@
 		{
 			"fixture": {
 				"id": 719446,
-				"referee": null,
+				"referee": "Frank Willenborg, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-06T14:30:00+00:00",
 				"timestamp": 1636209000,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1636209000, "second": 1636212600 },
 				"venue": { "id": 751, "name": "Vonovia Ruhrstadion", "city": "Bochum" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -3905,18 +3915,18 @@
 				"round": "Regular Season - 11"
 			},
 			"teams": {
-				"home": { "id": 176, "name": "VfL BOCHUM", "logo": "https://media.api-sports.io/football/teams/176.png", "winner": null },
+				"home": { "id": 176, "name": "VfL BOCHUM", "logo": "https://media.api-sports.io/football/teams/176.png", "winner": true },
 				"away": {
 					"id": 167,
 					"name": "1899 Hoffenheim",
 					"logo": "https://media.api-sports.io/football/teams/167.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 2, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -3924,13 +3934,13 @@
 		{
 			"fixture": {
 				"id": 719447,
-				"referee": null,
+				"referee": "Daniel Siebert, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-07T18:30:00+00:00",
 				"timestamp": 1636309800,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1636309800, "second": 1636313400 },
 				"venue": { "id": 718, "name": "Sportpark Ronhof Thomas Sommer", "city": "Fürth" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -3946,19 +3956,19 @@
 					"id": 178,
 					"name": "SpVgg Greuther Furth",
 					"logo": "https://media.api-sports.io/football/teams/178.png",
-					"winner": null
+					"winner": false
 				},
 				"away": {
 					"id": 169,
 					"name": "Eintracht Frankfurt",
 					"logo": "https://media.api-sports.io/football/teams/169.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 1, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -3966,13 +3976,13 @@
 		{
 			"fixture": {
 				"id": 719448,
-				"referee": null,
+				"referee": "Harm Osmers, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-20T14:30:00+00:00",
 				"timestamp": 1637418600,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1637418600, "second": 1637422200 },
 				"venue": { "id": 702, "name": "Signal-Iduna-Park", "city": "Dortmund" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -3988,19 +3998,19 @@
 					"id": 165,
 					"name": "Borussia Dortmund",
 					"logo": "https://media.api-sports.io/football/teams/165.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 172,
 					"name": "VfB Stuttgart",
 					"logo": "https://media.api-sports.io/football/teams/172.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 2, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4008,13 +4018,13 @@
 		{
 			"fixture": {
 				"id": 719449,
-				"referee": null,
+				"referee": "Daniel Schlager, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-20T14:30:00+00:00",
 				"timestamp": 1637418600,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1637418600, "second": 1637422200 },
 				"venue": { "id": 699, "name": "BayArena", "city": "Leverkusen" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4030,14 +4040,14 @@
 					"id": 168,
 					"name": "Bayer Leverkusen",
 					"logo": "https://media.api-sports.io/football/teams/168.png",
-					"winner": null
+					"winner": true
 				},
-				"away": { "id": 176, "name": "VfL BOCHUM", "logo": "https://media.api-sports.io/football/teams/176.png", "winner": null }
+				"away": { "id": 176, "name": "VfL BOCHUM", "logo": "https://media.api-sports.io/football/teams/176.png", "winner": false }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 1, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4045,13 +4055,13 @@
 		{
 			"fixture": {
 				"id": 719450,
-				"referee": null,
+				"referee": "Felix Brych, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-20T17:30:00+00:00",
 				"timestamp": 1637429400,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1637429400, "second": 1637433000 },
 				"venue": { "id": 748, "name": "Stadion An der Alten Försterei", "city": "Berlin" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4067,19 +4077,19 @@
 					"id": 182,
 					"name": "Union Berlin",
 					"logo": "https://media.api-sports.io/football/teams/182.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 159,
 					"name": "Hertha Berlin",
 					"logo": "https://media.api-sports.io/football/teams/159.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 2, "away": 0 },
+				"fulltime": { "home": 2, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4087,13 +4097,13 @@
 		{
 			"fixture": {
 				"id": 719451,
-				"referee": null,
+				"referee": "Benjamin Brand, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-20T14:30:00+00:00",
 				"timestamp": 1637418600,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1637418600, "second": 1637422200 },
 				"venue": { "id": 703, "name": "Stadion im BORUSSIA-PARK", "city": "Mönchengladbach" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4109,19 +4119,19 @@
 					"id": 163,
 					"name": "Borussia Monchengladbach",
 					"logo": "https://media.api-sports.io/football/teams/163.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 178,
 					"name": "SpVgg Greuther Furth",
 					"logo": "https://media.api-sports.io/football/teams/178.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 4, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 3, "away": 0 },
+				"fulltime": { "home": 4, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4129,13 +4139,13 @@
 		{
 			"fixture": {
 				"id": 719452,
-				"referee": null,
+				"referee": "Florian Badstubner, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-21T14:30:00+00:00",
 				"timestamp": 1637505000,
-				"periods": { "first": null, "second": null },
-				"venue": { "id": 12274, "name": "Dreisamstadion", "city": "Freiburg im Breisgau" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"periods": { "first": 1637505000, "second": 1637508600 },
+				"venue": { "id": 12717, "name": "Europa-Park Stadion", "city": "Freiburg im Breisgau" },
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4151,19 +4161,19 @@
 					"id": 160,
 					"name": "SC Freiburg",
 					"logo": "https://media.api-sports.io/football/teams/160.png",
-					"winner": null
+					"winner": false
 				},
 				"away": {
 					"id": 169,
 					"name": "Eintracht Frankfurt",
 					"logo": "https://media.api-sports.io/football/teams/169.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 0, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 2 },
+				"fulltime": { "home": 0, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4171,13 +4181,13 @@
 		{
 			"fixture": {
 				"id": 719453,
-				"referee": null,
+				"referee": "Tobias Welz, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-20T14:30:00+00:00",
 				"timestamp": 1637418600,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1637418600, "second": 1637422200 },
 				"venue": { "id": 724, "name": "PreZero Arena", "city": "Sinsheim" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4193,14 +4203,14 @@
 					"id": 167,
 					"name": "1899 Hoffenheim",
 					"logo": "https://media.api-sports.io/football/teams/167.png",
-					"winner": null
+					"winner": true
 				},
-				"away": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": null }
+				"away": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": false }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 2, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4208,13 +4218,13 @@
 		{
 			"fixture": {
 				"id": 719454,
-				"referee": null,
+				"referee": "Deniz Aytekin, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-21T16:30:00+00:00",
 				"timestamp": 1637512200,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1637512200, "second": 1637515800 },
 				"venue": { "id": 11899, "name": "MEWA ARENA", "city": "Mainz" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4234,10 +4244,10 @@
 				},
 				"away": { "id": 192, "name": "FC Koln", "logo": "https://media.api-sports.io/football/teams/192.png", "winner": null }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 1, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4245,13 +4255,13 @@
 		{
 			"fixture": {
 				"id": 719455,
-				"referee": null,
+				"referee": "Daniel Siebert, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-19T19:30:00+00:00",
 				"timestamp": 1637350200,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1637350200, "second": 1637353800 },
 				"venue": { "id": 698, "name": "WWK Arena", "city": "Augsburg" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4267,19 +4277,19 @@
 					"id": 170,
 					"name": "FC Augsburg",
 					"logo": "https://media.api-sports.io/football/teams/170.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 157,
 					"name": "Bayern Munich",
 					"logo": "https://media.api-sports.io/football/teams/157.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 2, "away": 1 },
+				"fulltime": { "home": 2, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4287,13 +4297,13 @@
 		{
 			"fixture": {
 				"id": 719456,
-				"referee": null,
+				"referee": "Martin Petersen, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-20T14:30:00+00:00",
 				"timestamp": 1637418600,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1637418600, "second": 1637422200 },
 				"venue": { "id": 697, "name": "SchücoArena", "city": "Bielefeld" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4318,10 +4328,10 @@
 					"winner": null
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 2, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4329,13 +4339,13 @@
 		{
 			"fixture": {
 				"id": 719457,
-				"referee": null,
+				"referee": "Marco Fritz, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-27T17:30:00+00:00",
 				"timestamp": 1638034200,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1638034200, "second": 1638037800 },
 				"venue": { "id": 700, "name": "Allianz Arena", "city": "München" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4351,19 +4361,19 @@
 					"id": 157,
 					"name": "Bayern Munich",
 					"logo": "https://media.api-sports.io/football/teams/157.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 188,
 					"name": "Arminia Bielefeld",
 					"logo": "https://media.api-sports.io/football/teams/188.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 1, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4371,13 +4381,13 @@
 		{
 			"fixture": {
 				"id": 719458,
-				"referee": null,
+				"referee": "Benjamin Cortus, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-28T16:30:00+00:00",
 				"timestamp": 1638117000,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1638117000, "second": 1638120600 },
 				"venue": { "id": 738, "name": "Red Bull Arena", "city": "Leipzig" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4389,18 +4399,23 @@
 				"round": "Regular Season - 13"
 			},
 			"teams": {
-				"home": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": null },
+				"home": {
+					"id": 173,
+					"name": "RB Leipzig",
+					"logo": "https://media.api-sports.io/football/teams/173.png",
+					"winner": false
+				},
 				"away": {
 					"id": 168,
 					"name": "Bayer Leverkusen",
 					"logo": "https://media.api-sports.io/football/teams/168.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 3 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 2 },
+				"fulltime": { "home": 1, "away": 3 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4408,13 +4423,13 @@
 		{
 			"fixture": {
 				"id": 719459,
-				"referee": null,
+				"referee": "Sven Jablonski, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-27T14:30:00+00:00",
 				"timestamp": 1638023400,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1638023400, "second": 1638027000 },
 				"venue": { "id": 752, "name": "VOLKSWAGEN ARENA", "city": "Wolfsburg" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4430,19 +4445,19 @@
 					"id": 161,
 					"name": "VfL Wolfsburg",
 					"logo": "https://media.api-sports.io/football/teams/161.png",
-					"winner": null
+					"winner": false
 				},
 				"away": {
 					"id": 165,
 					"name": "Borussia Dortmund",
 					"logo": "https://media.api-sports.io/football/teams/165.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 3 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 1 },
+				"fulltime": { "home": 1, "away": 3 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4450,13 +4465,13 @@
 		{
 			"fixture": {
 				"id": 719460,
-				"referee": null,
+				"referee": "Sascha Stegemann, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-28T14:30:00+00:00",
 				"timestamp": 1638109800,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1638109800, "second": 1638113400 },
 				"venue": { "id": 10491, "name": "Deutsche Bank Park", "city": "Frankfurt am Main" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4472,19 +4487,19 @@
 					"id": 169,
 					"name": "Eintracht Frankfurt",
 					"logo": "https://media.api-sports.io/football/teams/169.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 182,
 					"name": "Union Berlin",
 					"logo": "https://media.api-sports.io/football/teams/182.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 2, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4492,13 +4507,13 @@
 		{
 			"fixture": {
 				"id": 719461,
-				"referee": null,
+				"referee": "Matthias Jollenbeck, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-26T19:30:00+00:00",
 				"timestamp": 1637955000,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1637955000, "second": 1637958600 },
 				"venue": { "id": 750, "name": "Mercedes-Benz-Arena", "city": "Stuttgart" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4514,19 +4529,19 @@
 					"id": 172,
 					"name": "VfB Stuttgart",
 					"logo": "https://media.api-sports.io/football/teams/172.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 164,
 					"name": "FSV Mainz 05",
 					"logo": "https://media.api-sports.io/football/teams/164.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 1 },
+				"fulltime": { "home": 2, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4534,13 +4549,13 @@
 		{
 			"fixture": {
 				"id": 719462,
-				"referee": null,
+				"referee": "Frank Willenborg, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-27T14:30:00+00:00",
 				"timestamp": 1638023400,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1638023400, "second": 1638027000 },
 				"venue": { "id": 694, "name": "Olympiastadion Berlin", "city": "Berlin" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4560,10 +4575,10 @@
 				},
 				"away": { "id": 170, "name": "FC Augsburg", "logo": "https://media.api-sports.io/football/teams/170.png", "winner": null }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 1, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4571,13 +4586,13 @@
 		{
 			"fixture": {
 				"id": 719463,
-				"referee": null,
+				"referee": "Robert Schroder, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-27T14:30:00+00:00",
 				"timestamp": 1638023400,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1638023400, "second": 1638027000 },
 				"venue": { "id": 731, "name": "RheinEnergieStadion", "city": "Köln" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4589,18 +4604,18 @@
 				"round": "Regular Season - 13"
 			},
 			"teams": {
-				"home": { "id": 192, "name": "FC Koln", "logo": "https://media.api-sports.io/football/teams/192.png", "winner": null },
+				"home": { "id": 192, "name": "FC Koln", "logo": "https://media.api-sports.io/football/teams/192.png", "winner": true },
 				"away": {
 					"id": 163,
 					"name": "Borussia Monchengladbach",
 					"logo": "https://media.api-sports.io/football/teams/163.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 4, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 4, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4608,13 +4623,13 @@
 		{
 			"fixture": {
 				"id": 719464,
-				"referee": null,
+				"referee": "Patrick Ittrich, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-27T14:30:00+00:00",
 				"timestamp": 1638023400,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1638023400, "second": 1638027000 },
 				"venue": { "id": 751, "name": "Vonovia Ruhrstadion", "city": "Bochum" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4626,13 +4641,18 @@
 				"round": "Regular Season - 13"
 			},
 			"teams": {
-				"home": { "id": 176, "name": "VfL BOCHUM", "logo": "https://media.api-sports.io/football/teams/176.png", "winner": null },
-				"away": { "id": 160, "name": "SC Freiburg", "logo": "https://media.api-sports.io/football/teams/160.png", "winner": null }
+				"home": { "id": 176, "name": "VfL BOCHUM", "logo": "https://media.api-sports.io/football/teams/176.png", "winner": true },
+				"away": {
+					"id": 160,
+					"name": "SC Freiburg",
+					"logo": "https://media.api-sports.io/football/teams/160.png",
+					"winner": false
+				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 2, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4640,13 +4660,13 @@
 		{
 			"fixture": {
 				"id": 719465,
-				"referee": null,
+				"referee": "Bastian Dankert, Germany",
 				"timezone": "UTC",
 				"date": "2021-11-27T14:30:00+00:00",
 				"timestamp": 1638023400,
-				"periods": { "first": null, "second": null },
+				"periods": { "first": 1638023400, "second": 1638027000 },
 				"venue": { "id": 718, "name": "Sportpark Ronhof Thomas Sommer", "city": "Fürth" },
-				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4662,19 +4682,19 @@
 					"id": 178,
 					"name": "SpVgg Greuther Furth",
 					"logo": "https://media.api-sports.io/football/teams/178.png",
-					"winner": null
+					"winner": false
 				},
 				"away": {
 					"id": 167,
 					"name": "1899 Hoffenheim",
 					"logo": "https://media.api-sports.io/football/teams/167.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 3, "away": 6 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 2 },
+				"fulltime": { "home": 3, "away": 6 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4682,13 +4702,13 @@
 		{
 			"fixture": {
 				"id": 719466,
-				"referee": null,
+				"referee": "Felix Zwayer, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-04T00:00:00+00:00",
-				"timestamp": 1638576000,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-04T17:30:00+00:00",
+				"timestamp": 1638639000,
+				"periods": { "first": 1638639000, "second": 1638642600 },
 				"venue": { "id": 702, "name": "Signal-Iduna-Park", "city": "Dortmund" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4704,19 +4724,19 @@
 					"id": 165,
 					"name": "Borussia Dortmund",
 					"logo": "https://media.api-sports.io/football/teams/165.png",
-					"winner": null
+					"winner": false
 				},
 				"away": {
 					"id": 157,
 					"name": "Bayern Munich",
 					"logo": "https://media.api-sports.io/football/teams/157.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 3 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 2 },
+				"fulltime": { "home": 2, "away": 3 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4724,13 +4744,13 @@
 		{
 			"fixture": {
 				"id": 719467,
-				"referee": null,
+				"referee": "Tobias Reichel, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-04T00:00:00+00:00",
-				"timestamp": 1638576000,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-04T14:30:00+00:00",
+				"timestamp": 1638628200,
+				"periods": { "first": 1638628200, "second": 1638631800 },
 				"venue": { "id": 699, "name": "BayArena", "city": "Leverkusen" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4746,19 +4766,19 @@
 					"id": 168,
 					"name": "Bayer Leverkusen",
 					"logo": "https://media.api-sports.io/football/teams/168.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 178,
 					"name": "SpVgg Greuther Furth",
 					"logo": "https://media.api-sports.io/football/teams/178.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 7, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 3, "away": 1 },
+				"fulltime": { "home": 7, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4766,13 +4786,13 @@
 		{
 			"fixture": {
 				"id": 719468,
-				"referee": null,
+				"referee": "Harm Osmers, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-04T00:00:00+00:00",
-				"timestamp": 1638576000,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-03T19:30:00+00:00",
+				"timestamp": 1638559800,
+				"periods": { "first": 1638559800, "second": 1638563400 },
 				"venue": { "id": 748, "name": "Stadion An der Alten Försterei", "city": "Berlin" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4788,14 +4808,14 @@
 					"id": 182,
 					"name": "Union Berlin",
 					"logo": "https://media.api-sports.io/football/teams/182.png",
-					"winner": null
+					"winner": true
 				},
-				"away": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": null }
+				"away": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": false }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 1 },
+				"fulltime": { "home": 2, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4803,13 +4823,13 @@
 		{
 			"fixture": {
 				"id": 719469,
-				"referee": null,
+				"referee": "Robert Hartmann, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-04T00:00:00+00:00",
-				"timestamp": 1638576000,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-05T16:30:00+00:00",
+				"timestamp": 1638721800,
+				"periods": { "first": 1638721800, "second": 1638725400 },
 				"venue": { "id": 703, "name": "Stadion im BORUSSIA-PARK", "city": "Mönchengladbach" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4825,14 +4845,14 @@
 					"id": 163,
 					"name": "Borussia Monchengladbach",
 					"logo": "https://media.api-sports.io/football/teams/163.png",
-					"winner": null
+					"winner": false
 				},
-				"away": { "id": 160, "name": "SC Freiburg", "logo": "https://media.api-sports.io/football/teams/160.png", "winner": null }
+				"away": { "id": 160, "name": "SC Freiburg", "logo": "https://media.api-sports.io/football/teams/160.png", "winner": true }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 0, "away": 6 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 6 },
+				"fulltime": { "home": 0, "away": 6 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4840,13 +4860,13 @@
 		{
 			"fixture": {
 				"id": 719470,
-				"referee": null,
+				"referee": "Benjamin Brand, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-04T00:00:00+00:00",
-				"timestamp": 1638576000,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-05T14:30:00+00:00",
+				"timestamp": 1638714600,
+				"periods": { "first": 1638714600, "second": 1638718200 },
 				"venue": { "id": 750, "name": "Mercedes-Benz-Arena", "city": "Stuttgart" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4871,10 +4891,10 @@
 					"winner": null
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 2, "away": 1 },
+				"fulltime": { "home": 2, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4882,13 +4902,13 @@
 		{
 			"fixture": {
 				"id": 719471,
-				"referee": null,
+				"referee": "Daniel Schlager, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-04T00:00:00+00:00",
-				"timestamp": 1638576000,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-04T14:30:00+00:00",
+				"timestamp": 1638628200,
+				"periods": { "first": 1638628200, "second": 1638631800 },
 				"venue": { "id": 724, "name": "PreZero Arena", "city": "Sinsheim" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4904,19 +4924,19 @@
 					"id": 167,
 					"name": "1899 Hoffenheim",
 					"logo": "https://media.api-sports.io/football/teams/167.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 169,
 					"name": "Eintracht Frankfurt",
 					"logo": "https://media.api-sports.io/football/teams/169.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 3, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 2, "away": 1 },
+				"fulltime": { "home": 3, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4924,13 +4944,13 @@
 		{
 			"fixture": {
 				"id": 719472,
-				"referee": null,
+				"referee": "Florian Badstubner, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-04T00:00:00+00:00",
-				"timestamp": 1638576000,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-04T14:30:00+00:00",
+				"timestamp": 1638628200,
+				"periods": { "first": 1638628200, "second": 1638631800 },
 				"venue": { "id": 11899, "name": "MEWA ARENA", "city": "Mainz" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4946,19 +4966,19 @@
 					"id": 164,
 					"name": "FSV Mainz 05",
 					"logo": "https://media.api-sports.io/football/teams/164.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 161,
 					"name": "VfL Wolfsburg",
 					"logo": "https://media.api-sports.io/football/teams/161.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 3, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 2, "away": 0 },
+				"fulltime": { "home": 3, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -4966,13 +4986,13 @@
 		{
 			"fixture": {
 				"id": 719473,
-				"referee": null,
+				"referee": "Deniz Aytekin, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-04T00:00:00+00:00",
-				"timestamp": 1638576000,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-04T14:30:00+00:00",
+				"timestamp": 1638628200,
+				"periods": { "first": 1638628200, "second": 1638631800 },
 				"venue": { "id": 698, "name": "WWK Arena", "city": "Augsburg" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -4988,14 +5008,14 @@
 					"id": 170,
 					"name": "FC Augsburg",
 					"logo": "https://media.api-sports.io/football/teams/170.png",
-					"winner": null
+					"winner": false
 				},
-				"away": { "id": 176, "name": "VfL BOCHUM", "logo": "https://media.api-sports.io/football/teams/176.png", "winner": null }
+				"away": { "id": 176, "name": "VfL BOCHUM", "logo": "https://media.api-sports.io/football/teams/176.png", "winner": true }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 3 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 3 },
+				"fulltime": { "home": 2, "away": 3 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5003,13 +5023,13 @@
 		{
 			"fixture": {
 				"id": 719474,
-				"referee": null,
+				"referee": "Felix Brych, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-04T00:00:00+00:00",
-				"timestamp": 1638576000,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-04T14:30:00+00:00",
+				"timestamp": 1638628200,
+				"periods": { "first": 1638628200, "second": 1638631800 },
 				"venue": { "id": 697, "name": "SchücoArena", "city": "Bielefeld" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5029,10 +5049,10 @@
 				},
 				"away": { "id": 192, "name": "FC Koln", "logo": "https://media.api-sports.io/football/teams/192.png", "winner": null }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 1 },
+				"fulltime": { "home": 1, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5040,13 +5060,13 @@
 		{
 			"fixture": {
 				"id": 719475,
-				"referee": null,
+				"referee": "Benjamin Cortus, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-11T00:00:00+00:00",
-				"timestamp": 1639180800,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-11T14:30:00+00:00",
+				"timestamp": 1639233000,
+				"periods": { "first": 1639233000, "second": 1639236600 },
 				"venue": { "id": 700, "name": "Allianz Arena", "city": "München" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5062,19 +5082,19 @@
 					"id": 157,
 					"name": "Bayern Munich",
 					"logo": "https://media.api-sports.io/football/teams/157.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 164,
 					"name": "FSV Mainz 05",
 					"logo": "https://media.api-sports.io/football/teams/164.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 1 },
+				"fulltime": { "home": 2, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5082,13 +5102,13 @@
 		{
 			"fixture": {
 				"id": 719476,
-				"referee": null,
+				"referee": "Bastian Dankert, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-11T00:00:00+00:00",
-				"timestamp": 1639180800,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-11T14:30:00+00:00",
+				"timestamp": 1639233000,
+				"periods": { "first": 1639233000, "second": 1639236600 },
 				"venue": { "id": 738, "name": "Red Bull Arena", "city": "Leipzig" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5100,18 +5120,18 @@
 				"round": "Regular Season - 15"
 			},
 			"teams": {
-				"home": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": null },
+				"home": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": true },
 				"away": {
 					"id": 163,
 					"name": "Borussia Monchengladbach",
 					"logo": "https://media.api-sports.io/football/teams/163.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 4, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 2, "away": 0 },
+				"fulltime": { "home": 4, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5119,13 +5139,13 @@
 		{
 			"fixture": {
 				"id": 719477,
-				"referee": null,
+				"referee": "Sascha Stegemann, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-11T00:00:00+00:00",
-				"timestamp": 1639180800,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-11T17:30:00+00:00",
+				"timestamp": 1639243800,
+				"periods": { "first": 1639243800, "second": 1639247400 },
 				"venue": { "id": 752, "name": "VOLKSWAGEN ARENA", "city": "Wolfsburg" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5141,19 +5161,19 @@
 					"id": 161,
 					"name": "VfL Wolfsburg",
 					"logo": "https://media.api-sports.io/football/teams/161.png",
-					"winner": null
+					"winner": false
 				},
 				"away": {
 					"id": 172,
 					"name": "VfB Stuttgart",
 					"logo": "https://media.api-sports.io/football/teams/172.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 0, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 1 },
+				"fulltime": { "home": 0, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5161,13 +5181,13 @@
 		{
 			"fixture": {
 				"id": 719478,
-				"referee": null,
+				"referee": "Sven Jablonski, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-11T00:00:00+00:00",
-				"timestamp": 1639180800,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-12T16:30:00+00:00",
+				"timestamp": 1639326600,
+				"periods": { "first": 1639326600, "second": 1639330200 },
 				"venue": { "id": 10491, "name": "Deutsche Bank Park", "city": "Frankfurt am Main" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5183,19 +5203,19 @@
 					"id": 169,
 					"name": "Eintracht Frankfurt",
 					"logo": "https://media.api-sports.io/football/teams/169.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 168,
 					"name": "Bayer Leverkusen",
 					"logo": "https://media.api-sports.io/football/teams/168.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 5, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 2, "away": 2 },
+				"fulltime": { "home": 5, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5203,13 +5223,13 @@
 		{
 			"fixture": {
 				"id": 719479,
-				"referee": null,
+				"referee": "Frank Willenborg, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-11T00:00:00+00:00",
-				"timestamp": 1639180800,
-				"periods": { "first": null, "second": null },
-				"venue": { "id": 716, "name": "Schwarzwald-Stadion", "city": "Freiburg im Breisgau" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"date": "2021-12-11T14:30:00+00:00",
+				"timestamp": 1639233000,
+				"periods": { "first": 1639233000, "second": 1639236600 },
+				"venue": { "id": 12717, "name": "Europa-Park Stadion", "city": "Freiburg im Breisgau" },
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5225,19 +5245,19 @@
 					"id": 160,
 					"name": "SC Freiburg",
 					"logo": "https://media.api-sports.io/football/teams/160.png",
-					"winner": null
+					"winner": false
 				},
 				"away": {
 					"id": 167,
 					"name": "1899 Hoffenheim",
 					"logo": "https://media.api-sports.io/football/teams/167.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 1 },
+				"fulltime": { "home": 1, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5245,13 +5265,13 @@
 		{
 			"fixture": {
 				"id": 719480,
-				"referee": null,
+				"referee": "Tobias Welz, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-11T00:00:00+00:00",
-				"timestamp": 1639180800,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-11T14:30:00+00:00",
+				"timestamp": 1639233000,
+				"periods": { "first": 1639233000, "second": 1639236600 },
 				"venue": { "id": 694, "name": "Olympiastadion Berlin", "city": "Berlin" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5267,19 +5287,19 @@
 					"id": 159,
 					"name": "Hertha Berlin",
 					"logo": "https://media.api-sports.io/football/teams/159.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 188,
 					"name": "Arminia Bielefeld",
 					"logo": "https://media.api-sports.io/football/teams/188.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 2, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5287,13 +5307,13 @@
 		{
 			"fixture": {
 				"id": 719481,
-				"referee": null,
+				"referee": "Patrick Ittrich, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-11T00:00:00+00:00",
-				"timestamp": 1639180800,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-10T19:30:00+00:00",
+				"timestamp": 1639164600,
+				"periods": { "first": 1639164600, "second": 1639168200 },
 				"venue": { "id": 731, "name": "RheinEnergieStadion", "city": "Köln" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5305,13 +5325,13 @@
 				"round": "Regular Season - 15"
 			},
 			"teams": {
-				"home": { "id": 192, "name": "FC Koln", "logo": "https://media.api-sports.io/football/teams/192.png", "winner": null },
-				"away": { "id": 170, "name": "FC Augsburg", "logo": "https://media.api-sports.io/football/teams/170.png", "winner": null }
+				"home": { "id": 192, "name": "FC Koln", "logo": "https://media.api-sports.io/football/teams/192.png", "winner": false },
+				"away": { "id": 170, "name": "FC Augsburg", "logo": "https://media.api-sports.io/football/teams/170.png", "winner": true }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 0, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 0, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5319,13 +5339,13 @@
 		{
 			"fixture": {
 				"id": 719482,
-				"referee": null,
+				"referee": "Matthias Jollenbeck, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-11T00:00:00+00:00",
-				"timestamp": 1639180800,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-11T14:30:00+00:00",
+				"timestamp": 1639233000,
+				"periods": { "first": 1639233000, "second": 1639236600 },
 				"venue": { "id": 751, "name": "Vonovia Ruhrstadion", "city": "Bochum" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5345,10 +5365,10 @@
 					"winner": null
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 1, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5356,13 +5376,13 @@
 		{
 			"fixture": {
 				"id": 719483,
-				"referee": null,
+				"referee": "Marco Fritz, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-11T00:00:00+00:00",
-				"timestamp": 1639180800,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-12T14:30:00+00:00",
+				"timestamp": 1639319400,
+				"periods": { "first": 1639319400, "second": 1639323000 },
 				"venue": { "id": 718, "name": "Sportpark Ronhof Thomas Sommer", "city": "Fürth" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5378,19 +5398,19 @@
 					"id": 178,
 					"name": "SpVgg Greuther Furth",
 					"logo": "https://media.api-sports.io/football/teams/178.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 182,
 					"name": "Union Berlin",
 					"logo": "https://media.api-sports.io/football/teams/182.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 1, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5398,13 +5418,13 @@
 		{
 			"fixture": {
 				"id": 719484,
-				"referee": null,
+				"referee": "Daniel Schlager, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-15T00:00:00+00:00",
-				"timestamp": 1639526400,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-15T19:30:00+00:00",
+				"timestamp": 1639596600,
+				"periods": { "first": 1639596600, "second": 1639600200 },
 				"venue": { "id": 702, "name": "Signal-Iduna-Park", "city": "Dortmund" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5420,19 +5440,19 @@
 					"id": 165,
 					"name": "Borussia Dortmund",
 					"logo": "https://media.api-sports.io/football/teams/165.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 178,
 					"name": "SpVgg Greuther Furth",
 					"logo": "https://media.api-sports.io/football/teams/178.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 3, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 3, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5440,13 +5460,13 @@
 		{
 			"fixture": {
 				"id": 719485,
-				"referee": null,
+				"referee": "Robert Hartmann, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-15T00:00:00+00:00",
-				"timestamp": 1639526400,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-14T19:30:00+00:00",
+				"timestamp": 1639510200,
+				"periods": { "first": 1639510200, "second": 1639513800 },
 				"venue": { "id": 752, "name": "VOLKSWAGEN ARENA", "city": "Wolfsburg" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5462,14 +5482,14 @@
 					"id": 161,
 					"name": "VfL Wolfsburg",
 					"logo": "https://media.api-sports.io/football/teams/161.png",
-					"winner": null
+					"winner": false
 				},
-				"away": { "id": 192, "name": "FC Koln", "logo": "https://media.api-sports.io/football/teams/192.png", "winner": null }
+				"away": { "id": 192, "name": "FC Koln", "logo": "https://media.api-sports.io/football/teams/192.png", "winner": true }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 3 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 1 },
+				"fulltime": { "home": 2, "away": 3 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5477,13 +5497,13 @@
 		{
 			"fixture": {
 				"id": 719486,
-				"referee": null,
+				"referee": "Tobias Stieler, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-15T00:00:00+00:00",
-				"timestamp": 1639526400,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-15T19:30:00+00:00",
+				"timestamp": 1639596600,
+				"periods": { "first": 1639596600, "second": 1639600200 },
 				"venue": { "id": 699, "name": "BayArena", "city": "Leverkusen" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5508,10 +5528,10 @@
 					"winner": null
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 2, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5519,13 +5539,13 @@
 		{
 			"fixture": {
 				"id": 719487,
-				"referee": null,
+				"referee": "Deniz Aytekin, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-15T00:00:00+00:00",
-				"timestamp": 1639526400,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-15T19:30:00+00:00",
+				"timestamp": 1639596600,
+				"periods": { "first": 1639596600, "second": 1639600200 },
 				"venue": { "id": 748, "name": "Stadion An der Alten Försterei", "city": "Berlin" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5545,10 +5565,10 @@
 				},
 				"away": { "id": 160, "name": "SC Freiburg", "logo": "https://media.api-sports.io/football/teams/160.png", "winner": null }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 0, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 0, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5556,13 +5576,13 @@
 		{
 			"fixture": {
 				"id": 719488,
-				"referee": null,
+				"referee": "Martin Petersen, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-15T00:00:00+00:00",
-				"timestamp": 1639526400,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-15T17:30:00+00:00",
+				"timestamp": 1639589400,
+				"periods": { "first": 1639589400, "second": 1639593000 },
 				"venue": { "id": 703, "name": "Stadion im BORUSSIA-PARK", "city": "Mönchengladbach" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5578,19 +5598,19 @@
 					"id": 163,
 					"name": "Borussia Monchengladbach",
 					"logo": "https://media.api-sports.io/football/teams/163.png",
-					"winner": null
+					"winner": false
 				},
 				"away": {
 					"id": 169,
 					"name": "Eintracht Frankfurt",
 					"logo": "https://media.api-sports.io/football/teams/169.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 3 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 1 },
+				"fulltime": { "home": 2, "away": 3 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5598,13 +5618,13 @@
 		{
 			"fixture": {
 				"id": 719489,
-				"referee": null,
+				"referee": "Robert Schroder, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-15T00:00:00+00:00",
-				"timestamp": 1639526400,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-14T17:30:00+00:00",
+				"timestamp": 1639503000,
+				"periods": { "first": 1639503000, "second": 1639506600 },
 				"venue": { "id": 750, "name": "Mercedes-Benz-Arena", "city": "Stuttgart" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5620,19 +5640,19 @@
 					"id": 172,
 					"name": "VfB Stuttgart",
 					"logo": "https://media.api-sports.io/football/teams/172.png",
-					"winner": null
+					"winner": false
 				},
 				"away": {
 					"id": 157,
 					"name": "Bayern Munich",
 					"logo": "https://media.api-sports.io/football/teams/157.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 0, "away": 5 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 1 },
+				"fulltime": { "home": 0, "away": 5 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5640,13 +5660,13 @@
 		{
 			"fixture": {
 				"id": 719490,
-				"referee": null,
+				"referee": "Harm Osmers, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-15T00:00:00+00:00",
-				"timestamp": 1639526400,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-14T19:30:00+00:00",
+				"timestamp": 1639510200,
+				"periods": { "first": 1639510200, "second": 1639513800 },
 				"venue": { "id": 11899, "name": "MEWA ARENA", "city": "Mainz" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5662,19 +5682,19 @@
 					"id": 164,
 					"name": "FSV Mainz 05",
 					"logo": "https://media.api-sports.io/football/teams/164.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 159,
 					"name": "Hertha Berlin",
 					"logo": "https://media.api-sports.io/football/teams/159.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 4, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 2, "away": 0 },
+				"fulltime": { "home": 4, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5682,13 +5702,13 @@
 		{
 			"fixture": {
 				"id": 719491,
-				"referee": null,
+				"referee": "Florian Badstubner, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-15T00:00:00+00:00",
-				"timestamp": 1639526400,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-15T19:30:00+00:00",
+				"timestamp": 1639596600,
+				"periods": { "first": 1639596600, "second": 1639600200 },
 				"venue": { "id": 698, "name": "WWK Arena", "city": "Augsburg" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5708,10 +5728,10 @@
 				},
 				"away": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": null }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 1 },
+				"fulltime": { "home": 1, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5719,13 +5739,13 @@
 		{
 			"fixture": {
 				"id": 719492,
-				"referee": null,
+				"referee": "Benjamin Brand, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-15T00:00:00+00:00",
-				"timestamp": 1639526400,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-14T19:30:00+00:00",
+				"timestamp": 1639510200,
+				"periods": { "first": 1639510200, "second": 1639513800 },
 				"venue": { "id": 697, "name": "SchücoArena", "city": "Bielefeld" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5741,14 +5761,14 @@
 					"id": 188,
 					"name": "Arminia Bielefeld",
 					"logo": "https://media.api-sports.io/football/teams/188.png",
-					"winner": null
+					"winner": true
 				},
-				"away": { "id": 176, "name": "VfL BOCHUM", "logo": "https://media.api-sports.io/football/teams/176.png", "winner": null }
+				"away": { "id": 176, "name": "VfL BOCHUM", "logo": "https://media.api-sports.io/football/teams/176.png", "winner": false }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 2, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5756,13 +5776,13 @@
 		{
 			"fixture": {
 				"id": 719493,
-				"referee": null,
+				"referee": "Tobias Welz, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-18T00:00:00+00:00",
-				"timestamp": 1639785600,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-17T19:30:00+00:00",
+				"timestamp": 1639769400,
+				"periods": { "first": 1639769400, "second": 1639773000 },
 				"venue": { "id": 700, "name": "Allianz Arena", "city": "München" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5778,19 +5798,19 @@
 					"id": 157,
 					"name": "Bayern Munich",
 					"logo": "https://media.api-sports.io/football/teams/157.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 161,
 					"name": "VfL Wolfsburg",
 					"logo": "https://media.api-sports.io/football/teams/161.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 4, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 4, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5798,13 +5818,13 @@
 		{
 			"fixture": {
 				"id": 719494,
-				"referee": null,
+				"referee": "Frank Willenborg, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-18T00:00:00+00:00",
-				"timestamp": 1639785600,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-18T14:30:00+00:00",
+				"timestamp": 1639837800,
+				"periods": { "first": 1639837800, "second": 1639841400 },
 				"venue": { "id": 738, "name": "Red Bull Arena", "city": "Leipzig" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5816,18 +5836,23 @@
 				"round": "Regular Season - 17"
 			},
 			"teams": {
-				"home": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": null },
+				"home": {
+					"id": 173,
+					"name": "RB Leipzig",
+					"logo": "https://media.api-sports.io/football/teams/173.png",
+					"winner": false
+				},
 				"away": {
 					"id": 188,
 					"name": "Arminia Bielefeld",
 					"logo": "https://media.api-sports.io/football/teams/188.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 0, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 0, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5835,13 +5860,13 @@
 		{
 			"fixture": {
 				"id": 719495,
-				"referee": null,
+				"referee": "Felix Brych, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-18T00:00:00+00:00",
-				"timestamp": 1639785600,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-18T14:30:00+00:00",
+				"timestamp": 1639837800,
+				"periods": { "first": 1639837800, "second": 1639841400 },
 				"venue": { "id": 10491, "name": "Deutsche Bank Park", "city": "Frankfurt am Main" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5857,19 +5882,19 @@
 					"id": 169,
 					"name": "Eintracht Frankfurt",
 					"logo": "https://media.api-sports.io/football/teams/169.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 164,
 					"name": "FSV Mainz 05",
 					"logo": "https://media.api-sports.io/football/teams/164.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 1, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5877,13 +5902,13 @@
 		{
 			"fixture": {
 				"id": 719496,
-				"referee": null,
+				"referee": "Benjamin Cortus, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-18T00:00:00+00:00",
-				"timestamp": 1639785600,
-				"periods": { "first": null, "second": null },
-				"venue": { "id": 716, "name": "Schwarzwald-Stadion", "city": "Freiburg im Breisgau" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"date": "2021-12-19T14:30:00+00:00",
+				"timestamp": 1639924200,
+				"periods": { "first": 1639924200, "second": 1639927800 },
+				"venue": { "id": 12717, "name": "Europa-Park Stadion", "city": "Freiburg im Breisgau" },
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5899,19 +5924,19 @@
 					"id": 160,
 					"name": "SC Freiburg",
 					"logo": "https://media.api-sports.io/football/teams/160.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 168,
 					"name": "Bayer Leverkusen",
 					"logo": "https://media.api-sports.io/football/teams/168.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 1 },
+				"fulltime": { "home": 2, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5919,13 +5944,13 @@
 		{
 			"fixture": {
 				"id": 719497,
-				"referee": null,
+				"referee": "Sven Jablonski, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-18T00:00:00+00:00",
-				"timestamp": 1639785600,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-18T14:30:00+00:00",
+				"timestamp": 1639837800,
+				"periods": { "first": 1639837800, "second": 1639841400 },
 				"venue": { "id": 724, "name": "PreZero Arena", "city": "Sinsheim" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5950,10 +5975,10 @@
 					"winner": null
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 1 },
+				"fulltime": { "home": 1, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -5961,13 +5986,13 @@
 		{
 			"fixture": {
 				"id": 719498,
-				"referee": null,
+				"referee": "Marco Fritz, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-18T00:00:00+00:00",
-				"timestamp": 1639785600,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-18T17:30:00+00:00",
+				"timestamp": 1639848600,
+				"periods": { "first": 1639848600, "second": 1639852200 },
 				"venue": { "id": 694, "name": "Olympiastadion Berlin", "city": "Berlin" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -5983,19 +6008,19 @@
 					"id": 159,
 					"name": "Hertha Berlin",
 					"logo": "https://media.api-sports.io/football/teams/159.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 165,
 					"name": "Borussia Dortmund",
 					"logo": "https://media.api-sports.io/football/teams/165.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 3, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 1 },
+				"fulltime": { "home": 3, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6003,13 +6028,13 @@
 		{
 			"fixture": {
 				"id": 719499,
-				"referee": null,
+				"referee": "Bastian Dankert, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-18T00:00:00+00:00",
-				"timestamp": 1639785600,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-19T16:30:00+00:00",
+				"timestamp": 1639931400,
+				"periods": { "first": 1639931400, "second": 1639935000 },
 				"venue": { "id": 731, "name": "RheinEnergieStadion", "city": "Köln" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6021,18 +6046,18 @@
 				"round": "Regular Season - 17"
 			},
 			"teams": {
-				"home": { "id": 192, "name": "FC Koln", "logo": "https://media.api-sports.io/football/teams/192.png", "winner": null },
+				"home": { "id": 192, "name": "FC Koln", "logo": "https://media.api-sports.io/football/teams/192.png", "winner": true },
 				"away": {
 					"id": 172,
 					"name": "VfB Stuttgart",
 					"logo": "https://media.api-sports.io/football/teams/172.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 1, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6040,13 +6065,13 @@
 		{
 			"fixture": {
 				"id": 719500,
-				"referee": null,
+				"referee": "Tobias Reichel, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-18T00:00:00+00:00",
-				"timestamp": 1639785600,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-18T14:30:00+00:00",
+				"timestamp": 1639837800,
+				"periods": { "first": 1639837800, "second": 1639841400 },
 				"venue": { "id": 751, "name": "Vonovia Ruhrstadion", "city": "Bochum" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6058,18 +6083,23 @@
 				"round": "Regular Season - 17"
 			},
 			"teams": {
-				"home": { "id": 176, "name": "VfL BOCHUM", "logo": "https://media.api-sports.io/football/teams/176.png", "winner": null },
+				"home": {
+					"id": 176,
+					"name": "VfL BOCHUM",
+					"logo": "https://media.api-sports.io/football/teams/176.png",
+					"winner": false
+				},
 				"away": {
 					"id": 182,
 					"name": "Union Berlin",
 					"logo": "https://media.api-sports.io/football/teams/182.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 0, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 1 },
+				"fulltime": { "home": 0, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6077,13 +6107,13 @@
 		{
 			"fixture": {
 				"id": 719501,
-				"referee": null,
+				"referee": "Sascha Stegemann, Germany",
 				"timezone": "UTC",
-				"date": "2021-12-18T00:00:00+00:00",
-				"timestamp": 1639785600,
-				"periods": { "first": null, "second": null },
+				"date": "2021-12-18T14:30:00+00:00",
+				"timestamp": 1639837800,
+				"periods": { "first": 1639837800, "second": 1639841400 },
 				"venue": { "id": 718, "name": "Sportpark Ronhof Thomas Sommer", "city": "Fürth" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6103,10 +6133,10 @@
 				},
 				"away": { "id": 170, "name": "FC Augsburg", "logo": "https://media.api-sports.io/football/teams/170.png", "winner": null }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 0, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 0, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6114,13 +6144,13 @@
 		{
 			"fixture": {
 				"id": 719502,
-				"referee": null,
+				"referee": "Daniel Siebert, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-08T00:00:00+00:00",
-				"timestamp": 1641600000,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-07T19:30:00+00:00",
+				"timestamp": 1641583800,
+				"periods": { "first": 1641583800, "second": 1641587400 },
 				"venue": { "id": 700, "name": "Allianz Arena", "city": "München" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6136,19 +6166,19 @@
 					"id": 157,
 					"name": "Bayern Munich",
 					"logo": "https://media.api-sports.io/football/teams/157.png",
-					"winner": null
+					"winner": false
 				},
 				"away": {
 					"id": 163,
 					"name": "Borussia Monchengladbach",
 					"logo": "https://media.api-sports.io/football/teams/163.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 2 },
+				"fulltime": { "home": 1, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6156,13 +6186,13 @@
 		{
 			"fixture": {
 				"id": 719503,
-				"referee": null,
+				"referee": "Deniz Aytekin, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-08T00:00:00+00:00",
-				"timestamp": 1641600000,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-08T14:30:00+00:00",
+				"timestamp": 1641652200,
+				"periods": { "first": 1641652200, "second": 1641655800 },
 				"venue": { "id": 738, "name": "Red Bull Arena", "city": "Leipzig" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6174,18 +6204,18 @@
 				"round": "Regular Season - 18"
 			},
 			"teams": {
-				"home": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": null },
+				"home": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": true },
 				"away": {
 					"id": 164,
 					"name": "FSV Mainz 05",
 					"logo": "https://media.api-sports.io/football/teams/164.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 4, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 4, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6193,13 +6223,13 @@
 		{
 			"fixture": {
 				"id": 719504,
-				"referee": null,
+				"referee": "Robert Schroder, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-08T00:00:00+00:00",
-				"timestamp": 1641600000,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-08T17:30:00+00:00",
+				"timestamp": 1641663000,
+				"periods": { "first": 1641663000, "second": 1641666600 },
 				"venue": { "id": 10491, "name": "Deutsche Bank Park", "city": "Frankfurt am Main" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6215,19 +6245,19 @@
 					"id": 169,
 					"name": "Eintracht Frankfurt",
 					"logo": "https://media.api-sports.io/football/teams/169.png",
-					"winner": null
+					"winner": false
 				},
 				"away": {
 					"id": 165,
 					"name": "Borussia Dortmund",
 					"logo": "https://media.api-sports.io/football/teams/165.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 3 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 2, "away": 0 },
+				"fulltime": { "home": 2, "away": 3 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6235,13 +6265,13 @@
 		{
 			"fixture": {
 				"id": 719505,
-				"referee": null,
+				"referee": "Matthias Jollenbeck, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-08T00:00:00+00:00",
-				"timestamp": 1641600000,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-08T14:30:00+00:00",
+				"timestamp": 1641652200,
+				"periods": { "first": 1641652200, "second": 1641655800 },
 				"venue": { "id": 699, "name": "BayArena", "city": "Leverkusen" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6266,10 +6296,10 @@
 					"winner": null
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 1 },
+				"fulltime": { "home": 2, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6277,13 +6307,13 @@
 		{
 			"fixture": {
 				"id": 719506,
-				"referee": null,
+				"referee": "Harm Osmers, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-08T00:00:00+00:00",
-				"timestamp": 1641600000,
-				"periods": { "first": null, "second": null },
-				"venue": { "id": 716, "name": "Schwarzwald-Stadion", "city": "Freiburg im Breisgau" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"date": "2022-01-08T14:30:00+00:00",
+				"timestamp": 1641652200,
+				"periods": { "first": 1641652200, "second": 1641655800 },
+				"venue": { "id": 12717, "name": "Europa-Park Stadion", "city": "Freiburg im Breisgau" },
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6308,10 +6338,10 @@
 					"winner": null
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 2, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6319,13 +6349,13 @@
 		{
 			"fixture": {
 				"id": 719507,
-				"referee": null,
+				"referee": "Benjamin Cortus, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-08T00:00:00+00:00",
-				"timestamp": 1641600000,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-08T14:30:00+00:00",
+				"timestamp": 1641652200,
+				"periods": { "first": 1641652200, "second": 1641655800 },
 				"venue": { "id": 724, "name": "PreZero Arena", "city": "Sinsheim" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6341,14 +6371,19 @@
 					"id": 167,
 					"name": "1899 Hoffenheim",
 					"logo": "https://media.api-sports.io/football/teams/167.png",
-					"winner": null
+					"winner": true
 				},
-				"away": { "id": 170, "name": "FC Augsburg", "logo": "https://media.api-sports.io/football/teams/170.png", "winner": null }
+				"away": {
+					"id": 170,
+					"name": "FC Augsburg",
+					"logo": "https://media.api-sports.io/football/teams/170.png",
+					"winner": false
+				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 3, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 2, "away": 1 },
+				"fulltime": { "home": 3, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6356,13 +6391,13 @@
 		{
 			"fixture": {
 				"id": 719508,
-				"referee": null,
+				"referee": "Tobias Stieler, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-08T00:00:00+00:00",
-				"timestamp": 1641600000,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-09T14:30:00+00:00",
+				"timestamp": 1641738600,
+				"periods": { "first": 1641738600, "second": 1641742200 },
 				"venue": { "id": 694, "name": "Olympiastadion Berlin", "city": "Berlin" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6378,14 +6413,14 @@
 					"id": 159,
 					"name": "Hertha Berlin",
 					"logo": "https://media.api-sports.io/football/teams/159.png",
-					"winner": null
+					"winner": false
 				},
-				"away": { "id": 192, "name": "FC Koln", "logo": "https://media.api-sports.io/football/teams/192.png", "winner": null }
+				"away": { "id": 192, "name": "FC Koln", "logo": "https://media.api-sports.io/football/teams/192.png", "winner": true }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 3 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 2 },
+				"fulltime": { "home": 1, "away": 3 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6393,13 +6428,13 @@
 		{
 			"fixture": {
 				"id": 719509,
-				"referee": null,
+				"referee": "Daniel Schlager, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-08T00:00:00+00:00",
-				"timestamp": 1641600000,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-09T16:30:00+00:00",
+				"timestamp": 1641745800,
+				"periods": { "first": 1641745800, "second": 1641749400 },
 				"venue": { "id": 751, "name": "Vonovia Ruhrstadion", "city": "Bochum" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6411,18 +6446,18 @@
 				"round": "Regular Season - 18"
 			},
 			"teams": {
-				"home": { "id": 176, "name": "VfL BOCHUM", "logo": "https://media.api-sports.io/football/teams/176.png", "winner": null },
+				"home": { "id": 176, "name": "VfL BOCHUM", "logo": "https://media.api-sports.io/football/teams/176.png", "winner": true },
 				"away": {
 					"id": 161,
 					"name": "VfL Wolfsburg",
 					"logo": "https://media.api-sports.io/football/teams/161.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 1, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6430,13 +6465,13 @@
 		{
 			"fixture": {
 				"id": 719510,
-				"referee": null,
+				"referee": "Felix Brych, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-08T00:00:00+00:00",
-				"timestamp": 1641600000,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-08T14:30:00+00:00",
+				"timestamp": 1641652200,
+				"periods": { "first": 1641652200, "second": 1641655800 },
 				"venue": { "id": 718, "name": "Sportpark Ronhof Thomas Sommer", "city": "Fürth" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6461,10 +6496,10 @@
 					"winner": null
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 0, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 0, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6472,13 +6507,13 @@
 		{
 			"fixture": {
 				"id": 719511,
-				"referee": null,
+				"referee": "Florian Badstubner, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-15T00:00:00+00:00",
-				"timestamp": 1642204800,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-14T19:30:00+00:00",
+				"timestamp": 1642188600,
+				"periods": { "first": 1642188600, "second": 1642192200 },
 				"venue": { "id": 702, "name": "Signal-Iduna-Park", "city": "Dortmund" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6494,14 +6529,19 @@
 					"id": 165,
 					"name": "Borussia Dortmund",
 					"logo": "https://media.api-sports.io/football/teams/165.png",
-					"winner": null
+					"winner": true
 				},
-				"away": { "id": 160, "name": "SC Freiburg", "logo": "https://media.api-sports.io/football/teams/160.png", "winner": null }
+				"away": {
+					"id": 160,
+					"name": "SC Freiburg",
+					"logo": "https://media.api-sports.io/football/teams/160.png",
+					"winner": false
+				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 5, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 3, "away": 0 },
+				"fulltime": { "home": 5, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6509,13 +6549,13 @@
 		{
 			"fixture": {
 				"id": 719512,
-				"referee": null,
+				"referee": "Robert Hartmann, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-15T00:00:00+00:00",
-				"timestamp": 1642204800,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-15T14:30:00+00:00",
+				"timestamp": 1642257000,
+				"periods": { "first": 1642257000, "second": 1642260600 },
 				"venue": { "id": 752, "name": "VOLKSWAGEN ARENA", "city": "Wolfsburg" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6540,10 +6580,10 @@
 					"winner": null
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 0, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 0, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6551,13 +6591,13 @@
 		{
 			"fixture": {
 				"id": 719513,
-				"referee": null,
+				"referee": "Martin Petersen, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-15T00:00:00+00:00",
-				"timestamp": 1642204800,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-15T14:30:00+00:00",
+				"timestamp": 1642257000,
+				"periods": { "first": 1642257000, "second": 1642260600 },
 				"venue": { "id": 748, "name": "Stadion An der Alten Försterei", "city": "Berlin" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6573,19 +6613,19 @@
 					"id": 182,
 					"name": "Union Berlin",
 					"logo": "https://media.api-sports.io/football/teams/182.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 167,
 					"name": "1899 Hoffenheim",
 					"logo": "https://media.api-sports.io/football/teams/167.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 1 },
+				"fulltime": { "home": 2, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6593,13 +6633,13 @@
 		{
 			"fixture": {
 				"id": 719514,
-				"referee": null,
+				"referee": "Sascha Stegemann, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-15T00:00:00+00:00",
-				"timestamp": 1642204800,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-15T17:30:00+00:00",
+				"timestamp": 1642267800,
+				"periods": { "first": 1642267800, "second": 1642271400 },
 				"venue": { "id": 703, "name": "Stadion im BORUSSIA-PARK", "city": "Mönchengladbach" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6615,19 +6655,19 @@
 					"id": 163,
 					"name": "Borussia Monchengladbach",
 					"logo": "https://media.api-sports.io/football/teams/163.png",
-					"winner": null
+					"winner": false
 				},
 				"away": {
 					"id": 168,
 					"name": "Bayer Leverkusen",
 					"logo": "https://media.api-sports.io/football/teams/168.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 1, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6635,13 +6675,13 @@
 		{
 			"fixture": {
 				"id": 719515,
-				"referee": null,
+				"referee": "Daniel Schlager, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-15T00:00:00+00:00",
-				"timestamp": 1642204800,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-15T14:30:00+00:00",
+				"timestamp": 1642257000,
+				"periods": { "first": 1642257000, "second": 1642260600 },
 				"venue": { "id": 750, "name": "Mercedes-Benz-Arena", "city": "Stuttgart" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6657,14 +6697,14 @@
 					"id": 172,
 					"name": "VfB Stuttgart",
 					"logo": "https://media.api-sports.io/football/teams/172.png",
-					"winner": null
+					"winner": false
 				},
-				"away": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": null }
+				"away": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": true }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 0, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 1 },
+				"fulltime": { "home": 0, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6672,13 +6712,13 @@
 		{
 			"fixture": {
 				"id": 719516,
-				"referee": null,
+				"referee": "Frank Willenborg, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-15T00:00:00+00:00",
-				"timestamp": 1642204800,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-15T14:30:00+00:00",
+				"timestamp": 1642257000,
+				"periods": { "first": 1642257000, "second": 1642260600 },
 				"venue": { "id": 11899, "name": "MEWA ARENA", "city": "Mainz" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6694,14 +6734,14 @@
 					"id": 164,
 					"name": "FSV Mainz 05",
 					"logo": "https://media.api-sports.io/football/teams/164.png",
-					"winner": null
+					"winner": true
 				},
-				"away": { "id": 176, "name": "VfL BOCHUM", "logo": "https://media.api-sports.io/football/teams/176.png", "winner": null }
+				"away": { "id": 176, "name": "VfL BOCHUM", "logo": "https://media.api-sports.io/football/teams/176.png", "winner": false }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 1, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6709,13 +6749,13 @@
 		{
 			"fixture": {
 				"id": 719517,
-				"referee": null,
+				"referee": "Sven Jablonski, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-15T00:00:00+00:00",
-				"timestamp": 1642204800,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-16T14:30:00+00:00",
+				"timestamp": 1642343400,
+				"periods": { "first": 1642343400, "second": 1642347000 },
 				"venue": { "id": 698, "name": "WWK Arena", "city": "Augsburg" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6740,10 +6780,10 @@
 					"winner": null
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 1 },
+				"fulltime": { "home": 1, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6751,13 +6791,13 @@
 		{
 			"fixture": {
 				"id": 719518,
-				"referee": null,
+				"referee": "Christian Dingert, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-15T00:00:00+00:00",
-				"timestamp": 1642204800,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-16T16:30:00+00:00",
+				"timestamp": 1642350600,
+				"periods": { "first": 1642350600, "second": 1642354200 },
 				"venue": { "id": 697, "name": "SchücoArena", "city": "Bielefeld" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6782,10 +6822,10 @@
 					"winner": null
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 1 },
+				"fulltime": { "home": 2, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6793,13 +6833,13 @@
 		{
 			"fixture": {
 				"id": 719519,
-				"referee": null,
+				"referee": "Tobias Welz, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-15T00:00:00+00:00",
-				"timestamp": 1642204800,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-15T14:30:00+00:00",
+				"timestamp": 1642257000,
+				"periods": { "first": 1642257000, "second": 1642260600 },
 				"venue": { "id": 731, "name": "RheinEnergieStadion", "city": "Köln" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6811,18 +6851,18 @@
 				"round": "Regular Season - 19"
 			},
 			"teams": {
-				"home": { "id": 192, "name": "FC Koln", "logo": "https://media.api-sports.io/football/teams/192.png", "winner": null },
+				"home": { "id": 192, "name": "FC Koln", "logo": "https://media.api-sports.io/football/teams/192.png", "winner": false },
 				"away": {
 					"id": 157,
 					"name": "Bayern Munich",
 					"logo": "https://media.api-sports.io/football/teams/157.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 0, "away": 4 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 2 },
+				"fulltime": { "home": 0, "away": 4 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6830,13 +6870,13 @@
 		{
 			"fixture": {
 				"id": 719520,
-				"referee": null,
+				"referee": "Daniel Siebert, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-22T00:00:00+00:00",
-				"timestamp": 1642809600,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-23T14:30:00+00:00",
+				"timestamp": 1642948200,
+				"periods": { "first": 1642948200, "second": 1642951800 },
 				"venue": { "id": 738, "name": "Red Bull Arena", "city": "Leipzig" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6848,18 +6888,18 @@
 				"round": "Regular Season - 20"
 			},
 			"teams": {
-				"home": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": null },
+				"home": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": true },
 				"away": {
 					"id": 161,
 					"name": "VfL Wolfsburg",
 					"logo": "https://media.api-sports.io/football/teams/161.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 2, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6867,13 +6907,13 @@
 		{
 			"fixture": {
 				"id": 719521,
-				"referee": null,
+				"referee": "Tobias Reichel, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-22T00:00:00+00:00",
-				"timestamp": 1642809600,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-21T19:30:00+00:00",
+				"timestamp": 1642793400,
+				"periods": { "first": 1642793400, "second": 1642797000 },
 				"venue": { "id": 10491, "name": "Deutsche Bank Park", "city": "Frankfurt am Main" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6889,19 +6929,19 @@
 					"id": 169,
 					"name": "Eintracht Frankfurt",
 					"logo": "https://media.api-sports.io/football/teams/169.png",
-					"winner": null
+					"winner": false
 				},
 				"away": {
 					"id": 188,
 					"name": "Arminia Bielefeld",
 					"logo": "https://media.api-sports.io/football/teams/188.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 0, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 2 },
+				"fulltime": { "home": 0, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6909,13 +6949,13 @@
 		{
 			"fixture": {
 				"id": 719522,
-				"referee": null,
+				"referee": "Daniel Schlager, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-22T00:00:00+00:00",
-				"timestamp": 1642809600,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-22T14:30:00+00:00",
+				"timestamp": 1642861800,
+				"periods": { "first": 1642861800, "second": 1642865400 },
 				"venue": { "id": 699, "name": "BayArena", "city": "Leverkusen" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6931,14 +6971,19 @@
 					"id": 168,
 					"name": "Bayer Leverkusen",
 					"logo": "https://media.api-sports.io/football/teams/168.png",
-					"winner": null
+					"winner": true
 				},
-				"away": { "id": 170, "name": "FC Augsburg", "logo": "https://media.api-sports.io/football/teams/170.png", "winner": null }
+				"away": {
+					"id": 170,
+					"name": "FC Augsburg",
+					"logo": "https://media.api-sports.io/football/teams/170.png",
+					"winner": false
+				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 5, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 2, "away": 0 },
+				"fulltime": { "home": 5, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6946,13 +6991,13 @@
 		{
 			"fixture": {
 				"id": 719523,
-				"referee": null,
+				"referee": "Felix Brych, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-22T00:00:00+00:00",
-				"timestamp": 1642809600,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-22T14:30:00+00:00",
+				"timestamp": 1642861800,
+				"periods": { "first": 1642861800, "second": 1642865400 },
 				"venue": { "id": 703, "name": "Stadion im BORUSSIA-PARK", "city": "Mönchengladbach" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -6968,19 +7013,19 @@
 					"id": 163,
 					"name": "Borussia Monchengladbach",
 					"logo": "https://media.api-sports.io/football/teams/163.png",
-					"winner": null
+					"winner": false
 				},
 				"away": {
 					"id": 182,
 					"name": "Union Berlin",
 					"logo": "https://media.api-sports.io/football/teams/182.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 1 },
+				"fulltime": { "home": 1, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -6988,13 +7033,13 @@
 		{
 			"fixture": {
 				"id": 719524,
-				"referee": null,
+				"referee": "Tobias Stieler, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-22T00:00:00+00:00",
-				"timestamp": 1642809600,
-				"periods": { "first": null, "second": null },
-				"venue": { "id": 716, "name": "Schwarzwald-Stadion", "city": "Freiburg im Breisgau" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"date": "2022-01-22T14:30:00+00:00",
+				"timestamp": 1642861800,
+				"periods": { "first": 1642861800, "second": 1642865400 },
+				"venue": { "id": 12717, "name": "Europa-Park Stadion", "city": "Freiburg im Breisgau" },
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7010,19 +7055,19 @@
 					"id": 160,
 					"name": "SC Freiburg",
 					"logo": "https://media.api-sports.io/football/teams/160.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 172,
 					"name": "VfB Stuttgart",
 					"logo": "https://media.api-sports.io/football/teams/172.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 2, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7030,13 +7075,13 @@
 		{
 			"fixture": {
 				"id": 719525,
-				"referee": null,
+				"referee": "Deniz Aytekin, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-22T00:00:00+00:00",
-				"timestamp": 1642809600,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-22T14:30:00+00:00",
+				"timestamp": 1642861800,
+				"periods": { "first": 1642861800, "second": 1642865400 },
 				"venue": { "id": 724, "name": "PreZero Arena", "city": "Sinsheim" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7052,19 +7097,19 @@
 					"id": 167,
 					"name": "1899 Hoffenheim",
 					"logo": "https://media.api-sports.io/football/teams/167.png",
-					"winner": null
+					"winner": false
 				},
 				"away": {
 					"id": 165,
 					"name": "Borussia Dortmund",
 					"logo": "https://media.api-sports.io/football/teams/165.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 3 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 1 },
+				"fulltime": { "home": 2, "away": 3 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7072,13 +7117,13 @@
 		{
 			"fixture": {
 				"id": 719526,
-				"referee": null,
+				"referee": "Bastian Dankert, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-22T00:00:00+00:00",
-				"timestamp": 1642809600,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-23T16:30:00+00:00",
+				"timestamp": 1642955400,
+				"periods": { "first": 1642955400, "second": 1642959000 },
 				"venue": { "id": 694, "name": "Olympiastadion Berlin", "city": "Berlin" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7094,19 +7139,19 @@
 					"id": 159,
 					"name": "Hertha Berlin",
 					"logo": "https://media.api-sports.io/football/teams/159.png",
-					"winner": null
+					"winner": false
 				},
 				"away": {
 					"id": 157,
 					"name": "Bayern Munich",
 					"logo": "https://media.api-sports.io/football/teams/157.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 4 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 2 },
+				"fulltime": { "home": 1, "away": 4 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7114,13 +7159,13 @@
 		{
 			"fixture": {
 				"id": 719527,
-				"referee": null,
+				"referee": "Matthias Jollenbeck, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-22T00:00:00+00:00",
-				"timestamp": 1642809600,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-22T17:30:00+00:00",
+				"timestamp": 1642872600,
+				"periods": { "first": 1642872600, "second": 1642876200 },
 				"venue": { "id": 751, "name": "Vonovia Ruhrstadion", "city": "Bochum" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7135,10 +7180,10 @@
 				"home": { "id": 176, "name": "VfL BOCHUM", "logo": "https://media.api-sports.io/football/teams/176.png", "winner": null },
 				"away": { "id": 192, "name": "FC Koln", "logo": "https://media.api-sports.io/football/teams/192.png", "winner": null }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 2 },
+				"fulltime": { "home": 2, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7146,13 +7191,13 @@
 		{
 			"fixture": {
 				"id": 719528,
-				"referee": null,
+				"referee": "Robert Schroder, Germany",
 				"timezone": "UTC",
-				"date": "2022-01-22T00:00:00+00:00",
-				"timestamp": 1642809600,
-				"periods": { "first": null, "second": null },
+				"date": "2022-01-22T14:30:00+00:00",
+				"timestamp": 1642861800,
+				"periods": { "first": 1642861800, "second": 1642865400 },
 				"venue": { "id": 718, "name": "Sportpark Ronhof Thomas Sommer", "city": "Fürth" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7168,19 +7213,19 @@
 					"id": 178,
 					"name": "SpVgg Greuther Furth",
 					"logo": "https://media.api-sports.io/football/teams/178.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 164,
 					"name": "FSV Mainz 05",
 					"logo": "https://media.api-sports.io/football/teams/164.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 2, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7188,13 +7233,13 @@
 		{
 			"fixture": {
 				"id": 719529,
-				"referee": null,
+				"referee": "Sven Jablonski, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-05T00:00:00+00:00",
-				"timestamp": 1644019200,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-05T17:30:00+00:00",
+				"timestamp": 1644082200,
+				"periods": { "first": 1644082200, "second": 1644085800 },
 				"venue": { "id": 700, "name": "Allianz Arena", "city": "München" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7210,14 +7255,14 @@
 					"id": 157,
 					"name": "Bayern Munich",
 					"logo": "https://media.api-sports.io/football/teams/157.png",
-					"winner": null
+					"winner": true
 				},
-				"away": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": null }
+				"away": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": false }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 3, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 2, "away": 1 },
+				"fulltime": { "home": 3, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7225,13 +7270,13 @@
 		{
 			"fixture": {
 				"id": 719530,
-				"referee": null,
+				"referee": "Daniel Siebert, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-05T00:00:00+00:00",
-				"timestamp": 1644019200,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-06T14:30:00+00:00",
+				"timestamp": 1644157800,
+				"periods": { "first": 1644157800, "second": 1644161400 },
 				"venue": { "id": 702, "name": "Signal-Iduna-Park", "city": "Dortmund" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7247,19 +7292,19 @@
 					"id": 165,
 					"name": "Borussia Dortmund",
 					"logo": "https://media.api-sports.io/football/teams/165.png",
-					"winner": null
+					"winner": false
 				},
 				"away": {
 					"id": 168,
 					"name": "Bayer Leverkusen",
 					"logo": "https://media.api-sports.io/football/teams/168.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 5 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 3 },
+				"fulltime": { "home": 2, "away": 5 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7267,13 +7312,13 @@
 		{
 			"fixture": {
 				"id": 719531,
-				"referee": null,
+				"referee": "Martin Petersen, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-05T00:00:00+00:00",
-				"timestamp": 1644019200,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-06T16:30:00+00:00",
+				"timestamp": 1644165000,
+				"periods": { "first": 1644165000, "second": 1644168600 },
 				"venue": { "id": 752, "name": "VOLKSWAGEN ARENA", "city": "Wolfsburg" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7289,19 +7334,19 @@
 					"id": 161,
 					"name": "VfL Wolfsburg",
 					"logo": "https://media.api-sports.io/football/teams/161.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 178,
 					"name": "SpVgg Greuther Furth",
 					"logo": "https://media.api-sports.io/football/teams/178.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 4, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 1 },
+				"fulltime": { "home": 4, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7309,13 +7354,13 @@
 		{
 			"fixture": {
 				"id": 719532,
-				"referee": null,
+				"referee": "Sascha Stegemann, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-05T00:00:00+00:00",
-				"timestamp": 1644019200,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-05T14:30:00+00:00",
+				"timestamp": 1644071400,
+				"periods": { "first": 1644071400, "second": 1644075000 },
 				"venue": { "id": 750, "name": "Mercedes-Benz-Arena", "city": "Stuttgart" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7331,19 +7376,19 @@
 					"id": 172,
 					"name": "VfB Stuttgart",
 					"logo": "https://media.api-sports.io/football/teams/172.png",
-					"winner": null
+					"winner": false
 				},
 				"away": {
 					"id": 169,
 					"name": "Eintracht Frankfurt",
 					"logo": "https://media.api-sports.io/football/teams/169.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 3 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 1 },
+				"fulltime": { "home": 2, "away": 3 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7351,13 +7396,13 @@
 		{
 			"fixture": {
 				"id": 719533,
-				"referee": null,
+				"referee": "Christian Dingert, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-05T00:00:00+00:00",
-				"timestamp": 1644019200,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-05T14:30:00+00:00",
+				"timestamp": 1644071400,
+				"periods": { "first": 1644071400, "second": 1644075000 },
 				"venue": { "id": 11899, "name": "MEWA ARENA", "city": "Mainz" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7373,19 +7418,19 @@
 					"id": 164,
 					"name": "FSV Mainz 05",
 					"logo": "https://media.api-sports.io/football/teams/164.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 167,
 					"name": "1899 Hoffenheim",
 					"logo": "https://media.api-sports.io/football/teams/167.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 2, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7393,13 +7438,13 @@
 		{
 			"fixture": {
 				"id": 719534,
-				"referee": null,
+				"referee": "Harm Osmers, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-05T00:00:00+00:00",
-				"timestamp": 1644019200,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-05T14:30:00+00:00",
+				"timestamp": 1644071400,
+				"periods": { "first": 1644071400, "second": 1644075000 },
 				"venue": { "id": 698, "name": "WWK Arena", "city": "Augsburg" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7415,19 +7460,19 @@
 					"id": 170,
 					"name": "FC Augsburg",
 					"logo": "https://media.api-sports.io/football/teams/170.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 182,
 					"name": "Union Berlin",
 					"logo": "https://media.api-sports.io/football/teams/182.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 2, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7435,13 +7480,13 @@
 		{
 			"fixture": {
 				"id": 719535,
-				"referee": null,
+				"referee": "Marco Fritz, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-05T00:00:00+00:00",
-				"timestamp": 1644019200,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-04T19:30:00+00:00",
+				"timestamp": 1644003000,
+				"periods": { "first": 1644003000, "second": 1644006600 },
 				"venue": { "id": 694, "name": "Olympiastadion Berlin", "city": "Berlin" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7461,10 +7506,10 @@
 				},
 				"away": { "id": 176, "name": "VfL BOCHUM", "logo": "https://media.api-sports.io/football/teams/176.png", "winner": null }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 1, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7472,13 +7517,13 @@
 		{
 			"fixture": {
 				"id": 719536,
-				"referee": null,
+				"referee": "Benjamin Cortus, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-05T00:00:00+00:00",
-				"timestamp": 1644019200,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-05T14:30:00+00:00",
+				"timestamp": 1644071400,
+				"periods": { "first": 1644071400, "second": 1644075000 },
 				"venue": { "id": 697, "name": "SchücoArena", "city": "Bielefeld" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7503,10 +7548,10 @@
 					"winner": null
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 1 },
+				"fulltime": { "home": 1, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7514,13 +7559,13 @@
 		{
 			"fixture": {
 				"id": 719537,
-				"referee": null,
+				"referee": "Felix Brych, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-05T00:00:00+00:00",
-				"timestamp": 1644019200,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-05T14:30:00+00:00",
+				"timestamp": 1644071400,
+				"periods": { "first": 1644071400, "second": 1644075000 },
 				"venue": { "id": 731, "name": "RheinEnergieStadion", "city": "Köln" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7532,13 +7577,18 @@
 				"round": "Regular Season - 21"
 			},
 			"teams": {
-				"home": { "id": 192, "name": "FC Koln", "logo": "https://media.api-sports.io/football/teams/192.png", "winner": null },
-				"away": { "id": 160, "name": "SC Freiburg", "logo": "https://media.api-sports.io/football/teams/160.png", "winner": null }
+				"home": { "id": 192, "name": "FC Koln", "logo": "https://media.api-sports.io/football/teams/192.png", "winner": true },
+				"away": {
+					"id": 160,
+					"name": "SC Freiburg",
+					"logo": "https://media.api-sports.io/football/teams/160.png",
+					"winner": false
+				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 1, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7546,13 +7596,13 @@
 		{
 			"fixture": {
 				"id": 719538,
-				"referee": null,
+				"referee": "Florian Badstubner, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-12T00:00:00+00:00",
-				"timestamp": 1644624000,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-11T19:30:00+00:00",
+				"timestamp": 1644607800,
+				"periods": { "first": 1644607800, "second": 1644611400 },
 				"venue": { "id": 738, "name": "Red Bull Arena", "city": "Leipzig" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7564,13 +7614,13 @@
 				"round": "Regular Season - 22"
 			},
 			"teams": {
-				"home": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": null },
-				"away": { "id": 192, "name": "FC Koln", "logo": "https://media.api-sports.io/football/teams/192.png", "winner": null }
+				"home": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": true },
+				"away": { "id": 192, "name": "FC Koln", "logo": "https://media.api-sports.io/football/teams/192.png", "winner": false }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 3, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 3, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7578,13 +7628,13 @@
 		{
 			"fixture": {
 				"id": 719539,
-				"referee": null,
+				"referee": "Frank Willenborg, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-12T00:00:00+00:00",
-				"timestamp": 1644624000,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-12T14:30:00+00:00",
+				"timestamp": 1644676200,
+				"periods": { "first": 1644676200, "second": 1644679800 },
 				"venue": { "id": 10491, "name": "Deutsche Bank Park", "city": "Frankfurt am Main" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7600,19 +7650,19 @@
 					"id": 169,
 					"name": "Eintracht Frankfurt",
 					"logo": "https://media.api-sports.io/football/teams/169.png",
-					"winner": null
+					"winner": false
 				},
 				"away": {
 					"id": 161,
 					"name": "VfL Wolfsburg",
 					"logo": "https://media.api-sports.io/football/teams/161.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 0, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 1 },
+				"fulltime": { "home": 0, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7620,13 +7670,13 @@
 		{
 			"fixture": {
 				"id": 719540,
-				"referee": null,
+				"referee": "Felix Brych, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-12T00:00:00+00:00",
-				"timestamp": 1644624000,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-12T17:30:00+00:00",
+				"timestamp": 1644687000,
+				"periods": { "first": 1644687000, "second": 1644690600 },
 				"venue": { "id": 699, "name": "BayArena", "city": "Leverkusen" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7642,19 +7692,19 @@
 					"id": 168,
 					"name": "Bayer Leverkusen",
 					"logo": "https://media.api-sports.io/football/teams/168.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 172,
 					"name": "VfB Stuttgart",
 					"logo": "https://media.api-sports.io/football/teams/172.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 4, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 4, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7662,13 +7712,13 @@
 		{
 			"fixture": {
 				"id": 719541,
-				"referee": null,
+				"referee": "Matthias Jollenbeck, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-12T00:00:00+00:00",
-				"timestamp": 1644624000,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-13T14:30:00+00:00",
+				"timestamp": 1644762600,
+				"periods": { "first": 1644762600, "second": 1644766200 },
 				"venue": { "id": 748, "name": "Stadion An der Alten Försterei", "city": "Berlin" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7684,19 +7734,19 @@
 					"id": 182,
 					"name": "Union Berlin",
 					"logo": "https://media.api-sports.io/football/teams/182.png",
-					"winner": null
+					"winner": false
 				},
 				"away": {
 					"id": 165,
 					"name": "Borussia Dortmund",
 					"logo": "https://media.api-sports.io/football/teams/165.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 0, "away": 3 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 2 },
+				"fulltime": { "home": 0, "away": 3 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7704,13 +7754,13 @@
 		{
 			"fixture": {
 				"id": 719542,
-				"referee": null,
+				"referee": "Tobias Welz, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-12T00:00:00+00:00",
-				"timestamp": 1644624000,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-12T14:30:00+00:00",
+				"timestamp": 1644676200,
+				"periods": { "first": 1644676200, "second": 1644679800 },
 				"venue": { "id": 703, "name": "Stadion im BORUSSIA-PARK", "city": "Mönchengladbach" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7726,14 +7776,19 @@
 					"id": 163,
 					"name": "Borussia Monchengladbach",
 					"logo": "https://media.api-sports.io/football/teams/163.png",
-					"winner": null
+					"winner": true
 				},
-				"away": { "id": 170, "name": "FC Augsburg", "logo": "https://media.api-sports.io/football/teams/170.png", "winner": null }
+				"away": {
+					"id": 170,
+					"name": "FC Augsburg",
+					"logo": "https://media.api-sports.io/football/teams/170.png",
+					"winner": false
+				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 3, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 3, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7741,13 +7796,13 @@
 		{
 			"fixture": {
 				"id": 719543,
-				"referee": null,
+				"referee": "Deniz Aytekin, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-12T00:00:00+00:00",
-				"timestamp": 1644624000,
-				"periods": { "first": null, "second": null },
-				"venue": { "id": 716, "name": "Schwarzwald-Stadion", "city": "Freiburg im Breisgau" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"date": "2022-02-12T14:30:00+00:00",
+				"timestamp": 1644676200,
+				"periods": { "first": 1644676200, "second": 1644679800 },
+				"venue": { "id": 12717, "name": "Europa-Park Stadion", "city": "Freiburg im Breisgau" },
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7772,10 +7827,10 @@
 					"winner": null
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 1 },
+				"fulltime": { "home": 1, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7783,13 +7838,13 @@
 		{
 			"fixture": {
 				"id": 719544,
-				"referee": null,
+				"referee": "Robert Hartmann, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-12T00:00:00+00:00",
-				"timestamp": 1644624000,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-13T16:30:00+00:00",
+				"timestamp": 1644769800,
+				"periods": { "first": 1644769800, "second": 1644773400 },
 				"venue": { "id": 724, "name": "PreZero Arena", "city": "Sinsheim" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7805,19 +7860,19 @@
 					"id": 167,
 					"name": "1899 Hoffenheim",
 					"logo": "https://media.api-sports.io/football/teams/167.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 188,
 					"name": "Arminia Bielefeld",
 					"logo": "https://media.api-sports.io/football/teams/188.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 2, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7825,13 +7880,13 @@
 		{
 			"fixture": {
 				"id": 719545,
-				"referee": null,
+				"referee": "Robert Schroder, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-12T00:00:00+00:00",
-				"timestamp": 1644624000,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-12T14:30:00+00:00",
+				"timestamp": 1644676200,
+				"periods": { "first": 1644676200, "second": 1644679800 },
 				"venue": { "id": 751, "name": "Vonovia Ruhrstadion", "city": "Bochum" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7843,18 +7898,18 @@
 				"round": "Regular Season - 22"
 			},
 			"teams": {
-				"home": { "id": 176, "name": "VfL BOCHUM", "logo": "https://media.api-sports.io/football/teams/176.png", "winner": null },
+				"home": { "id": 176, "name": "VfL BOCHUM", "logo": "https://media.api-sports.io/football/teams/176.png", "winner": true },
 				"away": {
 					"id": 157,
 					"name": "Bayern Munich",
 					"logo": "https://media.api-sports.io/football/teams/157.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 4, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 4, "away": 1 },
+				"fulltime": { "home": 4, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7862,13 +7917,13 @@
 		{
 			"fixture": {
 				"id": 719546,
-				"referee": null,
+				"referee": "Daniel Schlager, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-12T00:00:00+00:00",
-				"timestamp": 1644624000,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-12T14:30:00+00:00",
+				"timestamp": 1644676200,
+				"periods": { "first": 1644676200, "second": 1644679800 },
 				"venue": { "id": 718, "name": "Sportpark Ronhof Thomas Sommer", "city": "Fürth" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7884,19 +7939,19 @@
 					"id": 178,
 					"name": "SpVgg Greuther Furth",
 					"logo": "https://media.api-sports.io/football/teams/178.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 159,
 					"name": "Hertha Berlin",
 					"logo": "https://media.api-sports.io/football/teams/159.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 2, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 2, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7904,13 +7959,13 @@
 		{
 			"fixture": {
 				"id": 719547,
-				"referee": null,
+				"referee": "Robert Hartmann, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-19T00:00:00+00:00",
-				"timestamp": 1645228800,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-20T14:30:00+00:00",
+				"timestamp": 1645367400,
+				"periods": { "first": 1645367400, "second": 1645371000 },
 				"venue": { "id": 700, "name": "Allianz Arena", "city": "München" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7926,19 +7981,19 @@
 					"id": 157,
 					"name": "Bayern Munich",
 					"logo": "https://media.api-sports.io/football/teams/157.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 178,
 					"name": "SpVgg Greuther Furth",
 					"logo": "https://media.api-sports.io/football/teams/178.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 4, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 1 },
+				"fulltime": { "home": 4, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7946,13 +8001,13 @@
 		{
 			"fixture": {
 				"id": 719548,
-				"referee": null,
+				"referee": "Marco Fritz, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-19T00:00:00+00:00",
-				"timestamp": 1645228800,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-20T16:30:00+00:00",
+				"timestamp": 1645374600,
+				"periods": { "first": 1645374600, "second": 1645378200 },
 				"venue": { "id": 702, "name": "Signal-Iduna-Park", "city": "Dortmund" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -7968,19 +8023,19 @@
 					"id": 165,
 					"name": "Borussia Dortmund",
 					"logo": "https://media.api-sports.io/football/teams/165.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 163,
 					"name": "Borussia Monchengladbach",
 					"logo": "https://media.api-sports.io/football/teams/163.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 6, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 2, "away": 0 },
+				"fulltime": { "home": 6, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -7988,13 +8043,13 @@
 		{
 			"fixture": {
 				"id": 719549,
-				"referee": null,
+				"referee": "Felix Zwayer, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-19T00:00:00+00:00",
-				"timestamp": 1645228800,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-19T14:30:00+00:00",
+				"timestamp": 1645281000,
+				"periods": { "first": 1645281000, "second": 1645284600 },
 				"venue": { "id": 752, "name": "VOLKSWAGEN ARENA", "city": "Wolfsburg" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -8010,19 +8065,19 @@
 					"id": 161,
 					"name": "VfL Wolfsburg",
 					"logo": "https://media.api-sports.io/football/teams/161.png",
-					"winner": null
+					"winner": false
 				},
 				"away": {
 					"id": 167,
 					"name": "1899 Hoffenheim",
 					"logo": "https://media.api-sports.io/football/teams/167.png",
-					"winner": null
+					"winner": true
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 0 },
+				"fulltime": { "home": 1, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -8030,13 +8085,13 @@
 		{
 			"fixture": {
 				"id": 719550,
-				"referee": null,
+				"referee": "Harm Osmers, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-19T00:00:00+00:00",
-				"timestamp": 1645228800,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-19T14:30:00+00:00",
+				"timestamp": 1645281000,
+				"periods": { "first": 1645281000, "second": 1645284600 },
 				"venue": { "id": 750, "name": "Mercedes-Benz-Arena", "city": "Stuttgart" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -8056,10 +8111,10 @@
 				},
 				"away": { "id": 176, "name": "VfL BOCHUM", "logo": "https://media.api-sports.io/football/teams/176.png", "winner": null }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 1 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 1, "away": 1 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -8067,13 +8122,13 @@
 		{
 			"fixture": {
 				"id": 719551,
-				"referee": null,
+				"referee": "Benjamin Cortus, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-19T00:00:00+00:00",
-				"timestamp": 1645228800,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-18T19:30:00+00:00",
+				"timestamp": 1645212600,
+				"periods": { "first": 1645212600, "second": 1645216200 },
 				"venue": { "id": 11899, "name": "MEWA ARENA", "city": "Mainz" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -8089,19 +8144,19 @@
 					"id": 164,
 					"name": "FSV Mainz 05",
 					"logo": "https://media.api-sports.io/football/teams/164.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 168,
 					"name": "Bayer Leverkusen",
 					"logo": "https://media.api-sports.io/football/teams/168.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 3, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 1 },
+				"fulltime": { "home": 3, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -8109,13 +8164,13 @@
 		{
 			"fixture": {
 				"id": 719552,
-				"referee": null,
+				"referee": "Daniel Siebert, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-19T00:00:00+00:00",
-				"timestamp": 1645228800,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-19T14:30:00+00:00",
+				"timestamp": 1645281000,
+				"periods": { "first": 1645281000, "second": 1645284600 },
 				"venue": { "id": 698, "name": "WWK Arena", "city": "Augsburg" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -8131,14 +8186,14 @@
 					"id": 170,
 					"name": "FC Augsburg",
 					"logo": "https://media.api-sports.io/football/teams/170.png",
-					"winner": null
+					"winner": false
 				},
-				"away": { "id": 160, "name": "SC Freiburg", "logo": "https://media.api-sports.io/football/teams/160.png", "winner": null }
+				"away": { "id": 160, "name": "SC Freiburg", "logo": "https://media.api-sports.io/football/teams/160.png", "winner": true }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 2 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 1, "away": 2 },
+				"fulltime": { "home": 1, "away": 2 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -8146,13 +8201,13 @@
 		{
 			"fixture": {
 				"id": 719553,
-				"referee": null,
+				"referee": "Patrick Ittrich, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-19T00:00:00+00:00",
-				"timestamp": 1645228800,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-20T18:30:00+00:00",
+				"timestamp": 1645381800,
+				"periods": { "first": 1645381800, "second": 1645385400 },
 				"venue": { "id": 694, "name": "Olympiastadion Berlin", "city": "Berlin" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -8168,14 +8223,14 @@
 					"id": 159,
 					"name": "Hertha Berlin",
 					"logo": "https://media.api-sports.io/football/teams/159.png",
-					"winner": null
+					"winner": false
 				},
-				"away": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": null }
+				"away": { "id": 173, "name": "RB Leipzig", "logo": "https://media.api-sports.io/football/teams/173.png", "winner": true }
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 6 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 1 },
+				"fulltime": { "home": 1, "away": 6 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -8183,13 +8238,13 @@
 		{
 			"fixture": {
 				"id": 719554,
-				"referee": null,
+				"referee": "Daniel Schlager, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-19T00:00:00+00:00",
-				"timestamp": 1645228800,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-19T14:30:00+00:00",
+				"timestamp": 1645281000,
+				"periods": { "first": 1645281000, "second": 1645284600 },
 				"venue": { "id": 697, "name": "SchücoArena", "city": "Bielefeld" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -8205,19 +8260,19 @@
 					"id": 188,
 					"name": "Arminia Bielefeld",
 					"logo": "https://media.api-sports.io/football/teams/188.png",
-					"winner": null
+					"winner": true
 				},
 				"away": {
 					"id": 182,
 					"name": "Union Berlin",
 					"logo": "https://media.api-sports.io/football/teams/182.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 1, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -8225,13 +8280,13 @@
 		{
 			"fixture": {
 				"id": 719555,
-				"referee": null,
+				"referee": "Christian Dingert, Germany",
 				"timezone": "UTC",
-				"date": "2022-02-19T00:00:00+00:00",
-				"timestamp": 1645228800,
-				"periods": { "first": null, "second": null },
+				"date": "2022-02-19T17:30:00+00:00",
+				"timestamp": 1645291800,
+				"periods": { "first": 1645291800, "second": 1645295400 },
 				"venue": { "id": 731, "name": "RheinEnergieStadion", "city": "Köln" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Match Finished", "short": "FT", "elapsed": 90 }
 			},
 			"league": {
 				"id": 78,
@@ -8243,18 +8298,18 @@
 				"round": "Regular Season - 23"
 			},
 			"teams": {
-				"home": { "id": 192, "name": "FC Koln", "logo": "https://media.api-sports.io/football/teams/192.png", "winner": null },
+				"home": { "id": 192, "name": "FC Koln", "logo": "https://media.api-sports.io/football/teams/192.png", "winner": true },
 				"away": {
 					"id": 169,
 					"name": "Eintracht Frankfurt",
 					"logo": "https://media.api-sports.io/football/teams/169.png",
-					"winner": null
+					"winner": false
 				}
 			},
-			"goals": { "home": null, "away": null },
+			"goals": { "home": 1, "away": 0 },
 			"score": {
-				"halftime": { "home": null, "away": null },
-				"fulltime": { "home": null, "away": null },
+				"halftime": { "home": 0, "away": 0 },
+				"fulltime": { "home": 1, "away": 0 },
 				"extratime": { "home": null, "away": null },
 				"penalty": { "home": null, "away": null }
 			}
@@ -8264,11 +8319,11 @@
 				"id": 719556,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-02-26T00:00:00+00:00",
-				"timestamp": 1645833600,
+				"date": "2022-02-26T17:30:00+00:00",
+				"timestamp": 1645896600,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 10491, "name": "Deutsche Bank Park", "city": "Frankfurt am Main" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -8306,11 +8361,11 @@
 				"id": 719557,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-02-26T00:00:00+00:00",
-				"timestamp": 1645833600,
+				"date": "2022-02-26T14:30:00+00:00",
+				"timestamp": 1645885800,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 699, "name": "BayArena", "city": "Leverkusen" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -8348,11 +8403,11 @@
 				"id": 719558,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-02-26T00:00:00+00:00",
-				"timestamp": 1645833600,
+				"date": "2022-02-26T14:30:00+00:00",
+				"timestamp": 1645885800,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 748, "name": "Stadion An der Alten Försterei", "city": "Berlin" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -8390,11 +8445,11 @@
 				"id": 719559,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-02-26T00:00:00+00:00",
-				"timestamp": 1645833600,
+				"date": "2022-02-26T14:30:00+00:00",
+				"timestamp": 1645885800,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 703, "name": "Stadion im BORUSSIA-PARK", "city": "Mönchengladbach" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -8432,11 +8487,11 @@
 				"id": 719560,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-02-26T00:00:00+00:00",
-				"timestamp": 1645833600,
+				"date": "2022-02-26T14:30:00+00:00",
+				"timestamp": 1645885800,
 				"periods": { "first": null, "second": null },
-				"venue": { "id": 716, "name": "Schwarzwald-Stadion", "city": "Freiburg im Breisgau" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"venue": { "id": 12717, "name": "Europa-Park Stadion", "city": "Freiburg im Breisgau" },
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -8474,11 +8529,11 @@
 				"id": 719561,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-02-26T00:00:00+00:00",
-				"timestamp": 1645833600,
+				"date": "2022-02-25T19:30:00+00:00",
+				"timestamp": 1645817400,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 724, "name": "PreZero Arena", "city": "Sinsheim" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -8516,11 +8571,11 @@
 				"id": 719562,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-02-26T00:00:00+00:00",
-				"timestamp": 1645833600,
+				"date": "2022-02-27T16:30:00+00:00",
+				"timestamp": 1645979400,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 698, "name": "WWK Arena", "city": "Augsburg" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -8558,11 +8613,11 @@
 				"id": 719563,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-02-26T00:00:00+00:00",
-				"timestamp": 1645833600,
+				"date": "2022-02-27T14:30:00+00:00",
+				"timestamp": 1645972200,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 751, "name": "Vonovia Ruhrstadion", "city": "Bochum" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -8590,11 +8645,11 @@
 				"id": 719564,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-02-26T00:00:00+00:00",
-				"timestamp": 1645833600,
+				"date": "2022-02-26T14:30:00+00:00",
+				"timestamp": 1645885800,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 718, "name": "Sportpark Ronhof Thomas Sommer", "city": "Fürth" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -8627,11 +8682,11 @@
 				"id": 719565,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-05T00:00:00+00:00",
-				"timestamp": 1646438400,
+				"date": "2022-03-05T14:30:00+00:00",
+				"timestamp": 1646490600,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 700, "name": "Allianz Arena", "city": "München" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -8669,11 +8724,11 @@
 				"id": 719566,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-05T00:00:00+00:00",
-				"timestamp": 1646438400,
+				"date": "2022-03-05T14:30:00+00:00",
+				"timestamp": 1646490600,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 738, "name": "Red Bull Arena", "city": "Leipzig" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -8701,11 +8756,11 @@
 				"id": 719567,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-05T00:00:00+00:00",
-				"timestamp": 1646438400,
+				"date": "2022-03-05T14:30:00+00:00",
+				"timestamp": 1646490600,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 752, "name": "VOLKSWAGEN ARENA", "city": "Wolfsburg" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -8743,11 +8798,11 @@
 				"id": 719568,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-05T00:00:00+00:00",
-				"timestamp": 1646438400,
+				"date": "2022-03-05T17:30:00+00:00",
+				"timestamp": 1646501400,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 750, "name": "Mercedes-Benz-Arena", "city": "Stuttgart" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -8785,11 +8840,11 @@
 				"id": 719569,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-05T00:00:00+00:00",
-				"timestamp": 1646438400,
+				"date": "2022-03-06T14:30:00+00:00",
+				"timestamp": 1646577000,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 11899, "name": "MEWA ARENA", "city": "Mainz" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -8827,11 +8882,11 @@
 				"id": 719570,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-05T00:00:00+00:00",
-				"timestamp": 1646438400,
+				"date": "2022-03-05T14:30:00+00:00",
+				"timestamp": 1646490600,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 694, "name": "Olympiastadion Berlin", "city": "Berlin" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -8869,11 +8924,11 @@
 				"id": 719571,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-05T00:00:00+00:00",
-				"timestamp": 1646438400,
+				"date": "2022-03-04T19:30:00+00:00",
+				"timestamp": 1646422200,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 697, "name": "SchücoArena", "city": "Bielefeld" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -8906,11 +8961,11 @@
 				"id": 719572,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-05T00:00:00+00:00",
-				"timestamp": 1646438400,
+				"date": "2022-03-06T16:30:00+00:00",
+				"timestamp": 1646584200,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 731, "name": "RheinEnergieStadion", "city": "Köln" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -8943,11 +8998,11 @@
 				"id": 719573,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-05T00:00:00+00:00",
-				"timestamp": 1646438400,
+				"date": "2022-03-05T14:30:00+00:00",
+				"timestamp": 1646490600,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 751, "name": "Vonovia Ruhrstadion", "city": "Bochum" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -8980,11 +9035,11 @@
 				"id": 719574,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-12T00:00:00+00:00",
-				"timestamp": 1647043200,
+				"date": "2022-03-13T16:30:00+00:00",
+				"timestamp": 1647189000,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 702, "name": "Signal-Iduna-Park", "city": "Dortmund" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -9022,11 +9077,11 @@
 				"id": 719575,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-12T00:00:00+00:00",
-				"timestamp": 1647043200,
+				"date": "2022-03-13T16:30:00+00:00",
+				"timestamp": 1647189000,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 10491, "name": "Deutsche Bank Park", "city": "Frankfurt am Main" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -9059,11 +9114,11 @@
 				"id": 719576,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-12T00:00:00+00:00",
-				"timestamp": 1647043200,
+				"date": "2022-03-13T14:30:00+00:00",
+				"timestamp": 1647181800,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 699, "name": "BayArena", "city": "Leverkusen" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -9096,11 +9151,11 @@
 				"id": 719577,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-12T00:00:00+00:00",
-				"timestamp": 1647043200,
+				"date": "2022-03-12T14:30:00+00:00",
+				"timestamp": 1647095400,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 748, "name": "Stadion An der Alten Försterei", "city": "Berlin" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -9138,11 +9193,11 @@
 				"id": 719578,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-12T00:00:00+00:00",
-				"timestamp": 1647043200,
+				"date": "2022-03-12T17:30:00+00:00",
+				"timestamp": 1647106200,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 703, "name": "Stadion im BORUSSIA-PARK", "city": "Mönchengladbach" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -9180,11 +9235,11 @@
 				"id": 719579,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-12T00:00:00+00:00",
-				"timestamp": 1647043200,
+				"date": "2022-03-12T14:30:00+00:00",
+				"timestamp": 1647095400,
 				"periods": { "first": null, "second": null },
-				"venue": { "id": 716, "name": "Schwarzwald-Stadion", "city": "Freiburg im Breisgau" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"venue": { "id": 12717, "name": "Europa-Park Stadion", "city": "Freiburg im Breisgau" },
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -9222,11 +9277,11 @@
 				"id": 719580,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-12T00:00:00+00:00",
-				"timestamp": 1647043200,
+				"date": "2022-03-12T14:30:00+00:00",
+				"timestamp": 1647095400,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 724, "name": "PreZero Arena", "city": "Sinsheim" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -9264,11 +9319,11 @@
 				"id": 719581,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-12T00:00:00+00:00",
-				"timestamp": 1647043200,
+				"date": "2022-03-12T14:30:00+00:00",
+				"timestamp": 1647095400,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 698, "name": "WWK Arena", "city": "Augsburg" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -9306,11 +9361,11 @@
 				"id": 719582,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-12T00:00:00+00:00",
-				"timestamp": 1647043200,
+				"date": "2022-03-13T18:30:00+00:00",
+				"timestamp": 1647196200,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 718, "name": "Sportpark Ronhof Thomas Sommer", "city": "Fürth" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -9343,11 +9398,11 @@
 				"id": 719583,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-19T00:00:00+00:00",
-				"timestamp": 1647648000,
+				"date": "2022-03-19T17:30:00+00:00",
+				"timestamp": 1647711000,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 700, "name": "Allianz Arena", "city": "München" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -9385,11 +9440,11 @@
 				"id": 719584,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-19T00:00:00+00:00",
-				"timestamp": 1647648000,
+				"date": "2022-03-20T14:30:00+00:00",
+				"timestamp": 1647786600,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 738, "name": "Red Bull Arena", "city": "Leipzig" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -9422,11 +9477,11 @@
 				"id": 719585,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-19T00:00:00+00:00",
-				"timestamp": 1647648000,
+				"date": "2022-03-20T16:30:00+00:00",
+				"timestamp": 1647793800,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 752, "name": "VOLKSWAGEN ARENA", "city": "Wolfsburg" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -9464,11 +9519,11 @@
 				"id": 719586,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-19T00:00:00+00:00",
-				"timestamp": 1647648000,
+				"date": "2022-03-19T14:30:00+00:00",
+				"timestamp": 1647700200,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 750, "name": "Mercedes-Benz-Arena", "city": "Stuttgart" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -9501,11 +9556,11 @@
 				"id": 719587,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-19T00:00:00+00:00",
-				"timestamp": 1647648000,
+				"date": "2022-03-19T14:30:00+00:00",
+				"timestamp": 1647700200,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 11899, "name": "MEWA ARENA", "city": "Mainz" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -9543,11 +9598,11 @@
 				"id": 719588,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-19T00:00:00+00:00",
-				"timestamp": 1647648000,
+				"date": "2022-03-19T14:30:00+00:00",
+				"timestamp": 1647700200,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 694, "name": "Olympiastadion Berlin", "city": "Berlin" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -9585,11 +9640,11 @@
 				"id": 719589,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-19T00:00:00+00:00",
-				"timestamp": 1647648000,
+				"date": "2022-03-20T18:30:00+00:00",
+				"timestamp": 1647801000,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 731, "name": "RheinEnergieStadion", "city": "Köln" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -9622,11 +9677,11 @@
 				"id": 719590,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-19T00:00:00+00:00",
-				"timestamp": 1647648000,
+				"date": "2022-03-18T19:30:00+00:00",
+				"timestamp": 1647631800,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 751, "name": "Vonovia Ruhrstadion", "city": "Bochum" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,
@@ -9659,11 +9714,11 @@
 				"id": 719591,
 				"referee": null,
 				"timezone": "UTC",
-				"date": "2022-03-19T00:00:00+00:00",
-				"timestamp": 1647648000,
+				"date": "2022-03-19T14:30:00+00:00",
+				"timestamp": 1647700200,
 				"periods": { "first": null, "second": null },
 				"venue": { "id": 718, "name": "Sportpark Ronhof Thomas Sommer", "city": "Fürth" },
-				"status": { "long": "Time to be defined", "short": "TBD", "elapsed": null }
+				"status": { "long": "Not Started", "short": "NS", "elapsed": null }
 			},
 			"league": {
 				"id": 78,

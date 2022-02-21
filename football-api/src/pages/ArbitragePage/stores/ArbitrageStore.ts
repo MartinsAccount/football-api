@@ -41,10 +41,12 @@ export class ArbitrageStore {
 	constructor(MainStore: MainStore) {
 		this.MainStore = MainStore;
 
-		this.Arbitrages = require('../../../data/testArbitrages3.json');
+		this.Init();
 	}
-	// Init = flow(function* (this: ArbitrageStore) {
-	// });
+
+	Init = flow(function* (this: ArbitrageStore) {
+		// this.Arbitrages = yield require('../../../data/testArbitrages.json');
+	});
 
 	@action setSelectedItem(item: IAnalyzedResult = null) {
 		this.selectedItem = item;
@@ -345,5 +347,28 @@ export class ArbitrageStore {
 			return this.Arbitrages.filter((it) => it.analyzed.some((item) => Number(item.arbitrage) < 1 && item.arbitrage !== null));
 		}
 		return this.Arbitrages;
+	}
+
+	@computed get topBookmakers() {
+		const _topBookmakers = {};
+
+		this.Arbitrages.map((it: IArbitrage) => it.analyzed).forEach((item: IAnalyzedResult[]) => {
+			item.forEach((i: IAnalyzedResult) => {
+				// let isGood = +i.arbitrage < 1;
+
+				i.highestOdds.forEach((obj: IHighestOdds) => {
+					if (_topBookmakers[obj.bookmaker]) {
+						_topBookmakers[obj.bookmaker] += 1;
+						return;
+					}
+					_topBookmakers[obj.bookmaker] = 1;
+				});
+
+				return;
+			});
+		});
+
+		// William Hill, 1xBet, Marathonbet, Bet365, Unibet, Bwin, NordicBet
+		return _topBookmakers;
 	}
 }

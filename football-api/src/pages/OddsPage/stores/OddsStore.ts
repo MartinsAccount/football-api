@@ -7,6 +7,15 @@ import { Fixture, Fixtures, OddsResponse } from '../../../core/models/models';
 import { DRAW_INFO, ODDS_INFO } from '../constants/constants';
 import ApiURLs from '../../../services/ApiURLs';
 
+export interface ITableRow {
+	title: string;
+	GY?: number;
+	D?: number;
+	V?: number;
+	data?: number;
+	onCustomData: number;
+}
+
 export class OddsStore {
 	public MainStore: MainStore;
 	// public OddsService: OddsService;
@@ -20,24 +29,31 @@ export class OddsStore {
 
 	@observable currentLeague: string;
 
-	@observable oddsInfos: typeof ODDS_INFO;
+	@observable oddsInfos: typeof ODDS_INFO = { ...ODDS_INFO };
 	@observable drawInfos: typeof DRAW_INFO;
 
 	constructor(MainStore: MainStore) {
 		this.MainStore = MainStore;
+
+		this.Init();
 
 		this.oddsInfos = { ...ODDS_INFO };
 		this.drawInfos = { ...DRAW_INFO };
 	}
 
 	Init = flow(function* (this: OddsStore) {
-		// const currentFixtures = yield FixtureService.GetCurrentSeasonFixtures(LEAGUES.SPAIN);
+		this.MainStore.isLoading = true;
+
+		// const currentFixtures = yield this.MainStore.FetchService.get(ApiURLs.FOOTBALL.GET_CURRENT_SEASON_FIXTURES(LEAGUES.GERMANY));
 		// console.log(JSON.stringify(currentFixtures));
-		// yield this.getSavedOdds();
+
+		yield this.getSavedOdds();
+
+		this.MainStore.isLoading = false;
 	});
 
 	getSavedOdds = flow(function* (this: OddsStore) {
-		const { response } = yield OddsService.GetSavedOdds();
+		const { response } = yield this.MainStore.FetchService.get(ApiURLs.BACKEND.GET_SAVED_ODDS());
 
 		this.savedOdds = response;
 		console.log('odds', toJS(this.savedOdds));
@@ -279,6 +295,43 @@ export class OddsStore {
 
 		console.log('response', response);
 	});
+
+	@computed get getTableRows() {
+		let arr = ['smallOdd', 'midOdd', 'highOdd'];
+		let titles = ['Hazai 1,5 alatt', 'Hazai 1,5 - 1,9 között', 'Hazai 1,9 felett'];
+
+		const rows: ITableRow[] = [
+			{ title: 'Esélyesebb nyert', data: this.oddsInfos.favoriteWin, onCustomData: this.oddsInfos.sum },
+			{ title: 'Esélytelenebb nyert', data: this.oddsInfos.unFavoriteWin, onCustomData: this.oddsInfos.sum },
+			...arr.map((it, index) => {
+				return {
+					title: titles[index],
+					GY: this.oddsInfos[it].home.win,
+					D: this.oddsInfos[it].home.draw,
+					V: this.oddsInfos[it].home.lose,
+					onCustomData: this.oddsInfos[it].home.sum
+				};
+			}),
+			...arr.map((it, index) => {
+				return {
+					title: titles[index].replace('Hazai', 'Vendég'),
+					GY: this.oddsInfos[it].away.win,
+					D: this.oddsInfos[it].away.draw,
+					V: this.oddsInfos[it].away.lose,
+					onCustomData: this.oddsInfos[it].away.sum
+				};
+			}),
+			{ title: 'Döntetlen (hazai az esélyesebb)', data: this.drawInfos.drawWhenHomeFavorite, onCustomData: this.drawInfos.sum },
+			{ title: 'Döntetlen (vendég az esélyesebb)', data: this.drawInfos.drawWhenAwayFavorite, onCustomData: this.drawInfos.sum },
+			{
+				title: 'Döntetlen (mindkettő 2-es odds felett)',
+				data: this.drawInfos.drawWhenNoOneFavorite,
+				onCustomData: this.drawInfos.sum
+			}
+		];
+
+		return rows;
+	}
 
 	//TODO: Odds-ot figyelembe véve
 	//? Mennyi meglepetés => nagyobb odds-al rendelkező nyer

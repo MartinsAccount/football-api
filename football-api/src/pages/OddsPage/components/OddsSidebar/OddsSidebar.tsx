@@ -29,11 +29,11 @@ class OddsSidebar extends Component<IArbitrageButtonsProps> {
 						<MyButton title="Összes mentett odds lekérése" onClick={() => OddsStore.getSavedOdds()} type="primary" />
 					</div>
 
-					<MyButton title="Angol odds-ok mentése" onClick={() => OddsStore.saveOdds('england')} />
+					{/* <MyButton title="Angol odds-ok mentése" onClick={() => OddsStore.saveOdds('england')} />
 					<MyButton title="Német odds-ok mentése" onClick={() => OddsStore.saveOdds('germany')} />
 					<MyButton title="Spanyol odds-ok mentése" onClick={() => OddsStore.saveOdds('spain')} />
 					<MyButton title="Francia odds-ok mentése" onClick={() => OddsStore.saveOdds('france')} />
-					<MyButton title="Olasz odds-ok mentésen" onClick={() => OddsStore.saveOdds('italy')} />
+					<MyButton title="Olasz odds-ok mentésen" onClick={() => OddsStore.saveOdds('italy')} /> */}
 
 					<div className={styles.marginTop}>
 						<MyButton title="Összes odds mentése" onClick={() => OddsStore.saveOdds('all')} type="primary" />
