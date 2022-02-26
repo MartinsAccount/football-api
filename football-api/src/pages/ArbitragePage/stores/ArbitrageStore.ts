@@ -2,9 +2,10 @@ import { action, computed, flow, observable, toJS } from 'mobx';
 import { BETS_TYPES } from '../../../core/constants/constants';
 import { Bet, BetsValue, Bookmaker } from '../../../core/models/models';
 import { IAnalyzedResult, IArbitrage, IFilters, IHighestOdds } from '../models/models';
-import { ILeagueOddsResponse, IOddsMapping, IOddsMappingResponse } from '../../OddsPage/models/models';
+import { IOddsMapping, IOddsMappingResponse } from '../../OddsPage/models/models';
 import { MainStore } from '../../../stores/MainStore';
 import ApiURLs from '../../../services/ApiURLs';
+import { ILeagueOddsResponse } from '../../OddsPage/models/IOdds';
 
 export class ArbitrageStore {
 	public MainStore: MainStore;

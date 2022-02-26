@@ -1,8 +1,8 @@
 import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
 import { MainStore } from '../../../../stores/MainStore';
+import { ITableRow } from '../../models/ITableRow';
 import styles from './RowItem.module.scss';
-import { ITableRow } from '../../stores/OddsStore';
 // import { v4 as uuidv4 } from 'uuid';
 
 interface IRowItemProps {

@@ -18,7 +18,7 @@ class Main extends Component<IMainProps> {
 	render() {
 		const { MainStore } = this.props;
 		const { OddsStore, ArbitrageStore } = this.props.MainStore;
-
+		console.log('MainStore', MainStore.isLoading);
 		return (
 			<Router>
 				<div>

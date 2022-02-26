@@ -12,21 +12,25 @@ const inside = {
 		lose: 0
 	}
 };
+const insideOver = {
+	sum: 0,
+	home: 0,
+	draw: 0,
+	away: 0
+};
 
 export const ODDS_INFO = {
 	sum: 0,
 	favoriteWin: 0,
 	unFavoriteWin: 0,
+	draw: 0,
 	smallOdd: { ...inside },
 	midOdd: { ...inside },
-	highOdd: { ...inside }
-};
-
-export const DRAW_INFO = {
-	sum: 0,
-	drawWhenHomeFavorite: 0,
-	drawWhenAwayFavorite: 0,
-	drawWhenNoOneFavorite: 0, // 2+ odds mindkettőre
-	drawWithGoals: 0,
-	drawWithoutGoals: 0
+	highOdd: { ...inside },
+	overOdds: {
+		bothOver200: { ...insideOver },
+		bothOver225: { ...insideOver },
+		bothOver250: { ...insideOver },
+		bothOver270: { ...insideOver }
+	}
 };

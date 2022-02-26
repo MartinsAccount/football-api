@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { MainStore } from '../../../../stores/MainStore';
 import styles from './OddsContent.module.scss';
 import { v4 as uuidv4 } from 'uuid';
-import { ITableRow } from '../../stores/OddsStore';
 import RowItem from '../RowItem/RowItem';
+import { ITableRow } from '../../models/ITableRow';
 
 interface IArbitrageContentProps {
 	MainStore?: MainStore;

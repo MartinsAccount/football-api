@@ -1,43 +1,11 @@
-import { OddsResponse } from '../../FixturePage/models/models';
-import { BetsNames } from './types';
+import { Fixture } from '../../FixturePage/models/models';
 
-export interface BetsValue {
-	value: string; // "Home"
-	odd: string; // "1.9"
-}
-export interface Bet {
-	id: number;
-	name: BetsNames;
-	values: BetsValue[];
-}
-export interface Bookmaker {
-	id: number;
-	name: string; // Unibet, William Hill, Marathonbet, Betcris, Bet365, Bwin
-	bets: Bet[];
-}
-
-export interface ISavedOddsItem {
-	odds: ILeagueOddsResponse[];
-}
-export interface ISavedOdds {
-	englandOdds: ISavedOddsItem;
-	franceOdds: ISavedOddsItem;
-	germanyOdds: ISavedOddsItem;
-	italyOdds: ISavedOddsItem;
-	spainOdds: ISavedOddsItem;
-}
-export interface ILeagueOddsResponse {
-	bookmakers: Bookmaker[];
-	fixture: {
-		date: string; // "2021-10-01T18:45:00+00:00"
-		id: number; // fixtureId
-	};
-	league: {
-		country: string;
-		id: number;
-		name: string; // Seria A
-		season: number; // 2021
-	};
+export interface IFixtures {
+	england: Fixture[];
+	france: Fixture[];
+	germany: Fixture[];
+	italy: Fixture[];
+	spain: Fixture[];
 }
 
 export interface IOddsMappingResponse {
