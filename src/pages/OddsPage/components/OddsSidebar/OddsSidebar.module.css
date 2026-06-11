@@ -1,0 +1,23 @@
+/* CSS */
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  z-index: 120;
+  background-color: #fff;
+}
+.sidebar .buttonsContainer {
+  width: 300px;
+  border-right: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 30px 15px;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.marginTop {
+  margin-top: 20px;
+}/*# sourceMappingURL=OddsSidebar.module.css.map */

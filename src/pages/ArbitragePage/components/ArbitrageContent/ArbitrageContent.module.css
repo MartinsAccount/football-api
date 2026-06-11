@@ -1,0 +1,70 @@
+/* CSS */
+.contentContainer {
+  position: relative;
+  top: 60px;
+  left: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 30px;
+  height: calc(100vh - 60px) !important;
+}
+.contentContainer .contentHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.contentContainer .contentHeader .contentHeaderButtons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+.contentContainer .contentInformations {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.tableContainer {
+  width: calc(100% - 300px) !important;
+  overflow-x: auto;
+}
+.tableContainer .table {
+  border: 1px solid #888;
+  border-collapse: collapse;
+  position: relative;
+}
+
+.listContainerByBetType {
+  position: relative;
+  top: 60px;
+  left: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 30px;
+}
+
+.listRowByBetType {
+  padding: 8px;
+}
+.listRowByBetType:hover {
+  background-color: #ff9e00;
+  cursor: pointer;
+}
+
+.listRowByBetTypeHeader {
+  padding: 8px;
+}
+.listRowByBetTypeHeader div {
+  font-size: 18px;
+}
+
+.separator {
+  height: 1px;
+  background-color: #212529;
+  margin-bottom: 12px;
+}/*# sourceMappingURL=ArbitrageContent.module.css.map */

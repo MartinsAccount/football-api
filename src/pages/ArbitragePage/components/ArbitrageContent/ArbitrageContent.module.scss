@@ -1,0 +1,99 @@
+@import '../../../../theme/theme.scss';
+
+.contentContainer {
+	@include content;
+	height: calc(100vh - 60px) !important;
+
+	.contentHeader {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.contentHeaderButtons {
+			display: flex;
+			align-items: center;
+			gap: 6px;
+			flex: 1;
+		}
+	}
+
+	.contentInformations {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+	}
+}
+
+.tableContainer {
+	width: calc(100% - 300px) !important;
+	overflow-x: auto;
+
+	.table {
+		border: 1px solid #888;
+		border-collapse: collapse;
+		position: relative;
+	}
+}
+
+// By Bet Type List
+.listContainerByBetType {
+	@include content;
+}
+
+.listRowByBetType {
+	padding: 8px;
+
+	&:hover {
+		background-color: $orange;
+		cursor: pointer;
+	}
+}
+.listRowByBetTypeHeader {
+	padding: 8px;
+
+	div {
+		font-size: 18px;
+	}
+}
+
+.separator {
+	height: 1px;
+	background-color: $dark;
+	margin-bottom: 12px;
+}
+
+.ldsRing {
+	display: inline-block;
+	position: relative;
+	width: 80px;
+	height: 80px;
+}
+.ldsRing div {
+	box-sizing: border-box;
+	display: block;
+	position: absolute;
+	width: 64px;
+	height: 64px;
+	margin: 8px;
+	border: 8px solid #fff;
+	border-radius: 50%;
+	animation: ldsRing 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+	border-color: #fff transparent transparent transparent;
+}
+.ldsRing div:nth-child(1) {
+	animation-delay: -0.45s;
+}
+.ldsRing div:nth-child(2) {
+	animation-delay: -0.3s;
+}
+.ldsRing div:nth-child(3) {
+	animation-delay: -0.15s;
+}
+@keyframes ldsRing {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

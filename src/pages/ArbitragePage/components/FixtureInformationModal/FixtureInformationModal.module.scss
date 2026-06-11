@@ -1,0 +1,124 @@
+@import '../../../../theme/theme.scss';
+
+.modalContainer {
+	flex-direction: column;
+	align-items: center;
+	background-color: rgb(116, 77, 55);
+	width: auto;
+	height: auto;
+	// width: 500px;
+	// height: 300px;
+
+	z-index: 9999;
+	padding: 12px;
+	border-radius: $midRadius;
+	box-shadow: 10px 20px 40px rgba($color: #363636, $alpha: 0.4);
+
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	.loading {
+		height: 400px;
+		width: 400px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: #fff;
+
+		.ldsRing {
+			display: inline-block;
+			position: relative;
+			width: 80px;
+			height: 80px;
+		}
+		.ldsRing div {
+			box-sizing: border-box;
+			display: block;
+			position: absolute;
+			width: 64px;
+			height: 64px;
+			margin: 8px;
+			border: 8px solid #fff;
+			border-radius: 50%;
+			animation: ldsRing 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+			border-color: #fff transparent transparent transparent;
+		}
+		.ldsRing div:nth-child(1) {
+			animation-delay: -0.45s;
+		}
+		.ldsRing div:nth-child(2) {
+			animation-delay: -0.3s;
+		}
+		.ldsRing div:nth-child(3) {
+			animation-delay: -0.15s;
+		}
+		@keyframes ldsRing {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+	}
+
+	.wrapper {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 42px;
+
+		.closeButton {
+			position: absolute;
+			width: 15px;
+			height: 15px;
+			top: 10px;
+			right: 10px;
+			font-size: 26px;
+			cursor: pointer;
+			transition: 0.3s;
+			color: rgb(223, 223, 223);
+
+			&:hover {
+				color: #fff;
+			}
+		}
+
+		.fixtureInformationsContainer {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			gap: 12px;
+			margin-bottom: 20px;
+		}
+
+		.fixtureTeams {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			color: rgb(223, 223, 223);
+			font-size: 20px;
+		}
+	}
+
+	table {
+		border: 1px solid #888;
+		border-collapse: collapse;
+	}
+
+	.cell {
+		box-sizing: border-box;
+		padding: 18px;
+		text-align: center;
+		border-right: 0.5px solid #888;
+		border-bottom: 0.5px solid #888;
+		color: rgb(223, 223, 223);
+		font-size: 20px;
+	}
+}

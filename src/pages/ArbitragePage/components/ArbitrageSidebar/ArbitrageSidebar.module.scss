@@ -1,0 +1,51 @@
+@import '../../../../theme/theme.scss';
+
+.sidebar {
+	@include sidebar;
+
+	.buttonsContainer {
+		width: 300px;
+		border-right: 1px solid #000;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 15px;
+		padding: 30px 15px;
+		padding-bottom: 100px;
+		overflow-y: scroll;
+	}
+	.filtersContainer {
+		width: 300px;
+		border-right: 1px solid #000;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 15px;
+		padding: 30px 15px;
+	}
+
+	.dropdown {
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		justify-content: space-between;
+		width: 100%;
+		padding: 0px 15px;
+		font-size: 18px;
+	}
+
+	.rotate {
+		transform: rotate(90deg);
+	}
+
+	.checkboxContainer {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		justify-content: flex-start;
+		width: 100%;
+		padding: 0 20px;
+	}
+}

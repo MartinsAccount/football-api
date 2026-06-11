@@ -1,0 +1,49 @@
+/* CSS */
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  z-index: 120;
+  background-color: #fff;
+}
+.sidebar .buttonsContainer {
+  width: 300px;
+  border-right: 1px solid #000;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 30px 15px;
+  overflow-y: scroll;
+}
+.sidebar .filtersContainer {
+  width: 300px;
+  border-right: 1px solid #000;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 30px 15px;
+}
+.sidebar .dropdown {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0px 15px;
+  font-size: 18px;
+}
+.sidebar .rotate {
+  transform: rotate(90deg);
+}
+.sidebar .checkboxContainer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 0 20px;
+}/*# sourceMappingURL=ArbitrageSidebar.module.css.map */

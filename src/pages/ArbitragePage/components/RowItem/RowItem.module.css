@@ -1,0 +1,52 @@
+/* CSS */
+.row {
+  text-align: center;
+  box-sizing: border-box;
+  background-color: rgb(49, 46, 46);
+  color: rgb(233, 233, 233);
+}
+.row:hover {
+  opacity: 0.9;
+}
+.row .cell {
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: center;
+  border-right: 0.5px solid #888;
+  border-bottom: 0.5px solid #888;
+}
+.row .clickableCell {
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: center;
+  border-right: 0.5px solid #888;
+  border-bottom: 0.5px solid #888;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.row .clickableCell:hover {
+  text-decoration: underline;
+}
+.row .arbitrageNumber {
+  background-color: #ff9e00;
+  color: #212529;
+  font-weight: 800;
+  text-align: center;
+}
+
+.headerRow {
+  text-align: center;
+  box-sizing: border-box;
+  background-color: rgb(49, 46, 46);
+  color: rgb(233, 233, 233);
+}
+.headerRow .cell {
+  box-sizing: border-box;
+  padding: 14px;
+  text-align: center;
+  border-right: 0.5px solid #888;
+  border-bottom: 0.5px solid #888;
+  color: #ff9e00;
+  position: sticky;
+  top: 0;
+}/*# sourceMappingURL=RowItem.module.css.map */

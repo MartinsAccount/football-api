@@ -1,0 +1,42 @@
+/* CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.navbar {
+  background-color: rgb(37, 35, 35);
+  box-shadow: 0 8px 16px rgba(251, 250, 250, 0.2);
+  position: fixed;
+  height: 60px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+.navbar ul {
+  display: flex;
+  list-style-type: none;
+}
+.navbar ul li {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+  padding: 20px;
+  height: 60px;
+  display: inline-block;
+}
+.navbar a:hover {
+  background-color: #801414;
+}
+
+.active {
+  background-color: #801414;
+}/*# sourceMappingURL=Main.module.css.map */
